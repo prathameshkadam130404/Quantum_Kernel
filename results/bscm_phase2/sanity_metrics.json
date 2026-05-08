@@ -1,0 +1,112 @@
+{
+  "config": {
+    "N": 200,
+    "n_qubits": 8,
+    "reps": 2,
+    "tau": 1.0,
+    "threshold_bscm": 0.0001,
+    "threshold_srqfm": 0.01,
+    "selected_features": [
+      "NDVI",
+      "NDWI",
+      "SAVI",
+      "NDRE",
+      "MNDWI",
+      "EVI",
+      "VH_dB",
+      "VV_dB"
+    ]
+  },
+  "wall_clock_s": {
+    "bscm": 130.63340997695923,
+    "srqfm_fid": 67.83803749084473
+  },
+  "spectral": {
+    "bscm": {
+      "off_diag_mean": 0.06692989815793891,
+      "off_diag_var": 0.02037497832786392,
+      "polarization": 0.020374978327863922,
+      "eff_rank_shannon": 63.87508639544407,
+      "eff_rank_huang": 9.518628435296822
+    },
+    "srqfm_fid": {
+      "off_diag_mean": 0.13053218207337272,
+      "off_diag_var": 0.048022592607843806,
+      "polarization": 0.0480225926078438,
+      "eff_rank_shannon": 27.266320531201504,
+      "eff_rank_huang": 5.440871927350102
+    }
+  },
+  "kta": {
+    "bscm": 0.39705806642435215,
+    "srqfm_fid": 0.3827067521065292
+  },
+  "decision": {
+    "off_diag_var_pass": false,
+    "kta_pass": true,
+    "eff_rank_pass": true,
+    "overall_pass": false
+  },
+  "top_bscm_pairs": [
+    {
+      "pair": "NDVI-NDRE",
+      "alpha_mean": 0.18880920037723173,
+      "alpha_std": 0.18873498521545823,
+      "beta_mean": 0.3092088071538221,
+      "beta_std": 0.18938218837932655,
+      "max_amp_mean": 0.4338192777335644,
+      "qubits": [
+        0,
+        3
+      ]
+    },
+    {
+      "pair": "NDVI-NDWI",
+      "alpha_mean": -0.19868065265443874,
+      "alpha_std": 0.19941881183991764,
+      "beta_mean": 0.27219041663174615,
+      "beta_std": 0.177845921220238,
+      "max_amp_mean": 0.4128480203449726,
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "pair": "NDVI-EVI",
+      "alpha_mean": 0.15990001850936097,
+      "alpha_std": 0.17601750069113267,
+      "beta_mean": 0.30792985531898526,
+      "beta_std": 0.17135085261454883,
+      "max_amp_mean": 0.41066115476191045,
+      "qubits": [
+        0,
+        5
+      ]
+    },
+    {
+      "pair": "NDWI-NDRE",
+      "alpha_mean": -0.19816238634870387,
+      "alpha_std": 0.19340185975624458,
+      "beta_mean": 0.27387941185897224,
+      "beta_std": 0.1776014105026554,
+      "max_amp_mean": 0.40959932677447797,
+      "qubits": [
+        1,
+        3
+      ]
+    },
+    {
+      "pair": "NDRE-EVI",
+      "alpha_mean": 0.15312500307627488,
+      "alpha_std": 0.17591385049404804,
+      "beta_mean": 0.310830951839533,
+      "beta_std": 0.16974526563561637,
+      "max_amp_mean": 0.408565204590559,
+      "qubits": [
+        3,
+        5
+      ]
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "experiment": "EuroSAT Cross-Dataset Validation (13-Band + Physics)",
+  "dataset": "EuroSAT (Helber et al., 2019) \u2014 13 Sentinel-2 bands",
+  "n_classes": 10,
+  "class_names": [
+    "AnnualCrop",
+    "Forest",
+    "HerbaceousVegetation",
+    "Highway",
+    "Industrial",
+    "Pasture",
+    "PermanentCrop",
+    "Residential",
+    "River",
+    "SeaLake"
+  ],
+  "config": {
+    "n_train": 1000,
+    "n_test": 500,
+    "n_seeds": 5,
+    "seed_base": 42,
+    "data_dir": "data/raw/eurosat/EuroSATallBands",
+    "skip_quantum": false,
+    "pca_only": false,
+    "physics_only": false
+  },
+  "physics_features": [
+    "NDVI",
+    "NDBI",
+    "NDWI",
+    "BSI",
+    "SAVI",
+    "NDRE",
+    "MNDWI",
+    "EVI"
+  ],
+  "pca8": {
+    "seeds": [
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.8067932273788612,
+          "balanced_acc": 0.8146632996632996,
+          "best_params": {
+            "C": "10",
+            "gamma": "1.0"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.7587516936273306,
+          "balanced_acc": 0.7679461279461279
+        },
+        "classical_time_s": 2.6,
+        "FQK": {
+          "f1_macro": 0.7630878759831022,
+          "balanced_acc": 0.7668013468013468,
+          "best_C": 10.0,
+          "kta": 0.26407158896376565,
+          "spectral": {
+            "off_diag_mean": 0.06996298058671484,
+            "off_diag_var": 0.016933682630906905,
+            "eff_rank_shannon": 124.96047200849283,
+            "eff_rank_huang": 10.299498083268269
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.7989880449571414,
+          "balanced_acc": 0.8063973063973066,
+          "best_C": 10.0,
+          "kta": 0.2588351996289273,
+          "spectral": {
+            "off_diag_mean": 0.339643648457714,
+            "off_diag_var": 0.06276819626720044,
+            "eff_rank_shannon": 14.966158785327929,
+            "eff_rank_huang": 2.586623662617944
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 8.816666666666666,
+          "p_value": 0.0029849144276155037
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 0.375,
+          "p_value": 0.5402913746074198
+        },
+        "seed": 42
+      },
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.749936203256221,
+          "balanced_acc": 0.7463636363636363,
+          "best_params": {
+            "C": "10",
+            "gamma": "1.0"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.7177812258375752,
+          "balanced_acc": 0.7250505050505051
+        },
+        "classical_time_s": 2.6,
+        "FQK": {
+          "f1_macro": 0.7121566984799037,
+          "balanced_acc": 0.7083605283605283,
+          "best_C": 10.0,
+          "kta": 0.26488949292747516,
+          "spectral": {
+            "off_diag_mean": 0.06933491615672759,
+            "off_diag_var": 0.017547161975069548,
+            "eff_rank_shannon": 120.47502708408588,
+            "eff_rank_huang": 10.485731403665143
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.7395802070782073,
+          "balanced_acc": 0.737037037037037,
+          "best_C": 10.0,
+          "kta": 0.27042019299278913,
+          "spectral": {
+            "off_diag_mean": 0.3151378165296009,
+            "off_diag_var": 0.06477432245066923,
+            "eff_rank_shannon": 16.009622897442302,
+            "eff_rank_huang": 2.741512840881244
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 4.438356164383562,
+          "p_value": 0.035140066579092855
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 0.8372093023255814,
+          "p_value": 0.360196133386002
+        },
+        "seed": 43
+      },
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.7834876665119946,
+          "balanced_acc": 0.7830976430976431,
+          "best_params": {
+            "C": "100",
+            "gamma": "scale"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.7818896342080397,
+          "balanced_acc": 0.7862626262626262
+        },
+        "classical_time_s": 3.3,
+        "FQK": {
+          "f1_macro": 0.7559592634010185,
+          "balanced_acc": 0.75505439005439,
+          "best_C": 10.0,
+          "kta": 0.26430026144751456,
+          "spectral": {
+            "off_diag_mean": 0.06263722198075045,
+            "off_diag_var": 0.015654123511957004,
+            "eff_rank_shannon": 138.02587613335476,
+            "eff_rank_huang": 11.159874637793306
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.7917324738803034,
+          "balanced_acc": 0.7952861952861954,
+          "best_C": 10.0,
+          "kta": 0.25743259667821544,
+          "spectral": {
+            "off_diag_mean": 0.31671660473710544,
+            "off_diag_var": 0.06071077962787871,
+            "eff_rank_shannon": 16.98307739434858,
+            "eff_rank_huang": 2.7320099251399146
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 1.8333333333333333,
+          "p_value": 0.1757343356442247
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 0.5925925925925926,
+          "p_value": 0.4414183267820536
+        },
+        "seed": 44
+      },
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.811923208233455,
+          "balanced_acc": 0.8122830872830873,
+          "best_params": {
+            "C": "10",
+            "gamma": "1.0"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.7566947944533408,
+          "balanced_acc": 0.7622999222999224
+        },
+        "classical_time_s": 3.2,
+        "FQK": {
+          "f1_macro": 0.7568292971520506,
+          "balanced_acc": 0.7537580937580939,
+          "best_C": 100.0,
+          "kta": 0.26308486412582743,
+          "spectral": {
+            "off_diag_mean": 0.052094219866439084,
+            "off_diag_var": 0.011961979824589098,
+            "eff_rank_shannon": 172.8433026443299,
+            "eff_rank_huang": 12.675858695265998
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.7967662983855109,
+          "balanced_acc": 0.7977544677544677,
+          "best_C": 10.0,
+          "kta": 0.26955936662906,
+          "spectral": {
+            "off_diag_mean": 0.2925838043399294,
+            "off_diag_var": 0.057771063027901616,
+            "eff_rank_shannon": 19.630527253321272,
+            "eff_rank_huang": 2.9124265831714244
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 11.045454545454545,
+          "p_value": 0.0008890490306585619
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 1.0909090909090908,
+          "p_value": 0.29626987148428663
+        },
+        "seed": 45
+      },
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.758139728207919,
+          "balanced_acc": 0.7624747474747475,
+          "best_params": {
+            "C": "10",
+            "gamma": "scale"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.7601483515184924,
+          "balanced_acc": 0.7672222222222222
+        },
+        "classical_time_s": 3.0,
+        "FQK": {
+          "f1_macro": 0.7464573588730682,
+          "balanced_acc": 0.7495726495726496,
+          "best_C": 100.0,
+          "kta": 0.27431955415836934,
+          "spectral": {
+            "off_diag_mean": 0.05366897978088668,
+            "off_diag_var": 0.013012240453943207,
+            "eff_rank_shannon": 158.77772468977682,
+            "eff_rank_huang": 12.992288308741717
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.7808499291762822,
+          "balanced_acc": 0.782996632996633,
+          "best_C": 10.0,
+          "kta": 0.2801145003095812,
+          "spectral": {
+            "off_diag_mean": 0.30050067640920425,
+            "off_diag_var": 0.06095795142450908,
+            "eff_rank_shannon": 17.6495013835831,
+            "eff_rank_huang": 2.8620595564067832
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 0.4235294117647059,
+          "p_value": 0.5151811696121632
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 2.206896551724138,
+          "p_value": 0.13739482585580076
+        },
+        "seed": 46
+      }
+    ],
+    "summary": {
+      "FQK": {
+        "f1_mean": 0.7469,
+        "f1_std": 0.0182,
+        "f1_values": [
+          0.7631,
+          0.7122,
+          0.756,
+          0.7568,
+          0.7465
+        ]
+      },
+      "SRQFM": {
+        "f1_mean": 0.7816,
+        "f1_std": 0.0219,
+        "f1_values": [
+          0.799,
+          0.7396,
+          0.7917,
+          0.7968,
+          0.7808
+        ]
+      },
+      "RBF-SVM": {
+        "f1_mean": 0.7821,
+        "f1_std": 0.0249,
+        "f1_values": [
+          0.8068,
+          0.7499,
+          0.7835,
+          0.8119,
+          0.7581
+        ]
+      },
+      "RF": {
+        "f1_mean": 0.7551,
+        "f1_std": 0.0207,
+        "f1_values": [
+          0.7588,
+          0.7178,
+          0.7819,
+          0.7567,
+          0.7601
+        ]
+      },
+      "Wilcoxon_FQK_vs_RBF": {
+        "statistic": 0.0,
+        "p_value": 0.0625
+      },
+      "Wilcoxon_SRQFM_vs_RBF": {
+        "statistic": 7.0,
+        "p_value": 1.0
+      }
+    }
+  },
+  "total_runtime_s": 431235.1,
+  "physics8": {
+    "seeds": [
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.7153106981835811,
+          "balanced_acc": 0.7245622895622896,
+          "best_params": {
+            "C": "100",
+            "gamma": "1.0"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.6166175590507392,
+          "balanced_acc": 0.6291077441077441
+        },
+        "classical_time_s": 3.8,
+        "FQK": {
+          "f1_macro": 0.6791422881022354,
+          "balanced_acc": 0.6893097643097643,
+          "best_C": 10.0,
+          "kta": 0.21981933435901635,
+          "spectral": {
+            "off_diag_mean": 0.10192449044789337,
+            "off_diag_var": 0.04328212068732019,
+            "eff_rank_shannon": 39.79172278476606,
+            "eff_rank_huang": 6.829358828574852
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.7094062178939636,
+          "balanced_acc": 0.7190740740740741,
+          "best_C": 100.0,
+          "kta": 0.25683336951636115,
+          "spectral": {
+            "off_diag_mean": 0.26824181435933736,
+            "off_diag_var": 0.10398831847058054,
+            "eff_rank_shannon": 10.271299876152744,
+            "eff_rank_huang": 2.9162653894112625
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 6.568181818181818,
+          "p_value": 0.010381795789701775
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 0.12903225806451613,
+          "p_value": 0.7194375444233914
+        },
+        "seed": 42
+      },
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.6847645304914385,
+          "balanced_acc": 0.6849999999999999,
+          "best_params": {
+            "C": "100",
+            "gamma": "1.0"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.5679969415145879,
+          "balanced_acc": 0.5743602693602694
+        },
+        "classical_time_s": 3.3,
+        "FQK": {
+          "f1_macro": 0.6638240125395677,
+          "balanced_acc": 0.6672895622895623,
+          "best_C": 10.0,
+          "kta": 0.24060990488745138,
+          "spectral": {
+            "off_diag_mean": 0.0889795892982574,
+            "off_diag_var": 0.03780823358397837,
+            "eff_rank_shannon": 46.4992630375584,
+            "eff_rank_huang": 7.673482929023948
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.6987957753802362,
+          "balanced_acc": 0.6994612794612795,
+          "best_C": 100.0,
+          "kta": 0.2712111518583744,
+          "spectral": {
+            "off_diag_mean": 0.2603551207291983,
+            "off_diag_var": 0.10282745104871613,
+            "eff_rank_shannon": 10.703338665573018,
+            "eff_rank_huang": 2.9441434994131845
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 1.35,
+          "p_value": 0.2452781168067728
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 0.625,
+          "p_value": 0.42919530044034926
+        },
+        "seed": 43
+      },
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.6875594902689697,
+          "balanced_acc": 0.6923400673400673,
+          "best_params": {
+            "C": "100",
+            "gamma": "1.0"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.5912961458073785,
+          "balanced_acc": 0.5980134680134681
+        },
+        "classical_time_s": 3.1,
+        "FQK": {
+          "f1_macro": 0.6665881953156891,
+          "balanced_acc": 0.6681144781144781,
+          "best_C": 100.0,
+          "kta": 0.2263546096620079,
+          "spectral": {
+            "off_diag_mean": 0.09549142351774492,
+            "off_diag_var": 0.039831591658348646,
+            "eff_rank_shannon": 44.3333491652976,
+            "eff_rank_huang": 6.919951753921321
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.6823239823161152,
+          "balanced_acc": 0.6921212121212121,
+          "best_C": 100.0,
+          "kta": 0.2627425025821088,
+          "spectral": {
+            "off_diag_mean": 0.2665446255395366,
+            "off_diag_var": 0.10366628206861013,
+            "eff_rank_shannon": 10.512034938410945,
+            "eff_rank_huang": 2.877966684289102
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 1.5,
+          "p_value": 0.22067136191984693
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 0.027777777777777776,
+          "p_value": 0.8676323347781927
+        },
+        "seed": 44
+      },
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.688524685622482,
+          "balanced_acc": 0.6905154105154105,
+          "best_params": {
+            "C": "100",
+            "gamma": "1.0"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.6196843733542512,
+          "balanced_acc": 0.6253133903133903
+        },
+        "classical_time_s": 8.3,
+        "FQK": {
+          "f1_macro": 0.6812273651404086,
+          "balanced_acc": 0.6812626262626262,
+          "best_C": 100.0,
+          "kta": 0.22849235650801003,
+          "spectral": {
+            "off_diag_mean": 0.08644157592397017,
+            "off_diag_var": 0.03643539013491198,
+            "eff_rank_shannon": 50.60732444913411,
+            "eff_rank_huang": 7.615458368293247
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.6819952406160444,
+          "balanced_acc": 0.688047138047138,
+          "best_C": 100.0,
+          "kta": 0.2660704517542671,
+          "spectral": {
+            "off_diag_mean": 0.2487977804930041,
+            "off_diag_var": 0.09938994853366809,
+            "eff_rank_shannon": 11.553948987392785,
+            "eff_rank_huang": 3.0530602552281967
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 0.17307692307692307,
+          "p_value": 0.6773916019262775
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 0.0,
+          "p_value": 1.0
+        },
+        "seed": 45
+      },
+      {
+        "RBF-SVM": {
+          "f1_macro": 0.6924844900154821,
+          "balanced_acc": 0.6958754208754209,
+          "best_params": {
+            "C": "100",
+            "gamma": "1.0"
+          }
+        },
+        "RF": {
+          "f1_macro": 0.6086134624200916,
+          "balanced_acc": 0.6166835016835017
+        },
+        "classical_time_s": 6.6,
+        "FQK": {
+          "f1_macro": 0.651867684017442,
+          "balanced_acc": 0.6548484848484849,
+          "best_C": 100.0,
+          "kta": 0.22832295747785716,
+          "spectral": {
+            "off_diag_mean": 0.08815065575151707,
+            "off_diag_var": 0.03711982315310908,
+            "eff_rank_shannon": 47.50308239673146,
+            "eff_rank_huang": 7.983073326335086
+          }
+        },
+        "SRQFM": {
+          "f1_macro": 0.6938368529542799,
+          "balanced_acc": 0.6984511784511784,
+          "best_C": 100.0,
+          "kta": 0.263262887643916,
+          "spectral": {
+            "off_diag_mean": 0.2536030006055595,
+            "off_diag_var": 0.09977791279596789,
+            "eff_rank_shannon": 11.086665504120965,
+            "eff_rank_huang": 3.05042227896435
+          }
+        },
+        "McNemar_FQK_vs_RBF": {
+          "chi2": 5.3088235294117645,
+          "p_value": 0.02121767965217425
+        },
+        "McNemar_SRQFM_vs_RBF": {
+          "chi2": 0.023809523809523808,
+          "p_value": 0.8773705560641434
+        },
+        "seed": 46
+      }
+    ],
+    "summary": {
+      "FQK": {
+        "f1_mean": 0.6685,
+        "f1_std": 0.0107,
+        "f1_values": [
+          0.6791,
+          0.6638,
+          0.6666,
+          0.6812,
+          0.6519
+        ]
+      },
+      "SRQFM": {
+        "f1_mean": 0.6933,
+        "f1_std": 0.0104,
+        "f1_values": [
+          0.7094,
+          0.6988,
+          0.6823,
+          0.682,
+          0.6938
+        ]
+      },
+      "RBF-SVM": {
+        "f1_mean": 0.6937,
+        "f1_std": 0.0111,
+        "f1_values": [
+          0.7153,
+          0.6848,
+          0.6876,
+          0.6885,
+          0.6925
+        ]
+      },
+      "RF": {
+        "f1_mean": 0.6008,
+        "f1_std": 0.0192,
+        "f1_values": [
+          0.6166,
+          0.568,
+          0.5913,
+          0.6197,
+          0.6086
+        ]
+      },
+      "Wilcoxon_FQK_vs_RBF": {
+        "statistic": 0.0,
+        "p_value": 0.0625
+      },
+      "Wilcoxon_SRQFM_vs_RBF": {
+        "statistic": 6.0,
+        "p_value": 0.8125
+      }
+    }
+  }
+}

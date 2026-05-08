@@ -1,0 +1,76 @@
+2026-04-26 07:48:53,986 [exp_e26] INFO: ======================================================================
+2026-04-26 07:48:53,986 [exp_e26] INFO:   E26: Fair SRQFM Benchmark (C-tuned)
+2026-04-26 07:48:53,986 [exp_e26] INFO: ======================================================================
+2026-04-26 07:48:53,987 [exp_e26] INFO:   Date:  2026-04-26T07:48:53.987660
+2026-04-26 07:48:53,988 [exp_e26] INFO:   Seeds: [42, 43, 44, 45, 46]
+2026-04-26 07:48:53,988 [exp_e26] INFO:   C grid: [1, 10, 100]  (3-fold CV on training split)
+2026-04-26 07:48:54,045 [exp_e26] INFO:   Data: N=2000, features=16, classes=17
+2026-04-26 07:48:54,070 [exp_e26] INFO: 
+--- Phase 1: Kernel matrices ---
+2026-04-26 07:48:54,071 [exp_e26] INFO:   Building SRQFM-PQK...
+2026-04-26 07:48:54,120 [exp_e26] INFO: [CACHE] Loading SRQFM-PQK kernel
+2026-04-26 07:48:55,678 [exp_e26] INFO:     1.6s
+2026-04-26 07:48:55,678 [exp_e26] INFO:   Building ZZ-PQK...
+2026-04-26 07:48:55,757 [exp_e26] INFO: [CACHE] Loading ZZ-PQK kernel
+2026-04-26 07:48:57,328 [exp_e26] INFO:     1.7s
+2026-04-26 07:48:57,329 [exp_e26] INFO:   Building AGPQK...
+2026-04-26 07:48:57,330 [exp_e26] INFO: [CACHE] Loading AGPQK kernel
+2026-04-26 07:48:58,897 [exp_e26] INFO:     1.6s
+2026-04-26 07:48:59,317 [exp_e26] INFO:   SRQFM-PQK: off_diag_mean=0.2682  eff_rank=15.1  off_diag_var=0.06588
+2026-04-26 07:48:59,662 [exp_e26] INFO:   ZZ-PQK: off_diag_mean=0.2283  eff_rank=37.0  off_diag_var=0.03724
+2026-04-26 07:48:59,983 [exp_e26] INFO:   AGPQK: off_diag_mean=0.4349  eff_rank=17.4  off_diag_var=0.03491
+2026-04-26 07:48:59,984 [exp_e26] INFO: 
+--- Phase 2: Seed-level evaluation (C-tuned) ---
+2026-04-26 07:48:59,984 [exp_e26] INFO: 
+  Seed 42:
+2026-04-26 07:49:00,362 [exp_e26] INFO:     SRQFM-PQK    F1=0.4979  C=100
+2026-04-26 07:49:00,669 [exp_e26] INFO:     ZZ-PQK       F1=0.4394  C=100
+2026-04-26 07:49:01,129 [exp_e26] INFO:     AGPQK        F1=0.2845  C=100
+2026-04-26 07:49:03,373 [exp_e26] INFO:     RBF-SVM      F1=0.4978  C=100  γ=scale
+2026-04-26 07:49:04,691 [exp_e26] INFO:     RandomForest F1=0.4827
+2026-04-26 07:49:04,691 [exp_e26] INFO: 
+  Seed 43:
+2026-04-26 07:49:05,008 [exp_e26] INFO:     SRQFM-PQK    F1=0.5008  C=100
+2026-04-26 07:49:05,319 [exp_e26] INFO:     ZZ-PQK       F1=0.4835  C=10
+2026-04-26 07:49:05,738 [exp_e26] INFO:     AGPQK        F1=0.2847  C=100
+2026-04-26 07:49:06,150 [exp_e26] INFO:     RBF-SVM      F1=0.5439  C=100  γ=scale
+2026-04-26 07:49:07,310 [exp_e26] INFO:     RandomForest F1=0.5273
+2026-04-26 07:49:07,310 [exp_e26] INFO: 
+  Seed 44:
+2026-04-26 07:49:07,651 [exp_e26] INFO:     SRQFM-PQK    F1=0.4573  C=100
+2026-04-26 07:49:07,982 [exp_e26] INFO:     ZZ-PQK       F1=0.4437  C=100
+2026-04-26 07:49:08,467 [exp_e26] INFO:     AGPQK        F1=0.2869  C=10
+2026-04-26 07:49:08,867 [exp_e26] INFO:     RBF-SVM      F1=0.5330  C=100  γ=scale
+2026-04-26 07:49:10,178 [exp_e26] INFO:     RandomForest F1=0.4788
+2026-04-26 07:49:10,179 [exp_e26] INFO: 
+  Seed 45:
+2026-04-26 07:49:10,465 [exp_e26] INFO:     SRQFM-PQK    F1=0.4833  C=100
+2026-04-26 07:49:10,782 [exp_e26] INFO:     ZZ-PQK       F1=0.4306  C=10
+2026-04-26 07:49:11,212 [exp_e26] INFO:     AGPQK        F1=0.3109  C=100
+2026-04-26 07:49:11,625 [exp_e26] INFO:     RBF-SVM      F1=0.5005  C=100  γ=scale
+2026-04-26 07:49:12,902 [exp_e26] INFO:     RandomForest F1=0.4900
+2026-04-26 07:49:12,903 [exp_e26] INFO: 
+  Seed 46:
+2026-04-26 07:49:13,184 [exp_e26] INFO:     SRQFM-PQK    F1=0.5228  C=100
+2026-04-26 07:49:13,492 [exp_e26] INFO:     ZZ-PQK       F1=0.4274  C=100
+2026-04-26 07:49:13,924 [exp_e26] INFO:     AGPQK        F1=0.2967  C=100
+2026-04-26 07:49:14,319 [exp_e26] INFO:     RBF-SVM      F1=0.5164  C=10  γ=0.1
+2026-04-26 07:49:15,609 [exp_e26] INFO:     RandomForest F1=0.5054
+2026-04-26 07:49:15,638 [exp_e26] INFO: 
+  Saved: /mnt/d/Quantum_kernel/quantum-sat-classification/results/fair_srqfm/metrics.csv
+2026-04-26 07:49:15,638 [exp_e26] INFO: 
+--- Phase 3: Statistical tests (SRQFM vs others) ---
+2026-04-26 07:49:15,657 [exp_e26] INFO:   SRQFM-PQK      mean=0.4924  std=0.0216
+2026-04-26 07:49:15,659 [exp_e26] INFO:   ZZ-PQK         mean=0.4449  std=0.0202
+2026-04-26 07:49:15,661 [exp_e26] INFO:   AGPQK          mean=0.2927  std=0.0101
+2026-04-26 07:49:15,662 [exp_e26] INFO:   RBF-SVM        mean=0.5183  std=0.0179
+2026-04-26 07:49:15,663 [exp_e26] INFO:   RandomForest   mean=0.4968  std=0.0178
+2026-04-26 07:49:15,667 [exp_e26] INFO: 
+  Wilcoxon tests (SRQFM vs X), Holm-Bonferroni corrected:
+2026-04-26 07:49:15,667 [exp_e26] INFO:   Method            p-value        d   sig*
+2026-04-26 07:49:15,668 [exp_e26] INFO:   ZZ-PQK             0.0625    2.034       
+2026-04-26 07:49:15,669 [exp_e26] INFO:   AGPQK              0.0625   10.579       
+2026-04-26 07:49:15,669 [exp_e26] INFO:   RBF-SVM            0.3125   -1.164       
+2026-04-26 07:49:15,670 [exp_e26] INFO:   RandomForest       0.6250   -0.199       
+2026-04-26 07:49:15,670 [exp_e26] INFO: 
+  E26 complete.

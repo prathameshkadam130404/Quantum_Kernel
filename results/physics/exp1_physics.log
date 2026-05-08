@@ -1,0 +1,422 @@
+[2026-03-12 15:04:58] exp1_physics — INFO — Starting: Loading physics features
+[2026-03-12 15:04:58] exp1_physics — INFO — Loading pre-extracted 8 physics features: /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/physics_features_piqfm.npz
+[2026-03-12 15:04:58] exp1_physics — INFO — Physics features loaded:
+[2026-03-12 15:04:58] exp1_physics — INFO —   Train: (2000, 8), Test: (2000, 8)
+[2026-03-12 15:04:58] exp1_physics — INFO —   Feature range: [0.000, 3.142]
+[2026-03-12 15:04:58] exp1_physics — INFO —   Features: ['NDVI', 'NDRE', 'MNDWI', 'BSI', 'CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-12 15:04:58] exp1_physics — INFO —   Classes: 17, Train samples: 2000, Test samples: 2000
+[2026-03-12 15:04:58] exp1_physics — INFO — Completed: Loading physics features (0.0s)
+[2026-03-12 15:04:58] exp1_physics — INFO — 
+============================================================
+[2026-03-12 15:04:58] exp1_physics — INFO —   Physics Features: (2000, 8)
+[2026-03-12 15:04:58] exp1_physics — INFO —   Optical (cols 0-3): ['NDVI', 'NDRE', 'MNDWI', 'BSI']
+[2026-03-12 15:04:58] exp1_physics — INFO —   SAR    (cols 4-7): ['CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-12 15:04:58] exp1_physics — INFO — ============================================================
+[2026-03-12 15:04:58] exp1_physics — INFO — Starting: FQK kernel (physics)
+[2026-03-12 15:06:57] exp1_physics — INFO — Completed: FQK kernel (physics) (119.3s)
+[2026-03-12 16:19:54] exp1_physics — INFO — Starting: Loading physics features
+[2026-03-12 16:19:54] exp1_physics — INFO — Loading pre-extracted 8 physics features: /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/physics_features_piqfm.npz
+[2026-03-12 16:19:54] exp1_physics — INFO — Physics features loaded:
+[2026-03-12 16:19:54] exp1_physics — INFO —   Train: (2000, 8), Test: (2000, 8)
+[2026-03-12 16:19:54] exp1_physics — INFO —   Feature range: [0.000, 3.142]
+[2026-03-12 16:19:54] exp1_physics — INFO —   Features: ['NDVI', 'NDRE', 'MNDWI', 'BSI', 'CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-12 16:19:54] exp1_physics — INFO —   Classes: 17, Train samples: 2000, Test samples: 2000
+[2026-03-12 16:19:54] exp1_physics — INFO — Completed: Loading physics features (0.0s)
+[2026-03-12 16:19:54] exp1_physics — INFO — 
+============================================================
+[2026-03-12 16:19:54] exp1_physics — INFO —   Physics Features: (2000, 8)
+[2026-03-12 16:19:54] exp1_physics — INFO —   Optical (cols 0-3): ['NDVI', 'NDRE', 'MNDWI', 'BSI']
+[2026-03-12 16:19:54] exp1_physics — INFO —   SAR    (cols 4-7): ['CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-12 16:19:54] exp1_physics — INFO — ============================================================
+[2026-03-12 16:19:54] exp1_physics — INFO — Starting: FQK kernel (physics)
+[2026-03-13 02:51:12] exp1_physics — INFO — Completed: FQK kernel (physics) (37877.9s)
+[2026-03-13 08:56:07] exp1_physics — INFO — Starting: Loading physics features
+[2026-03-13 08:56:07] exp1_physics — INFO — Extracting 8 features from 16-feature set: /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/physics_features_16.npz
+[2026-03-13 08:56:07] exp1_physics — INFO — Physics features loaded:
+[2026-03-13 08:56:07] exp1_physics — INFO —   Train: (2000, 8), Test: (2000, 8)
+[2026-03-13 08:56:07] exp1_physics — INFO —   Bandwidth γ = 0.5000  (CV-selected, Shaydulin & Wild 2022)  Encoding range: [0, 1.5708] = [0, 0.500π]  Feature range after scaling: [0.0000, 1.5708]
+[2026-03-13 08:56:07] exp1_physics — INFO —   Features: ['NDVI', 'NDRE', 'MNDWI', 'BSI', 'CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-13 08:56:07] exp1_physics — INFO —   Classes: 17, Train samples: 2000, Test samples: 2000
+[2026-03-13 08:56:07] exp1_physics — INFO — Completed: Loading physics features (0.0s)
+[2026-03-13 08:56:07] exp1_physics — INFO — 
+============================================================
+[2026-03-13 08:56:07] exp1_physics — INFO —   Physics Features: (2000, 8)
+[2026-03-13 08:56:07] exp1_physics — INFO —   Optical (cols 0-3): ['NDVI', 'NDRE', 'MNDWI', 'BSI']
+[2026-03-13 08:56:07] exp1_physics — INFO —   SAR    (cols 4-7): ['CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-13 08:56:07] exp1_physics — INFO — ============================================================
+[2026-03-13 08:56:07] exp1_physics — INFO — Starting: FQK kernel (physics)
+[2026-03-14 05:27:21] exp1_physics — INFO — Completed: FQK kernel (physics) (73873.2s)
+[2026-03-14 05:27:21] exp1_physics — INFO — Starting: PQK kernel (physics)
+[2026-03-14 05:28:50] exp1_physics — INFO — Completed: PQK kernel (physics) (89.8s)
+[2026-03-14 05:28:50] exp1_physics — INFO — Starting: TFK training (physics)
+[2026-03-14 10:53:28] exp1_physics — INFO — Completed: TFK training (physics) (19477.7s)
+[2026-03-15 07:32:56] exp1_physics — INFO — 
+Computing MI pairs on physics features (optical=0:4, SAR=4:8)...
+[2026-03-15 07:32:57] exp1_physics — INFO —   MI pairs (original indices): [(6, 5), (6, 4), (6, 6)]
+[2026-03-15 07:32:57] exp1_physics — INFO —   SAR features: ['SAR_total', 'SAR_total', 'SAR_total']
+[2026-03-15 08:30:10] exp1_physics — INFO — Starting: Loading physics features
+[2026-03-15 08:30:10] exp1_physics — INFO — Extracting 8 features from 16-feature set: /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/physics_features_16.npz
+[2026-03-15 08:30:10] exp1_physics — INFO — Physics features loaded:
+[2026-03-15 08:30:10] exp1_physics — INFO —   Train: (2000, 8), Test: (2000, 8)
+[2026-03-15 08:30:10] exp1_physics — INFO —   Bandwidth γ = 0.5000  (CV-selected, Shaydulin & Wild 2022)  Encoding range: [0, 1.5708] = [0, 0.500π]  Feature range after scaling: [0.0000, 1.5708]
+[2026-03-15 08:30:10] exp1_physics — INFO —   Features: ['NDVI', 'NDRE', 'MNDWI', 'BSI', 'CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-15 08:30:10] exp1_physics — INFO —   Classes: 17, Train samples: 2000, Test samples: 2000
+[2026-03-15 08:30:10] exp1_physics — INFO — Completed: Loading physics features (0.1s)
+[2026-03-15 08:30:10] exp1_physics — INFO — 
+============================================================
+[2026-03-15 08:30:10] exp1_physics — INFO —   Physics Features: (2000, 8)
+[2026-03-15 08:30:10] exp1_physics — INFO —   Optical (cols 0-3): ['NDVI', 'NDRE', 'MNDWI', 'BSI']
+[2026-03-15 08:30:10] exp1_physics — INFO —   SAR    (cols 4-7): ['CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-15 08:30:10] exp1_physics — INFO — ============================================================
+[2026-03-15 08:30:10] exp1_physics — INFO — Starting: FQK kernel (physics)
+[2026-03-15 08:30:11] exp1_physics — INFO — Completed: FQK kernel (physics) (1.1s)
+[2026-03-15 08:30:11] exp1_physics — INFO — Starting: PQK kernel (physics)
+[2026-03-15 08:30:12] exp1_physics — INFO — Completed: PQK kernel (physics) (1.1s)
+[2026-03-15 08:30:12] exp1_physics — INFO — Starting: TFK training (physics)
+[2026-03-15 08:30:12] exp1_physics — INFO — Completed: TFK training (physics) (0.0s)
+[2026-03-15 08:30:13] exp1_physics — INFO — 
+Computing MI pairs on physics features (optical=0:4, SAR=4:8)...
+[2026-03-15 08:30:14] exp1_physics — INFO —   MI pairs (original indices): [(6, 1), (6, 0), (6, 2)]
+[2026-03-15 08:30:14] exp1_physics — INFO —   SAR features:     ['SAR_total', 'SAR_total', 'SAR_total']
+[2026-03-15 08:30:14] exp1_physics — INFO —   Optical features: ['NDRE', 'NDVI', 'MNDWI']
+[2026-03-16 11:00:56] exp1_physics — INFO — 
+Training PIQFM θ via SPSA+AMSGrad (102 samples, 100 epochs)...
+[2026-03-16 11:00:56] exp1_physics — INFO —   Analytic θ_bw = [4.372, 4.510, 3.812, 4.009, 5.678, 4.051, 6.283, 5.070]
+[2026-03-16 12:58:02] exp1_physics — INFO — Starting: Loading physics features
+[2026-03-16 12:58:02] exp1_physics — INFO — Extracting 8 features from 16-feature set: /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/physics_features_16.npz
+[2026-03-16 12:58:02] exp1_physics — INFO — Physics features loaded:
+[2026-03-16 12:58:02] exp1_physics — INFO —   Train: (2000, 8), Test: (2000, 8)
+[2026-03-16 12:58:02] exp1_physics — INFO —   Bandwidth γ = 0.5000  (CV-selected, Shaydulin & Wild 2022)  Encoding range: [0, 1.5708] = [0, 0.500π]  Feature range after scaling: [0.0000, 1.5708]
+[2026-03-16 12:58:02] exp1_physics — INFO —   Features: ['NDVI', 'NDRE', 'MNDWI', 'BSI', 'CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-16 12:58:02] exp1_physics — INFO —   Classes: 17, Train samples: 2000, Test samples: 2000
+[2026-03-16 12:58:02] exp1_physics — INFO — Completed: Loading physics features (0.1s)
+[2026-03-16 12:58:02] exp1_physics — INFO — 
+============================================================
+[2026-03-16 12:58:02] exp1_physics — INFO —   Physics Features: (2000, 8)
+[2026-03-16 12:58:02] exp1_physics — INFO —   Optical (cols 0-3): ['NDVI', 'NDRE', 'MNDWI', 'BSI']
+[2026-03-16 12:58:02] exp1_physics — INFO —   SAR    (cols 4-7): ['CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-16 12:58:02] exp1_physics — INFO — ============================================================
+[2026-03-16 12:58:02] exp1_physics — INFO — Starting: FQK kernel (physics)
+[2026-03-16 12:58:04] exp1_physics — INFO — Completed: FQK kernel (physics) (1.3s)
+[2026-03-16 12:58:04] exp1_physics — INFO — Starting: PQK kernel (physics)
+[2026-03-16 12:58:05] exp1_physics — INFO — Completed: PQK kernel (physics) (1.3s)
+[2026-03-16 12:58:05] exp1_physics — INFO — Starting: TFK training (physics)
+[2026-03-16 12:58:05] exp1_physics — INFO — Completed: TFK training (physics) (0.0s)
+[2026-03-16 12:58:06] exp1_physics — INFO — 
+Computing MI pairs on physics features (optical=0:4, SAR=4:8)...
+[2026-03-16 12:58:07] exp1_physics — INFO —   MI pairs (original indices): [(6, 1), (6, 0), (6, 2)]
+[2026-03-16 12:58:07] exp1_physics — INFO —   SAR features:     ['SAR_total', 'SAR_total', 'SAR_total']
+[2026-03-16 12:58:07] exp1_physics — INFO —   Optical features: ['NDRE', 'NDVI', 'MNDWI']
+[2026-03-16 12:58:08] exp1_physics — INFO — 
+Training PIQFM θ via SPSA+AMSGrad (102 samples, 100 epochs)...
+[2026-03-16 12:58:08] exp1_physics — INFO —   Analytic θ_bw = [4.372, 4.510, 3.812, 4.009, 5.678, 4.051, 6.283, 5.070]
+[2026-03-16 14:24:30] exp1_physics — INFO — Starting: Loading physics features
+[2026-03-16 14:24:30] exp1_physics — INFO — Extracting 8 features from 16-feature set: /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/physics_features_16.npz
+[2026-03-16 14:24:30] exp1_physics — INFO — Physics features loaded:
+[2026-03-16 14:24:30] exp1_physics — INFO —   Train: (2000, 8), Test: (2000, 8)
+[2026-03-16 14:24:30] exp1_physics — INFO —   Bandwidth γ = 0.5000  (CV-selected, Shaydulin & Wild 2022)  Encoding range: [0, 1.5708] = [0, 0.500π]  Feature range after scaling: [0.0000, 1.5708]
+[2026-03-16 14:24:30] exp1_physics — INFO —   Features: ['NDVI', 'NDRE', 'MNDWI', 'BSI', 'CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-16 14:24:30] exp1_physics — INFO —   Classes: 17, Train samples: 2000, Test samples: 2000
+[2026-03-16 14:24:30] exp1_physics — INFO — Completed: Loading physics features (0.0s)
+[2026-03-16 14:24:30] exp1_physics — INFO — 
+============================================================
+[2026-03-16 14:24:30] exp1_physics — INFO —   Physics Features: (2000, 8)
+[2026-03-16 14:24:30] exp1_physics — INFO —   Optical (cols 0-3): ['NDVI', 'NDRE', 'MNDWI', 'BSI']
+[2026-03-16 14:24:30] exp1_physics — INFO —   SAR    (cols 4-7): ['CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-16 14:24:30] exp1_physics — INFO — ============================================================
+[2026-03-16 14:24:30] exp1_physics — INFO — Starting: FQK kernel (physics)
+[2026-03-16 14:24:32] exp1_physics — INFO — Completed: FQK kernel (physics) (1.3s)
+[2026-03-16 14:24:32] exp1_physics — INFO — Starting: PQK kernel (physics)
+[2026-03-16 14:24:33] exp1_physics — INFO — Completed: PQK kernel (physics) (1.2s)
+[2026-03-16 14:24:33] exp1_physics — INFO — Starting: TFK training (physics)
+[2026-03-16 14:24:33] exp1_physics — INFO — Completed: TFK training (physics) (0.0s)
+[2026-03-16 14:24:34] exp1_physics — INFO — 
+Computing MI pairs on physics features (optical=0:4, SAR=4:8)...
+[2026-03-16 14:24:34] exp1_physics — INFO —   MI pairs (original indices): [(6, 1), (6, 0), (6, 2)]
+[2026-03-16 14:24:34] exp1_physics — INFO —   SAR features:     ['SAR_total', 'SAR_total', 'SAR_total']
+[2026-03-16 14:24:34] exp1_physics — INFO —   Optical features: ['NDRE', 'NDVI', 'MNDWI']
+[2026-03-16 14:24:36] exp1_physics — INFO — 
+Training PIQFM θ via SPSA+AMSGrad (102 samples, 100 epochs)...
+[2026-03-16 14:24:36] exp1_physics — INFO —   Analytic θ_bw = [4.372, 4.510, 3.812, 4.009, 5.678, 4.051, 6.283, 5.070]
+[2026-03-16 17:08:46] exp1_physics — INFO —   Saved trained θ: /mnt/d/Quantum_kernel/quantum-sat-classification/results/piqfm/trained_theta.npz
+[2026-03-16 17:08:46] exp1_physics — INFO —   θ_bw = [4.372, 4.510, 3.812, 4.009, 5.678, 4.051, 6.283, 5.070]
+[2026-03-16 17:08:46] exp1_physics — INFO —   θ_br = [-0.0886, +0.5000]
+[2026-03-16 17:08:46] exp1_physics — INFO — Starting: PIQFM kernel (physics)
+[2026-03-18 05:48:04] exp1_physics — INFO — Completed: PIQFM kernel (physics) (131958.4s)
+[2026-03-18 05:48:04] exp1_physics — INFO — Starting: Classical kernels (physics)
+[2026-03-18 05:48:10] exp1_physics — INFO — Completed: Classical kernels (physics) (5.4s)
+[2026-03-18 05:48:10] exp1_physics — INFO — 
+--- Geometric Difference (physics features) ---
+[2026-03-18 06:23:00] exp1_physics — INFO — Starting: Loading physics features
+[2026-03-18 06:23:00] exp1_physics — INFO — Extracting 8 features from 16-feature set: /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/physics_features_16.npz
+[2026-03-18 06:23:00] exp1_physics — INFO — Physics features loaded:
+[2026-03-18 06:23:00] exp1_physics — INFO —   Train: (2000, 8), Test: (2000, 8)
+[2026-03-18 06:23:00] exp1_physics — INFO —   Bandwidth γ = 0.5000  (CV-selected, Shaydulin & Wild 2022)  Encoding range: [0, 1.5708] = [0, 0.500π]  Feature range after scaling: [0.0000, 1.5708]
+[2026-03-18 06:23:00] exp1_physics — INFO —   Features: ['NDVI', 'NDRE', 'MNDWI', 'BSI', 'CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-18 06:23:00] exp1_physics — INFO —   Classes: 17, Train samples: 2000, Test samples: 2000
+[2026-03-18 06:23:00] exp1_physics — INFO — Completed: Loading physics features (0.1s)
+[2026-03-18 06:23:00] exp1_physics — INFO — 
+============================================================
+[2026-03-18 06:23:00] exp1_physics — INFO —   Physics Features: (2000, 8)
+[2026-03-18 06:23:00] exp1_physics — INFO —   Optical (cols 0-3): ['NDVI', 'NDRE', 'MNDWI', 'BSI']
+[2026-03-18 06:23:00] exp1_physics — INFO —   SAR    (cols 4-7): ['CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-18 06:23:00] exp1_physics — INFO — ============================================================
+[2026-03-18 06:23:00] exp1_physics — INFO — Starting: FQK kernel (physics)
+[2026-03-18 06:23:04] exp1_physics — INFO — Completed: FQK kernel (physics) (4.1s)
+[2026-03-18 06:23:04] exp1_physics — INFO — Starting: PQK kernel (physics)
+[2026-03-18 06:23:08] exp1_physics — INFO — Completed: PQK kernel (physics) (3.2s)
+[2026-03-18 06:23:08] exp1_physics — INFO — Starting: TFK training (physics)
+[2026-03-18 06:23:08] exp1_physics — INFO — Completed: TFK training (physics) (0.0s)
+[2026-03-18 06:23:12] exp1_physics — INFO — 
+Computing MI pairs on physics features (optical=0:4, SAR=4:8)...
+[2026-03-18 06:23:13] exp1_physics — INFO —   MI pairs (original indices): [(6, 1), (6, 0), (6, 2)]
+[2026-03-18 06:23:13] exp1_physics — INFO —     PAIR: [SAR] SAR_total (idx 6) <--> [Optical] NDRE (idx 1)
+[2026-03-18 06:23:13] exp1_physics — INFO —     PAIR: [SAR] SAR_total (idx 6) <--> [Optical] NDVI (idx 0)
+[2026-03-18 06:23:13] exp1_physics — INFO —     PAIR: [SAR] SAR_total (idx 6) <--> [Optical] MNDWI (idx 2)
+[2026-03-18 06:23:16] exp1_physics — INFO — 
+Loading trained PIQFM θ from /mnt/d/Quantum_kernel/quantum-sat-classification/results/piqfm/trained_theta.npz
+[2026-03-18 06:23:16] exp1_physics — INFO —   θ_bw = [4.372, 4.510, 3.812, 4.009, 5.678, 4.051, 6.283, 5.070]
+[2026-03-18 06:23:16] exp1_physics — INFO —   θ_br = [-0.0886, +0.5000]
+[2026-03-18 06:23:16] exp1_physics — INFO — Starting: PIQFM kernel (physics)
+[2026-03-18 06:24:08] exp1_physics — INFO — Completed: PIQFM kernel (physics) (52.2s)
+[2026-03-18 06:24:40] exp1_physics — INFO — Starting: Loading physics features
+[2026-03-18 06:24:40] exp1_physics — INFO — Extracting 8 features from 16-feature set: /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/physics_features_16.npz
+[2026-03-18 06:24:40] exp1_physics — INFO — Physics features loaded:
+[2026-03-18 06:24:40] exp1_physics — INFO —   Train: (2000, 8), Test: (2000, 8)
+[2026-03-18 06:24:40] exp1_physics — INFO —   Bandwidth γ = 0.5000  (CV-selected, Shaydulin & Wild 2022)  Encoding range: [0, 1.5708] = [0, 0.500π]  Feature range after scaling: [0.0000, 1.5708]
+[2026-03-18 06:24:40] exp1_physics — INFO —   Features: ['NDVI', 'NDRE', 'MNDWI', 'BSI', 'CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-18 06:24:40] exp1_physics — INFO —   Classes: 17, Train samples: 2000, Test samples: 2000
+[2026-03-18 06:24:41] exp1_physics — INFO — Completed: Loading physics features (0.0s)
+[2026-03-18 06:24:41] exp1_physics — INFO — 
+============================================================
+[2026-03-18 06:24:41] exp1_physics — INFO —   Physics Features: (2000, 8)
+[2026-03-18 06:24:41] exp1_physics — INFO —   Optical (cols 0-3): ['NDVI', 'NDRE', 'MNDWI', 'BSI']
+[2026-03-18 06:24:41] exp1_physics — INFO —   SAR    (cols 4-7): ['CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-18 06:24:41] exp1_physics — INFO — ============================================================
+[2026-03-18 06:24:41] exp1_physics — INFO — Starting: FQK kernel (physics)
+[2026-03-18 06:24:41] exp1_physics — INFO — Completed: FQK kernel (physics) (0.4s)
+[2026-03-18 06:24:41] exp1_physics — INFO — Starting: PQK kernel (physics)
+[2026-03-18 06:24:41] exp1_physics — INFO — Completed: PQK kernel (physics) (0.3s)
+[2026-03-18 06:24:41] exp1_physics — INFO — Starting: TFK training (physics)
+[2026-03-18 06:24:41] exp1_physics — INFO — Completed: TFK training (physics) (0.0s)
+[2026-03-18 06:24:42] exp1_physics — INFO — 
+Computing MI pairs on physics features (optical=0:4, SAR=4:8)...
+[2026-03-18 06:24:42] exp1_physics — INFO —   MI pairs (original indices): [(6, 1), (6, 0), (6, 2)]
+[2026-03-18 06:24:42] exp1_physics — INFO —     PAIR: [SAR] SAR_total (idx 6) <--> [Optical] NDRE (idx 1)
+[2026-03-18 06:24:42] exp1_physics — INFO —     PAIR: [SAR] SAR_total (idx 6) <--> [Optical] NDVI (idx 0)
+[2026-03-18 06:24:42] exp1_physics — INFO —     PAIR: [SAR] SAR_total (idx 6) <--> [Optical] MNDWI (idx 2)
+[2026-03-18 06:24:42] exp1_physics — INFO — 
+Loading trained PIQFM θ from /mnt/d/Quantum_kernel/quantum-sat-classification/results/piqfm/trained_theta.npz
+[2026-03-18 06:24:42] exp1_physics — INFO —   θ_bw = [4.372, 4.510, 3.812, 4.009, 5.678, 4.051, 6.283, 5.070]
+[2026-03-18 06:24:42] exp1_physics — INFO —   θ_br = [-0.0886, +0.5000]
+[2026-03-18 06:24:42] exp1_physics — INFO — [SKIP] PIQFM kernels exist, loading...
+[2026-03-18 06:24:45] exp1_physics — INFO — Starting: Classical kernels (physics)
+[2026-03-18 06:24:54] exp1_physics — INFO — Completed: Classical kernels (physics) (8.8s)
+[2026-03-18 06:24:54] exp1_physics — INFO — 
+--- Geometric Difference (physics features) ---
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(FQK_vs_rbf) = 228.02
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(FQK_vs_poly2) = 359.65
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(FQK_vs_poly3) = 285.27
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(FQK_vs_poly4) = 256.56
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(FQK_vs_linear) = 426.29
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(FQK_vs_laplacian) = 29.31
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(FQK_vs_tensor_product) = 184.01
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PQK_vs_rbf) = 207.80
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PQK_vs_poly2) = 333.51
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PQK_vs_poly3) = 246.27
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PQK_vs_poly4) = 228.55
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PQK_vs_linear) = 447.37
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PQK_vs_laplacian) = 24.62
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PQK_vs_tensor_product) = 164.95
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(TFK_vs_rbf) = 190.24
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(TFK_vs_poly2) = 234.14
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(TFK_vs_poly3) = 207.98
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(TFK_vs_poly4) = 197.73
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(TFK_vs_linear) = 265.13
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(TFK_vs_laplacian) = 31.02
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(TFK_vs_tensor_product) = 172.84
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(CM_FQK_vs_rbf) = 227.40
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(CM_FQK_vs_poly2) = 326.58
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(CM_FQK_vs_poly3) = 271.63
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(CM_FQK_vs_poly4) = 249.03
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(CM_FQK_vs_linear) = 382.80
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(CM_FQK_vs_laplacian) = 31.13
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(CM_FQK_vs_tensor_product) = 193.85
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PIQFM_vs_rbf) = 203.84
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PIQFM_vs_poly2) = 310.27
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PIQFM_vs_poly3) = 242.92
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PIQFM_vs_poly4) = 223.83
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PIQFM_vs_linear) = 383.85
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PIQFM_vs_laplacian) = 25.51
+[2026-03-18 06:31:30] exp1_physics — INFO —   g(PIQFM_vs_tensor_product) = 158.75
+[2026-03-18 06:31:30] exp1_physics — INFO — 
+  Lambda sweep (FQK vs RBF, physics)...
+[2026-03-18 06:32:31] exp1_physics — INFO —   g at lambda=1/n: 228.02
+[2026-03-18 06:32:31] exp1_physics — INFO —   Sweep stable: False
+[2026-03-18 06:32:31] exp1_physics — INFO — 
+--- KTA (physics features) ---
+[2026-03-18 06:32:34] exp1_physics — INFO —   RBF  KTA = 0.2878
+[2026-03-18 06:32:36] exp1_physics — INFO —   FQK KTA = 0.2345  ΔKTA = -0.0533
+[2026-03-18 06:32:39] exp1_physics — INFO —   PQK KTA = 0.2329  ΔKTA = -0.0549
+[2026-03-18 06:32:42] exp1_physics — INFO —   TFK KTA = 0.1947  ΔKTA = -0.0931
+[2026-03-18 06:32:45] exp1_physics — INFO —   CM_FQK KTA = 0.2270  ΔKTA = -0.0608
+[2026-03-18 06:32:47] exp1_physics — INFO —   PIQFM KTA = 0.2390  ΔKTA = -0.0488
+[2026-03-18 06:32:47] exp1_physics — INFO — 
+--- Concentration (physics features) ---
+[2026-03-18 06:32:49] exp1_physics — INFO —   FQK: CV=1.7250, mean_offdiag=0.0927, eff_rank=8.06
+[2026-03-18 06:32:50] exp1_physics — INFO —   PQK: CV=0.7357, mean_offdiag=0.2579, eff_rank=3.69
+[2026-03-18 06:32:51] exp1_physics — INFO —   TFK: CV=3.3046, mean_offdiag=0.0187, eff_rank=39.87
+[2026-03-18 06:32:53] exp1_physics — INFO —   CM_FQK: CV=2.2985, mean_offdiag=0.0527, eff_rank=12.88
+[2026-03-18 06:32:54] exp1_physics — INFO —   PIQFM: CV=2.3356, mean_offdiag=0.0566, eff_rank=12.83
+[2026-03-18 06:32:55] exp1_physics — INFO —   RBF: CV=0.1737, mean_offdiag=0.8110, eff_rank=1.22
+[2026-03-18 06:32:55] exp1_physics — INFO — 
+--- Classification (physics features) ---
+[2026-03-18 06:32:56] exp1_physics — INFO —   FQK: macro_F1=0.4686, acc=0.5810
+[2026-03-18 06:32:56] exp1_physics — INFO —   PQK: macro_F1=0.0351, acc=0.0440
+[2026-03-18 06:32:56] exp1_physics — INFO —   TFK: macro_F1=0.4393, acc=0.5680
+[2026-03-18 06:32:56] exp1_physics — INFO —   CM_FQK: macro_F1=0.4689, acc=0.5905
+[2026-03-18 06:32:57] exp1_physics — INFO —   PIQFM: macro_F1=0.4588, acc=0.5820
+[2026-03-18 06:32:57] exp1_physics — INFO —   RBF: macro_F1=0.0253, acc=0.0350
+[2026-03-18 06:32:57] exp1_physics — INFO — 
+--- Cross-Modal MI (physics features) ---
+[2026-03-18 06:32:57] exp1_physics — INFO — 
+============================================================
+[2026-03-18 06:32:57] exp1_physics — INFO —   PHYSICS vs PCA COMPARISON
+[2026-03-18 06:32:57] exp1_physics — INFO — ============================================================
+[2026-03-18 06:32:57] exp1_physics — INFO — 
+  Kernel        PCA KTA  Physics KTA    Δ KTA   PCA F1  Physics F1
+[2026-03-18 06:32:57] exp1_physics — INFO —   -----------------------------------------------------------------
+[2026-03-18 06:32:57] exp1_physics — INFO —   FQK            0.1840       0.2345  +0.0504   0.1836      0.4686
+[2026-03-18 06:32:57] exp1_physics — INFO —   PQK            0.1475       0.2329  +0.0854   0.1864      0.0351
+[2026-03-18 06:32:57] exp1_physics — INFO —   TFK            0.1825       0.1947  +0.0122   0.1843      0.4393
+[2026-03-18 06:32:57] exp1_physics — INFO —   CM_FQK         0.1897       0.2270  +0.0373   0.1858      0.4689
+[2026-03-18 06:32:57] exp1_physics — INFO —   PIQFM             nan       0.2390     +nan      nan      0.4588
+[2026-03-18 06:32:57] exp1_physics — INFO —   RBF            0.1309       0.2878  +0.1569   0.0115      0.0253
+[2026-03-18 06:32:57] exp1_physics — INFO — 
+All results saved: /mnt/d/Quantum_kernel/quantum-sat-classification/results/physics/exp1_physics_results.json
+[2026-03-18 06:32:57] exp1_physics — INFO — Summary CSV: /mnt/d/Quantum_kernel/quantum-sat-classification/results/physics/physics_summary.csv
+[2026-03-18 07:02:08] exp1_physics — INFO — Starting: Loading physics features
+[2026-03-18 07:02:08] exp1_physics — INFO — Extracting 8 features from 16-feature set: /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/physics_features_16.npz
+[2026-03-18 07:02:08] exp1_physics — INFO — Physics features loaded:
+[2026-03-18 07:02:08] exp1_physics — INFO —   Train: (2000, 8), Test: (2000, 8)
+[2026-03-18 07:02:08] exp1_physics — INFO —   Bandwidth γ = 0.5000  (CV-selected, Shaydulin & Wild 2022)  Encoding range: [0, 1.5708] = [0, 0.500π]  Feature range after scaling: [0.0000, 1.5708]
+[2026-03-18 07:02:08] exp1_physics — INFO —   Features: ['NDVI', 'NDRE', 'MNDWI', 'BSI', 'CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-18 07:02:08] exp1_physics — INFO —   Classes: 17, Train samples: 2000, Test samples: 2000
+[2026-03-18 07:02:08] exp1_physics — INFO — Completed: Loading physics features (0.0s)
+[2026-03-18 07:02:08] exp1_physics — INFO — 
+============================================================
+[2026-03-18 07:02:08] exp1_physics — INFO —   Physics Features: (2000, 8)
+[2026-03-18 07:02:08] exp1_physics — INFO —   Optical (cols 0-3): ['NDVI', 'NDRE', 'MNDWI', 'BSI']
+[2026-03-18 07:02:08] exp1_physics — INFO —   SAR    (cols 4-7): ['CrossPol', 'NDVI_tex', 'SAR_total', 'PolCoh']
+[2026-03-18 07:02:08] exp1_physics — INFO — ============================================================
+[2026-03-18 07:02:08] exp1_physics — INFO — Starting: FQK kernel (physics)
+[2026-03-18 07:02:11] exp1_physics — INFO — Completed: FQK kernel (physics) (2.9s)
+[2026-03-18 07:02:11] exp1_physics — INFO — Starting: PQK kernel (physics)
+[2026-03-18 07:02:13] exp1_physics — INFO — Completed: PQK kernel (physics) (2.3s)
+[2026-03-18 07:02:13] exp1_physics — INFO — Starting: TFK training (physics)
+[2026-03-18 07:02:13] exp1_physics — INFO — Completed: TFK training (physics) (0.0s)
+[2026-03-18 07:02:16] exp1_physics — INFO — 
+Computing MI pairs on physics features (optical=0:4, SAR=4:8)...
+[2026-03-18 07:02:17] exp1_physics — INFO —   MI pairs (original indices): [(6, 1), (6, 0), (6, 2)]
+[2026-03-18 07:02:17] exp1_physics — INFO —     PAIR: [SAR] SAR_total (idx 6) <--> [Optical] NDRE (idx 1)
+[2026-03-18 07:02:17] exp1_physics — INFO —     PAIR: [SAR] SAR_total (idx 6) <--> [Optical] NDVI (idx 0)
+[2026-03-18 07:02:17] exp1_physics — INFO —     PAIR: [SAR] SAR_total (idx 6) <--> [Optical] MNDWI (idx 2)
+[2026-03-18 07:02:21] exp1_physics — INFO — 
+Loading trained PIQFM θ from /mnt/d/Quantum_kernel/quantum-sat-classification/results/piqfm/trained_theta.npz
+[2026-03-18 07:02:21] exp1_physics — INFO —   θ_bw = [4.372, 4.510, 3.812, 4.009, 5.678, 4.051, 6.283, 5.070]
+[2026-03-18 07:02:21] exp1_physics — INFO —   θ_br = [-0.0886, +0.5000]
+[2026-03-18 07:02:21] exp1_physics — INFO — [SKIP] PIQFM kernels exist, loading...
+[2026-03-18 07:02:25] exp1_physics — INFO — Starting: Classical kernels (physics)
+[2026-03-18 07:02:32] exp1_physics — INFO — RBF_CV best gamma: 10.0
+[2026-03-18 07:02:39] exp1_physics — INFO — Completed: Classical kernels (physics) (14.7s)
+[2026-03-18 07:02:39] exp1_physics — INFO — 
+--- Geometric Difference (physics features) ---
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(FQK_vs_rbf) = 228.02
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(FQK_vs_poly2) = 359.65
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(FQK_vs_poly3) = 285.27
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(FQK_vs_poly4) = 256.56
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(FQK_vs_linear) = 426.29
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(FQK_vs_laplacian) = 29.31
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(FQK_vs_tensor_product) = 184.01
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(FQK_vs_rbf_cv) = 3.63
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PQK_vs_rbf) = 207.80
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PQK_vs_poly2) = 333.51
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PQK_vs_poly3) = 246.27
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PQK_vs_poly4) = 228.55
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PQK_vs_linear) = 447.37
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PQK_vs_laplacian) = 24.62
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PQK_vs_tensor_product) = 164.95
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PQK_vs_rbf_cv) = 7.32
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(TFK_vs_rbf) = 190.24
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(TFK_vs_poly2) = 234.14
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(TFK_vs_poly3) = 207.98
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(TFK_vs_poly4) = 197.73
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(TFK_vs_linear) = 265.13
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(TFK_vs_laplacian) = 31.02
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(TFK_vs_tensor_product) = 172.84
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(TFK_vs_rbf_cv) = 9.59
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(CM_FQK_vs_rbf) = 227.40
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(CM_FQK_vs_poly2) = 326.58
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(CM_FQK_vs_poly3) = 271.63
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(CM_FQK_vs_poly4) = 249.03
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(CM_FQK_vs_linear) = 382.80
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(CM_FQK_vs_laplacian) = 31.13
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(CM_FQK_vs_tensor_product) = 193.85
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(CM_FQK_vs_rbf_cv) = 4.46
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PIQFM_vs_rbf) = 203.84
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PIQFM_vs_poly2) = 310.27
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PIQFM_vs_poly3) = 242.92
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PIQFM_vs_poly4) = 223.83
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PIQFM_vs_linear) = 383.85
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PIQFM_vs_laplacian) = 25.51
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PIQFM_vs_tensor_product) = 158.75
+[2026-03-18 07:09:39] exp1_physics — INFO —   g(PIQFM_vs_rbf_cv) = 2.40
+[2026-03-18 07:09:39] exp1_physics — INFO — 
+  Lambda sweep (FQK vs RBF, physics)...
+[2026-03-18 07:10:56] exp1_physics — INFO —   g at lambda=1/n: 228.02
+[2026-03-18 07:10:56] exp1_physics — INFO —   Sweep stable: False
+[2026-03-18 07:10:56] exp1_physics — INFO — 
+--- KTA (physics features) ---
+[2026-03-18 07:11:03] exp1_physics — INFO —   RBF     KTA = 0.2878
+[2026-03-18 07:11:03] exp1_physics — INFO —   RBF_CV  KTA = 0.2162
+[2026-03-18 07:11:06] exp1_physics — INFO —   FQK     KTA = 0.2345  ΔKTA(vs RBF)=-0.0533  ΔKTA(vs CV)=+0.0183
+[2026-03-18 07:11:09] exp1_physics — INFO —   PQK     KTA = 0.2329  ΔKTA(vs RBF)=-0.0549  ΔKTA(vs CV)=+0.0167
+[2026-03-18 07:11:12] exp1_physics — INFO —   TFK     KTA = 0.1947  ΔKTA(vs RBF)=-0.0931  ΔKTA(vs CV)=-0.0216
+[2026-03-18 07:11:14] exp1_physics — INFO —   CM_FQK  KTA = 0.2270  ΔKTA(vs RBF)=-0.0608  ΔKTA(vs CV)=+0.0108
+[2026-03-18 07:11:17] exp1_physics — INFO —   PIQFM   KTA = 0.2390  ΔKTA(vs RBF)=-0.0488  ΔKTA(vs CV)=+0.0228
+[2026-03-18 07:11:17] exp1_physics — INFO — 
+--- Concentration (physics features) ---
+[2026-03-18 07:11:20] exp1_physics — INFO —   FQK: CV=1.7250, mean_offdiag=0.0927, eff_rank=8.06
+[2026-03-18 07:11:24] exp1_physics — INFO —   PQK: CV=0.7357, mean_offdiag=0.2579, eff_rank=3.69
+[2026-03-18 07:11:29] exp1_physics — INFO —   TFK: CV=3.3046, mean_offdiag=0.0187, eff_rank=39.87
+[2026-03-18 07:11:35] exp1_physics — INFO —   CM_FQK: CV=2.2985, mean_offdiag=0.0527, eff_rank=12.88
+[2026-03-18 07:11:37] exp1_physics — INFO —   PIQFM: CV=2.3356, mean_offdiag=0.0566, eff_rank=12.83
+[2026-03-18 07:11:39] exp1_physics — INFO —   RBF: CV=0.1737, mean_offdiag=0.8110, eff_rank=1.22
+[2026-03-18 07:11:40] exp1_physics — INFO —   RBF_CV: CV=3.5679, mean_offdiag=0.0238, eff_rank=26.70
+[2026-03-18 07:11:40] exp1_physics — INFO — 
+--- Classification (physics features) ---
+[2026-03-18 07:11:40] exp1_physics — INFO —   FQK: macro_F1=0.4686, acc=0.5810
+[2026-03-18 07:11:41] exp1_physics — INFO —   PQK: macro_F1=0.4505, acc=0.5715
+[2026-03-18 07:11:41] exp1_physics — INFO —   TFK: macro_F1=0.4393, acc=0.5680
+[2026-03-18 07:11:41] exp1_physics — INFO —   CM_FQK: macro_F1=0.4689, acc=0.5905
+[2026-03-18 07:11:41] exp1_physics — INFO —   PIQFM: macro_F1=0.4588, acc=0.5820
+[2026-03-18 07:11:41] exp1_physics — INFO —   RBF: macro_F1=0.0253, acc=0.0350
+[2026-03-18 07:11:42] exp1_physics — INFO —   RBF_CV: macro_F1=0.4664, acc=0.5890
+[2026-03-18 07:11:42] exp1_physics — INFO — 
+--- Cross-Modal MI (physics features) ---
+[2026-03-18 07:11:42] exp1_physics — INFO — 
+============================================================
+[2026-03-18 07:11:42] exp1_physics — INFO —   PHYSICS vs PCA COMPARISON
+[2026-03-18 07:11:42] exp1_physics — INFO — ============================================================
+[2026-03-18 07:11:42] exp1_physics — INFO — 
+  Kernel        PCA KTA  Physics KTA    Δ KTA   PCA F1  Physics F1
+[2026-03-18 07:11:42] exp1_physics — INFO —   -----------------------------------------------------------------
+[2026-03-18 07:11:42] exp1_physics — INFO —   FQK            0.1840       0.2345  +0.0504   0.1836      0.4686
+[2026-03-18 07:11:42] exp1_physics — INFO —   PQK            0.1475       0.2329  +0.0854   0.1864      0.4505
+[2026-03-18 07:11:42] exp1_physics — INFO —   TFK            0.1825       0.1947  +0.0122   0.1843      0.4393
+[2026-03-18 07:11:42] exp1_physics — INFO —   CM_FQK         0.1897       0.2270  +0.0373   0.1858      0.4689
+[2026-03-18 07:11:42] exp1_physics — INFO —   PIQFM             nan       0.2390     +nan      nan      0.4588
+[2026-03-18 07:11:42] exp1_physics — INFO —   RBF            0.1309       0.2878  +0.1569   0.0115      0.0253
+[2026-03-18 07:11:43] exp1_physics — INFO — 
+All results saved: /mnt/d/Quantum_kernel/quantum-sat-classification/results/physics/exp1_physics_results.json
+[2026-03-18 07:11:43] exp1_physics — INFO — Summary CSV: /mnt/d/Quantum_kernel/quantum-sat-classification/results/physics/physics_summary.csv

@@ -1,0 +1,86 @@
+{
+  "sweep": {
+    "feature_counts": [
+      64,
+      128,
+      256,
+      512
+    ],
+    "frobenius_errors": [
+      1.3232221888359161,
+      1.628153703870003,
+      1.4353541717178433,
+      1.4795496679321234
+    ],
+    "spectral_errors": [
+      1.3011709037882617,
+      1.6385548480722707,
+      1.4324311019779765,
+      1.4807528669077745
+    ]
+  },
+  "kta_quantum": 0.23722648616165187,
+  "kta_rff": {
+    "64": 0.24125459667277818,
+    "128": 0.2404078710524858,
+    "256": 0.24136754395993176,
+    "512": 0.24189335634315637
+  },
+  "concentration_quantum_cv": 1.2579292854984234,
+  "concentration_rff_cv": 0.3434769930223014,
+  "gamma_rff_used": 0.125,
+  "f1_fqk": 0.18358136061889077,
+  "rff_classification": {
+    "64": 0.18762667121265056,
+    "128": 0.18302471380280266,
+    "256": 0.18854782839249282,
+    "512": 0.1937118893232206
+  },
+  "kta_fqk_centered_weighted": 0.18404932171177563,
+  "kta_rff_centered_weighted": {
+    "64": 0.12201831754230485,
+    "128": 0.11878555827817143,
+    "256": 0.1281769623362656,
+    "512": 0.1301874945590697
+  },
+  "delta_kta_fqk_vs_best_rff": 0.05386182715270593,
+  "assessment_kernel_approx": "NOT EASILY DEQUANTIZABLE \u2014 RFF fails to approximate quantum kernel.",
+  "assessment_classification": "DEQUANTIZABLE (by classification) \u2014 RFF D=512 achieves macro-F1=0.1937, exceeding FQK-SVM (0.1836) by +0.0101. Quantum kernel provides no F1 advantage over classical RFF approximation.",
+  "assessment_basis": "downstream_macro_f1",
+  "f1_margin_rff_minus_fqk": 0.010130528704329816,
+  "best_rff_D": 512,
+  "fewshot_fqk": [
+    0.15978956652700568,
+    0.16994741656775356,
+    0.15897056409720556,
+    0.1755833654672744,
+    0.18961616808107387,
+    0.1749670541259474
+  ],
+  "fewshot_rff": [
+    0.1238634035425864,
+    0.1818049875104316,
+    0.1483213400966096,
+    0.17790751672348187,
+    0.18403150184457015,
+    0.19532196066730598
+  ],
+  "fewshot_rff_D": 256,
+  "fewshot_rff_gamma": 0.125,
+  "fewshot_rff_n_seeds": 1,
+  "fewshot_sizes": [
+    50,
+    100,
+    200,
+    500,
+    1000,
+    2000
+  ],
+  "metadata": {
+    "note_rff_variance": "fewshot_rff uses a single random seed per N. RFF has sampling variance; multi-seed averaging recommended for publication-quality few-shot curves.",
+    "gamma_rff": 0.125,
+    "gamma_matches_rbf_baseline": true,
+    "kta_primary_metric": "centered_weighted (kta_fqk_centered_weighted)",
+    "assessment_primary": "assessment_classification (not assessment_kernel_approx)"
+  }
+}

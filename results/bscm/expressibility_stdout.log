@@ -1,0 +1,19 @@
+2026-05-01 23:00:25,808 [expressibility] INFO: ======================================================================
+2026-05-01 23:00:25,808 [expressibility] INFO:   Expressibility (Sim-Johnson-Aspuru-Guzik) -- BSCM vs SRQFM
+2026-05-01 23:00:25,808 [expressibility] INFO: ======================================================================
+2026-05-01 23:00:25,862 [expressibility] INFO:   computing 2000 fidelities for BSCM-uniform(tau=0.25)
+2026-05-01 23:00:39,440 [expressibility] INFO:   BSCM-uniform(tau=0.25): KL=1.3455  fid_mean=0.0142
+2026-05-01 23:00:39,440 [expressibility] INFO:   computing 2000 fidelities for BSCM-phi_only(tau=0.25)
+2026-05-01 23:00:57,276 [expressibility] INFO:   BSCM-phi_only(tau=0.25): KL=1.8211  fid_mean=0.0184
+2026-05-01 23:00:57,277 [expressibility] INFO:   computing 2000 fidelities for BSCM-psi_only(tau=0.25)
+2026-05-01 23:01:15,992 [expressibility] INFO:   BSCM-psi_only(tau=0.25): KL=9.0718  fid_mean=0.0564
+2026-05-01 23:01:15,992 [expressibility] INFO:   computing 2000 fidelities for BSCM-uniform(tau=0.5)
+2026-05-01 23:01:29,839 [expressibility] INFO:   BSCM-uniform(tau=0.5): KL=0.7517  fid_mean=0.0108
+2026-05-01 23:01:29,839 [expressibility] INFO:   computing 2000 fidelities for BSCM-uniform(tau=1.0)
+2026-05-01 23:01:43,244 [expressibility] INFO:   BSCM-uniform(tau=1.0): KL=0.1427  fid_mean=0.0064
+2026-05-01 23:01:43,244 [expressibility] INFO:   computing 2000 fidelities for BSCM-uniform(tau=2.0)
+2026-05-01 23:01:56,330 [expressibility] INFO:   BSCM-uniform(tau=2.0): KL=0.0002  fid_mean=0.0040
+2026-05-01 23:01:56,330 [expressibility] INFO:   computing 2000 fidelities for SRQFM-fid
+2026-05-01 23:02:02,956 [expressibility] INFO:   SRQFM-fid: KL=0.9867  fid_mean=0.0131
+2026-05-01 23:02:02,957 [expressibility] INFO: Saved: D:\Quantum_kernel\quantum-sat-classification\results\bscm\expressibility.json
+[DEVICE] Using lightning.qubit with 8 wires

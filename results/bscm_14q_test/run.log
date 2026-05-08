@@ -1,0 +1,181 @@
+2026-05-03 02:47:52,486 INFO: ==============================================================================
+2026-05-03 02:47:52,487 INFO:  BSCM 14-qubit test
+2026-05-03 02:47:52,487 INFO:  Started: 2026-05-03T02:47:52.487714
+2026-05-03 02:47:52,488 INFO: ==============================================================================
+2026-05-03 02:47:52,488 INFO:  Qubits        : 14
+2026-05-03 02:47:52,488 INFO:  Features      : 14 (drop 2 lowest-Fisher of 16)
+2026-05-03 02:47:52,489 INFO:  Samples       : 800 (stratified from 1800 EVAL pool)
+2026-05-03 02:47:52,489 INFO:  Subsample seed: 1234
+2026-05-03 02:47:52,489 INFO:  Bell prior    : uniform
+2026-05-03 02:47:52,490 INFO:  Connectivity  : all
+2026-05-03 02:47:52,490 INFO:  REPS          : 2
+2026-05-03 02:47:52,492 INFO: ==============================================================================
+2026-05-03 02:47:52,511 INFO:  Locked tau    : 0.2500 (from Phase 2 holdout pool)
+2026-05-03 02:47:52,512 INFO: 
+[step 1] Load physics_16 features and labels
+2026-05-03 02:47:52,551 INFO:   Eval pool size: 1800
+2026-05-03 02:47:52,552 INFO: 
+[step 2] Select 14 features (drop 2 lowest-Fisher)
+2026-05-03 02:47:52,553 INFO:   Fisher rank (full 16):
+2026-05-03 02:47:52,553 INFO:     # 1  [ 6] MNDWI        Fisher=5.7276  KEEP
+2026-05-03 02:47:52,554 INFO:     # 2  [ 2] NDWI         Fisher=4.9090  KEEP
+2026-05-03 02:47:52,554 INFO:     # 3  [ 0] NDVI         Fisher=3.3050  KEEP
+2026-05-03 02:47:52,554 INFO:     # 4  [ 5] NDRE         Fisher=3.1472  KEEP
+2026-05-03 02:47:52,554 INFO:     # 5  [12] VH_dB        Fisher=2.5997  KEEP
+2026-05-03 02:47:52,555 INFO:     # 6  [ 4] SAVI         Fisher=2.1510  KEEP
+2026-05-03 02:47:52,555 INFO:     # 7  [13] VV_dB        Fisher=2.0325  KEEP
+2026-05-03 02:47:52,555 INFO:     # 8  [ 7] EVI          Fisher=1.9387  KEEP
+2026-05-03 02:47:52,555 INFO:     # 9  [ 1] NDBI         Fisher=1.8782  KEEP
+2026-05-03 02:47:52,556 INFO:     #10  [ 3] BSI          Fisher=1.6227  KEEP
+2026-05-03 02:47:52,556 INFO:     #11  [11] PolCoh       Fisher=0.5840  KEEP
+2026-05-03 02:47:52,556 INFO:     #12  [15] NDVI_tex     Fisher=0.3967  KEEP
+2026-05-03 02:47:52,557 INFO:     #13  [ 9] SAR_total    Fisher=0.3936  KEEP
+2026-05-03 02:47:52,557 INFO:     #14  [10] CrossPol     Fisher=0.1616  KEEP
+2026-05-03 02:47:52,557 INFO:     #15  [14] VV_tex       Fisher=0.1314  DROP
+2026-05-03 02:47:52,557 INFO:     #16  [ 8] VV/VH        Fisher=0.0535  DROP
+2026-05-03 02:47:52,559 INFO:   Selected (14): ['NDVI', 'NDBI', 'NDWI', 'BSI', 'SAVI', 'NDRE', 'MNDWI', 'EVI', 'SAR_total', 'CrossPol', 'PolCoh', 'VH_dB', 'VV_dB', 'NDVI_tex']
+2026-05-03 02:47:52,560 INFO: 
+[step 3] Stratified sub-sample to N=800
+2026-05-03 02:47:52,563 INFO:   Sub-sample size: 800
+2026-05-03 02:47:52,563 INFO:     [ 0] Compact High Rise        11  (1.4%)
+2026-05-03 02:47:52,564 INFO:     [ 1] Compact Mid Rise         54  (6.8%)
+2026-05-03 02:47:52,564 INFO:     [ 2] Compact Low Rise         73  (9.1%)
+2026-05-03 02:47:52,564 INFO:     [ 3] Open High Rise           21  (2.6%)
+2026-05-03 02:47:52,564 INFO:     [ 4] Open Mid Rise            36  (4.5%)
+2026-05-03 02:47:52,565 INFO:     [ 5] Open Low Rise            78  (9.8%)
+2026-05-03 02:47:52,565 INFO:     [ 6] Lightweight Low Rise      8  (1.0%)
+2026-05-03 02:47:52,565 INFO:     [ 7] Large Low Rise           92  (11.5%)
+2026-05-03 02:47:52,566 INFO:     [ 8] Sparsely Built           35  (4.4%)
+2026-05-03 02:47:52,566 INFO:     [ 9] Heavy Industry           27  (3.4%)
+2026-05-03 02:47:52,566 INFO:     [10] Dense Trees              95  (11.9%)
+2026-05-03 02:47:52,567 INFO:     [11] Scattered Trees          21  (2.6%)
+2026-05-03 02:47:52,567 INFO:     [12] Bush/Scrub               23  (2.9%)
+2026-05-03 02:47:52,567 INFO:     [13] Low Plants               93  (11.6%)
+2026-05-03 02:47:52,567 INFO:     [14] Bare Rock/Paved           6  (0.8%)
+2026-05-03 02:47:52,567 INFO:     [15] Bare Soil/Sand           18  (2.2%)
+2026-05-03 02:47:52,568 INFO:     [16] Water                   109  (13.6%)
+2026-05-03 02:47:52,568 INFO: 
+==============================================================================
+2026-05-03 02:47:52,568 INFO:  Phase 1: build BSCM kernel (14 qubits, N=800)
+2026-05-03 02:47:52,568 INFO:  Expected wall clock: ~12-13 hours on lightning.qubit
+2026-05-03 02:47:52,569 INFO:  Checkpointing every 25 rows to /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm_14q_test/K_bscm_14q_phys14_uniform_tau0.25_N800.npy.ckpt.npz
+2026-05-03 02:47:52,569 INFO: ==============================================================================
+2026-05-03 17:53:47,928 INFO: Saved BSCM kernel to /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm_14q_test/K_bscm_14q_phys14_uniform_tau0.25_N800.npy
+2026-05-03 17:53:47,945 INFO:  Kernel build done in 15.10 hours
+2026-05-03 17:53:47,946 INFO:  Saved to /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm_14q_test/K_bscm_14q_phys14_uniform_tau0.25_N800.npy
+2026-05-03 17:53:47,946 INFO: 
+==============================================================================
+2026-05-03 17:53:47,947 INFO:  Phase A: structural health
+2026-05-03 17:53:47,947 INFO: ==============================================================================
+2026-05-03 17:53:47,976 INFO:   Diagonal min / max : 1.000000 / 1.000000
+2026-05-03 17:53:47,976 INFO:   Max |K - K^T|      : 0.00e+00
+2026-05-03 17:53:47,977 INFO:   Health             : PASS
+2026-05-03 17:53:50,238 INFO: 
+  Off-diagonal stats:
+2026-05-03 17:53:50,238 INFO:     mean  : 0.065567
+2026-05-03 17:53:50,239 INFO:     var   : 0.018874
+2026-05-03 17:53:50,239 INFO:     std   : 0.137384
+2026-05-03 17:53:50,283 INFO:     pct  1: 0.000004
+2026-05-03 17:53:50,288 INFO:     pct  5: 0.000025
+2026-05-03 17:53:50,313 INFO:     pct 50: 0.004948
+2026-05-03 17:53:50,320 INFO:     pct 95: 0.369198
+2026-05-03 17:53:50,327 INFO:     pct 99: 0.684914
+2026-05-03 17:53:50,332 INFO:     within 1 sigma : 0.8915  (>0.95 = exponentially concentrated)
+2026-05-03 17:53:50,332 INFO: 
+  Off-diagonal histogram (20 bins, 0..1):
+2026-05-03 17:53:50,351 INFO:     [0.00-0.05]    471706  ##############################
+2026-05-03 17:53:50,352 INFO:     [0.05-0.10]     48666  ###
+2026-05-03 17:53:50,352 INFO:     [0.10-0.15]     28756  #
+2026-05-03 17:53:50,353 INFO:     [0.15-0.20]     19722  #
+2026-05-03 17:53:50,353 INFO:     [0.20-0.25]     14924  
+2026-05-03 17:53:50,354 INFO:     [0.25-0.30]     11442  
+2026-05-03 17:53:50,354 INFO:     [0.30-0.35]      9028  
+2026-05-03 17:53:50,355 INFO:     [0.35-0.40]      7078  
+2026-05-03 17:53:50,355 INFO:     [0.40-0.45]      5938  
+2026-05-03 17:53:50,356 INFO:     [0.45-0.50]      4678  
+2026-05-03 17:53:50,356 INFO:     [0.50-0.55]      3860  
+2026-05-03 17:53:50,356 INFO:     [0.55-0.60]      3114  
+2026-05-03 17:53:50,357 INFO:     [0.60-0.65]      2430  
+2026-05-03 17:53:50,357 INFO:     [0.65-0.70]      2022  
+2026-05-03 17:53:50,358 INFO:     [0.70-0.75]      1696  
+2026-05-03 17:53:50,358 INFO:     [0.75-0.80]      1494  
+2026-05-03 17:53:50,358 INFO:     [0.80-0.85]      1100  
+2026-05-03 17:53:50,359 INFO:     [0.85-0.90]       770  
+2026-05-03 17:53:50,359 INFO:     [0.90-0.95]       538  
+2026-05-03 17:53:50,359 INFO:     [0.95-1.00]       238  
+2026-05-03 17:53:50,360 INFO: 
+  Spectrum:
+2026-05-03 17:53:50,363 INFO:     n_positive_eigs : 800 / 800
+2026-05-03 17:53:50,364 INFO:     eig min / max   : 3.5726e-05 / 6.9602e+01
+2026-05-03 17:53:50,373 INFO:     top-10 eigs     : [69.602 56.865 41.834 34.256 26.932 24.308 20.088 17.879 15.219 13.996]
+2026-05-03 17:53:50,373 INFO:     eff rank Shannon: 111.18 / 800
+2026-05-03 17:53:50,374 INFO:     eff rank Huang  : 11.49 / 800
+2026-05-03 17:53:50,374 INFO: 
+  vs 8q baseline (BSCM-uniform N=1800):
+2026-05-03 17:53:50,374 INFO:     metric            8q(N=1800)        14q(N=800)
+2026-05-03 17:53:50,375 INFO:     off_diag_mean     0.214630          0.065567
+2026-05-03 17:53:50,375 INFO:     off_diag_var      0.074209          0.018874
+2026-05-03 17:53:50,375 INFO:     within_1sigma     0.807             0.8915
+2026-05-03 17:53:50,376 INFO:     eff_rank_Shannon  16.7              111.18
+2026-05-03 17:53:50,376 INFO: 
+==============================================================================
+2026-05-03 17:53:50,379 INFO:  Phase B: kernel-target alignment
+2026-05-03 17:53:50,379 INFO: ==============================================================================
+2026-05-03 17:53:50,398 INFO:   KTA (same-class, correct multi-class) : -0.173337
+2026-05-03 17:53:50,401 INFO:   KTA (product>0, matches 8q eval script): 0.417490
+2026-05-03 17:53:50,504 INFO:   Intra-class fidelity mean : 0.2095  (n_pairs=28377)
+2026-05-03 17:53:50,505 INFO:   Inter-class fidelity mean : 0.0515  (n_pairs=291223)
+2026-05-03 17:53:50,506 INFO:   Separation (intra - inter): 0.1580  (larger = better)
+2026-05-03 17:53:50,506 INFO: 
+==============================================================================
+2026-05-03 17:53:50,506 INFO:  Phase C: SVM classification (5 seeds, C tuning)
+2026-05-03 17:53:50,506 INFO: ==============================================================================
+2026-05-03 17:53:50,710 INFO:   seed=42  macro_F1=0.4268  acc=0.5875  best_C=100
+2026-05-03 17:53:50,821 INFO:   seed=43  macro_F1=0.3976  acc=0.5458  best_C=10
+2026-05-03 17:53:50,918 INFO:   seed=44  macro_F1=0.3751  acc=0.5042  best_C=1
+2026-05-03 17:53:51,023 INFO:   seed=45  macro_F1=0.4881  acc=0.5917  best_C=100
+2026-05-03 17:53:51,129 INFO:   seed=46  macro_F1=0.4019  acc=0.5417  best_C=100
+2026-05-03 17:53:51,130 INFO: 
+  Macro F1 : 0.4179 +- 0.0433  (min=0.3751 max=0.4881)
+2026-05-03 17:53:51,131 INFO:   Accuracy : 0.5542 +- 0.0362
+2026-05-03 17:53:51,131 INFO: 
+  Per-class F1 (averaged over 5 seeds):
+2026-05-03 17:53:51,132 INFO:   Cls  Name                      F1_14q       std  F1_8q(N=1800)  delta
+2026-05-03 17:53:51,132 INFO:   ----------------------------------------------------------------------------
+2026-05-03 17:53:51,133 INFO:     0  Compact High Rise       0.2467    0.2329    0.2980       -0.0513  <<-- previously failing
+2026-05-03 17:53:51,133 INFO:     1  Compact Mid Rise        0.3337    0.0561    0.3869       -0.0532  <<-- previously failing
+2026-05-03 17:53:51,134 INFO:     2  Compact Low Rise        0.5070    0.0580    0.5498       -0.0428
+2026-05-03 17:53:51,134 INFO:     3  Open High Rise          0.1501    0.0885    0.3608       -0.2107  <<-- previously failing
+2026-05-03 17:53:51,135 INFO:     4  Open Mid Rise           0.3391    0.1390    0.2809       +0.0582  <<-- previously failing
+2026-05-03 17:53:51,135 INFO:     5  Open Low Rise           0.4577    0.0530    0.5365       -0.0788
+2026-05-03 17:53:51,135 INFO:     6  Lightweight Low Rise    0.0000    0.0000    0.3274       -0.3274  <<-- previously failing
+2026-05-03 17:53:51,136 INFO:     7  Large Low Rise          0.4694    0.0899    0.4734       -0.0040
+2026-05-03 17:53:51,136 INFO:     8  Sparsely Built          0.3312    0.1333    0.4179       -0.0867
+2026-05-03 17:53:51,136 INFO:     9  Heavy Industry          0.2690    0.1631    0.2265       +0.0425  <<-- previously failing
+2026-05-03 17:53:51,137 INFO:    10  Dense Trees             0.9074    0.0499    0.8528       +0.0546
+2026-05-03 17:53:51,137 INFO:    11  Scattered Trees         0.2505    0.1754    0.4024       -0.1519  <<-- previously failing
+2026-05-03 17:53:51,138 INFO:    12  Bush/Scrub              0.1285    0.0756    0.5059       -0.3774
+2026-05-03 17:53:51,138 INFO:    13  Low Plants              0.5807    0.0524    0.6540       -0.0733
+2026-05-03 17:53:51,139 INFO:    14  Bare Rock/Paved         0.4333    0.4346    0.4143       +0.0190
+2026-05-03 17:53:51,139 INFO:    15  Bare Soil/Sand          0.7327    0.1499    0.5733       +0.1594
+2026-05-03 17:53:51,140 INFO:    16  Water                   0.9668    0.0293    0.9489       +0.0179
+2026-05-03 17:53:51,386 INFO: 
+  PREVIOUSLY-FAILING classes summary:
+2026-05-03 17:53:51,387 INFO:     Mean F1 over failing classes  8q: 0.3261
+2026-05-03 17:53:51,387 INFO:     Mean F1 over failing classes 14q: 0.2270
+2026-05-03 17:53:51,387 INFO:     Lift on failing classes        : -0.0991
+2026-05-03 17:53:51,403 INFO: 
+  Confusion matrix (seed=42) saved.
+2026-05-03 17:53:51,403 INFO: 
+==============================================================================
+2026-05-03 17:53:51,404 INFO:  Phase D: decision verdict
+2026-05-03 17:53:51,404 INFO: ==============================================================================
+2026-05-03 17:53:51,405 INFO:   Gate (a) Concentration  within_1sigma=0.8915 -> PASS
+2026-05-03 17:53:51,405 INFO:   Gate (b) Effective rank Shannon=111.18 -> PASS
+2026-05-03 17:53:51,405 INFO:   Gate (c) F1 lift over 8q baseline: -0.0650
+2026-05-03 17:53:51,405 INFO: 
+  VERDICT: Do NOT pursue 14q path -- N=800 14q is worse than N=1800 8q. Stick with multi-kernel (option 2) or feature swap (option 1).
+2026-05-03 17:53:51,440 INFO: 
+Summary saved: /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm_14q_test/summary.json
+2026-05-03 17:53:51,441 INFO: 
+FINAL: Do NOT pursue 14q path -- N=800 14q is worse than N=1800 8q. Stick with multi-kernel (option 2) or feature swap (option 1).

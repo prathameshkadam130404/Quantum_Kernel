@@ -1,0 +1,143 @@
+2026-04-28 12:43:15,852 [INFO] ============================================================
+2026-04-28 12:43:15,852 [INFO] EuroSAT Cross-Dataset Validation Experiment
+2026-04-28 12:43:15,853 [INFO] ============================================================
+2026-04-28 12:43:15,853 [INFO] Config: n_train=1000, n_test=500, n_seeds=5, skip_quantum=False
+2026-04-28 12:43:15,856 [INFO] Loading cached features from data/processed/eurosat_band_means.npz
+2026-04-28 12:43:15,891 [INFO] 
+============================================================
+2026-04-28 12:43:15,892 [INFO] FEATURE SET: PCA8
+2026-04-28 12:43:15,892 [INFO] ============================================================
+2026-04-28 12:43:15,893 [INFO] 
+--- Seed 1/5 (seed=42) ---
+2026-04-28 12:43:15,898 [INFO]   PCA explained var: 0.999
+2026-04-28 12:43:15,898 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-04-28 12:43:15,899 [INFO]   [pca8] Classical baselines...
+2026-04-28 12:43:18,544 [INFO]     RBF-SVM: F1=0.8068  RF: F1=0.7588
+2026-04-28 12:43:18,547 [INFO]   [pca8] Computing FQK kernel...
+2026-04-28 18:42:45,182 [INFO]     FQK computed in 21567s (checkpointed)
+2026-04-28 18:42:45,414 [INFO]     FQK-SVM:   F1=0.7631  KTA=0.264
+2026-04-28 18:42:45,417 [INFO]   [pca8] Computing SRQFM kernel...
+2026-04-29 01:02:34,803 [INFO]     SRQFM computed in 22789s (checkpointed)
+2026-04-29 01:02:34,947 [INFO]     SRQFM-SVM: F1=0.7990  KTA=0.259
+2026-04-29 01:02:34,959 [INFO] 
+--- Seed 2/5 (seed=43) ---
+2026-04-29 01:02:34,976 [INFO]   PCA explained var: 0.999
+2026-04-29 01:02:34,977 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-04-29 01:02:34,977 [INFO]   [pca8] Classical baselines...
+2026-04-29 01:02:37,573 [INFO]     RBF-SVM: F1=0.7499  RF: F1=0.7178
+2026-04-29 01:02:37,576 [INFO]   [pca8] Computing FQK kernel...
+2026-04-29 07:02:19,752 [INFO]     FQK computed in 21582s (checkpointed)
+2026-04-29 07:02:23,475 [INFO]     FQK-SVM:   F1=0.7122  KTA=0.265
+2026-04-29 07:02:23,493 [INFO]   [pca8] Computing SRQFM kernel...
+2026-04-29 11:47:05,706 [INFO]     SRQFM computed in 17082s (checkpointed)
+2026-04-29 11:47:09,485 [INFO]     SRQFM-SVM: F1=0.7396  KTA=0.270
+2026-04-29 11:47:09,582 [INFO] 
+--- Seed 3/5 (seed=44) ---
+2026-04-29 11:47:09,632 [INFO]   PCA explained var: 0.999
+2026-04-29 11:47:09,632 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-04-29 11:47:09,633 [INFO]   [pca8] Classical baselines...
+2026-04-29 11:47:12,968 [INFO]     RBF-SVM: F1=0.7835  RF: F1=0.7819
+2026-04-29 11:47:12,972 [INFO]   [pca8] Computing FQK kernel...
+2026-04-29 17:13:04,978 [INFO]     FQK computed in 19552s (checkpointed)
+2026-04-29 17:13:06,156 [INFO]     FQK-SVM:   F1=0.7560  KTA=0.264
+2026-04-29 17:13:06,181 [INFO]   [pca8] Computing SRQFM kernel...
+2026-04-29 22:54:57,521 [INFO]     SRQFM computed in 20511s (checkpointed)
+2026-04-29 22:54:58,665 [INFO]     SRQFM-SVM: F1=0.7917  KTA=0.257
+2026-04-29 22:54:58,675 [INFO] 
+--- Seed 4/5 (seed=45) ---
+2026-04-29 22:54:58,711 [INFO]   PCA explained var: 0.999
+2026-04-29 22:54:58,712 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-04-29 22:54:58,712 [INFO]   [pca8] Classical baselines...
+2026-04-29 22:55:01,905 [INFO]     RBF-SVM: F1=0.8119  RF: F1=0.7567
+2026-04-29 22:55:01,910 [INFO]   [pca8] Computing FQK kernel...
+2026-04-30 04:42:44,451 [INFO]     FQK computed in 20863s (checkpointed)
+2026-04-30 04:42:54,266 [INFO]     FQK-SVM:   F1=0.7568  KTA=0.263
+2026-04-30 04:42:54,293 [INFO]   [pca8] Computing SRQFM kernel...
+2026-04-30 10:39:41,645 [INFO]     SRQFM computed in 21407s (checkpointed)
+2026-04-30 10:39:43,057 [INFO]     SRQFM-SVM: F1=0.7968  KTA=0.270
+2026-04-30 10:39:43,081 [INFO] 
+--- Seed 5/5 (seed=46) ---
+2026-04-30 10:39:43,128 [INFO]   PCA explained var: 0.999
+2026-04-30 10:39:43,131 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-04-30 10:39:43,132 [INFO]   [pca8] Classical baselines...
+2026-04-30 10:39:46,166 [INFO]     RBF-SVM: F1=0.7581  RF: F1=0.7601
+2026-04-30 10:39:46,175 [INFO]   [pca8] Computing FQK kernel...
+2026-04-30 16:01:08,592 [INFO]     FQK computed in 19282s (checkpointed)
+2026-04-30 16:01:09,104 [INFO]     FQK-SVM:   F1=0.7465  KTA=0.274
+2026-04-30 16:01:09,125 [INFO]   [pca8] Computing SRQFM kernel...
+2026-04-30 21:59:49,071 [INFO]     SRQFM computed in 21520s (checkpointed)
+2026-04-30 21:59:50,443 [INFO]     SRQFM-SVM: F1=0.7808  KTA=0.280
+2026-04-30 21:59:50,488 [INFO] 
+  Summary (PCA8):
+2026-04-30 21:59:50,503 [INFO]     FQK            : F1 = 0.7469 ± 0.0182
+2026-04-30 21:59:50,503 [INFO]     SRQFM          : F1 = 0.7816 ± 0.0219
+2026-04-30 21:59:50,504 [INFO]     RBF-SVM        : F1 = 0.7821 ± 0.0249
+2026-04-30 21:59:50,504 [INFO]     RF             : F1 = 0.7551 ± 0.0207
+2026-04-30 21:59:50,505 [INFO] 
+============================================================
+2026-04-30 21:59:50,506 [INFO] FEATURE SET: PHYSICS8
+2026-04-30 21:59:50,506 [INFO] ============================================================
+2026-04-30 21:59:50,507 [INFO] 
+--- Seed 1/5 (seed=42) ---
+2026-04-30 21:59:50,546 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-04-30 21:59:50,547 [INFO]   [physics8] Classical baselines...
+2026-04-30 21:59:54,320 [INFO]     RBF-SVM: F1=0.7153  RF: F1=0.6166
+2026-04-30 21:59:54,326 [INFO]   [physics8] Computing FQK kernel...
+2026-05-01 03:57:08,776 [INFO]     FQK computed in 21434s (checkpointed)
+2026-05-01 03:57:10,161 [INFO]     FQK-SVM:   F1=0.6791  KTA=0.220
+2026-05-01 03:57:10,165 [INFO]   [physics8] Computing SRQFM kernel...
+2026-05-01 10:05:35,299 [INFO]     SRQFM computed in 22105s (checkpointed)
+2026-05-01 10:05:38,298 [INFO]     SRQFM-SVM: F1=0.7094  KTA=0.257
+2026-05-01 10:05:38,342 [INFO] 
+--- Seed 2/5 (seed=43) ---
+2026-05-01 10:05:38,393 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-05-01 10:05:38,394 [INFO]   [physics8] Classical baselines...
+2026-05-01 10:05:41,695 [INFO]     RBF-SVM: F1=0.6848  RF: F1=0.5680
+2026-05-01 10:05:41,702 [INFO]   [physics8] Computing FQK kernel...
+2026-05-01 16:02:49,032 [INFO]     FQK computed in 21427s (checkpointed)
+2026-05-01 16:02:49,213 [INFO]     FQK-SVM:   F1=0.6638  KTA=0.241
+2026-05-01 16:02:49,217 [INFO]   [physics8] Computing SRQFM kernel...
+2026-05-01 21:45:13,024 [INFO]     SRQFM computed in 20544s (checkpointed)
+2026-05-01 21:45:13,213 [INFO]     SRQFM-SVM: F1=0.6988  KTA=0.271
+2026-05-01 21:45:13,241 [INFO] 
+--- Seed 3/5 (seed=44) ---
+2026-05-01 21:45:13,260 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-05-01 21:45:13,281 [INFO]   [physics8] Classical baselines...
+2026-05-01 21:45:16,419 [INFO]     RBF-SVM: F1=0.6876  RF: F1=0.5913
+2026-05-01 21:45:16,536 [INFO]   [physics8] Computing FQK kernel...
+2026-05-02 03:46:27,376 [INFO]     FQK computed in 21671s (checkpointed)
+2026-05-02 03:46:31,043 [INFO]     FQK-SVM:   F1=0.6666  KTA=0.226
+2026-05-02 03:46:31,083 [INFO]   [physics8] Computing SRQFM kernel...
+2026-05-02 10:41:07,729 [INFO]     SRQFM computed in 24877s (checkpointed)
+2026-05-02 10:41:08,201 [INFO]     SRQFM-SVM: F1=0.6823  KTA=0.263
+2026-05-02 10:41:08,250 [INFO] 
+--- Seed 4/5 (seed=45) ---
+2026-05-02 10:41:08,426 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-05-02 10:41:08,426 [INFO]   [physics8] Classical baselines...
+2026-05-02 10:41:16,739 [INFO]     RBF-SVM: F1=0.6885  RF: F1=0.6197
+2026-05-02 10:41:16,742 [INFO]   [physics8] Computing FQK kernel...
+2026-05-02 17:11:54,710 [INFO]     FQK computed in 23438s (checkpointed)
+2026-05-02 17:11:59,870 [INFO]     FQK-SVM:   F1=0.6812  KTA=0.228
+2026-05-02 17:11:59,898 [INFO]   [physics8] Computing SRQFM kernel...
+2026-05-02 23:22:01,107 [INFO]     SRQFM computed in 22201s (checkpointed)
+2026-05-02 23:22:02,508 [INFO]     SRQFM-SVM: F1=0.6820  KTA=0.266
+2026-05-02 23:22:02,764 [INFO] 
+--- Seed 5/5 (seed=46) ---
+2026-05-02 23:22:03,033 [INFO]   Train: (1000, 8), Test: (500, 8)
+2026-05-02 23:22:03,034 [INFO]   [physics8] Classical baselines...
+2026-05-02 23:22:09,625 [INFO]     RBF-SVM: F1=0.6925  RF: F1=0.6086
+2026-05-02 23:22:09,628 [INFO]   [physics8] Computing FQK kernel...
+2026-05-03 06:05:17,592 [INFO]     FQK computed in 24188s (checkpointed)
+2026-05-03 06:05:32,022 [INFO]     FQK-SVM:   F1=0.6519  KTA=0.228
+2026-05-03 06:05:32,028 [INFO]   [physics8] Computing SRQFM kernel...
+2026-05-03 12:30:29,856 [INFO]     SRQFM computed in 23098s (checkpointed)
+2026-05-03 12:30:30,879 [INFO]     SRQFM-SVM: F1=0.6938  KTA=0.263
+2026-05-03 12:30:30,913 [INFO] 
+  Summary (PHYSICS8):
+2026-05-03 12:30:30,914 [INFO]     FQK            : F1 = 0.6685 ± 0.0107
+2026-05-03 12:30:30,914 [INFO]     SRQFM          : F1 = 0.6933 ± 0.0104
+2026-05-03 12:30:30,915 [INFO]     RBF-SVM        : F1 = 0.6937 ± 0.0111
+2026-05-03 12:30:30,915 [INFO]     RF             : F1 = 0.6008 ± 0.0192
+2026-05-03 12:30:30,936 [INFO] 
+Total runtime: 431235s
+2026-05-03 12:30:30,936 [INFO] Results saved to: results/eurosat/eurosat_cross_dataset_results.json

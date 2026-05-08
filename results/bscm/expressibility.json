@@ -1,0 +1,72 @@
+{
+  "n_qubits": 8,
+  "reps": 2,
+  "n_samples_per_circuit": 2000,
+  "n_bins": 75,
+  "records": [
+    {
+      "name": "BSCM-uniform(tau=0.25)",
+      "n_samples": 2000,
+      "kl_to_haar": 1.3454903876396733,
+      "fidelity_mean": 0.01417510981731558,
+      "fidelity_std": 0.03900050278323448,
+      "fidelity_p05": 3.703470345646155e-05,
+      "fidelity_p95": 0.0667534734891276
+    },
+    {
+      "name": "BSCM-phi_only(tau=0.25)",
+      "n_samples": 2000,
+      "kl_to_haar": 1.8211380049796455,
+      "fidelity_mean": 0.01844411997203126,
+      "fidelity_std": 0.03417843129014174,
+      "fidelity_p05": 0.0004644815341489084,
+      "fidelity_p95": 0.06978890399443212
+    },
+    {
+      "name": "BSCM-psi_only(tau=0.25)",
+      "n_samples": 2000,
+      "kl_to_haar": 9.07182988444936,
+      "fidelity_mean": 0.05644619651330291,
+      "fidelity_std": 0.05291303430493783,
+      "fidelity_p05": 0.002994439972362235,
+      "fidelity_p95": 0.15667028299820573
+    },
+    {
+      "name": "BSCM-uniform(tau=0.5)",
+      "n_samples": 2000,
+      "kl_to_haar": 0.7517271649874734,
+      "fidelity_mean": 0.010784730716829005,
+      "fidelity_std": 0.023382644244679944,
+      "fidelity_p05": 0.0002018916211153338,
+      "fidelity_p95": 0.04219302785607147
+    },
+    {
+      "name": "BSCM-uniform(tau=1.0)",
+      "n_samples": 2000,
+      "kl_to_haar": 0.14265329234381688,
+      "fidelity_mean": 0.006432354125625614,
+      "fidelity_std": 0.009865033935157572,
+      "fidelity_p05": 0.00024363077105481597,
+      "fidelity_p95": 0.02019169429170542
+    },
+    {
+      "name": "BSCM-uniform(tau=2.0)",
+      "n_samples": 2000,
+      "kl_to_haar": 0.00020716086840905546,
+      "fidelity_mean": 0.003979508588318706,
+      "fidelity_std": 0.003879267246597978,
+      "fidelity_p05": 0.0002090259975920704,
+      "fidelity_p95": 0.011960670837790987
+    },
+    {
+      "name": "SRQFM-fid",
+      "n_samples": 2000,
+      "kl_to_haar": 0.9867212046507727,
+      "fidelity_mean": 0.013142372440451335,
+      "fidelity_std": 0.018502262760074984,
+      "fidelity_p05": 0.0005551197844946177,
+      "fidelity_p95": 0.04312468745712215
+    }
+  ],
+  "haar_reference": "Beta(1, 2^n - 1) on F in [0,1]; KL=0 means Haar-random."
+}

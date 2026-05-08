@@ -1,0 +1,144 @@
+################################################################################
+# .gitignore for Quantum_Kernel public release.
+#
+# Strategy: ignore-everything-except-whitelisted.  We deliberately exclude all
+# raw-data, kernel-cache .npy/.npz files except a small set required to
+# reproduce the figures, all internal scratch notes, and all build artefacts.
+# Files actually pushed are staged via explicit `git add <path>` commands;
+# this file is the safety net.
+################################################################################
+
+# ---- Python build artefacts ---------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.Python
+
+# ---- Virtual environments -----------------------------------------------------
+.venv/
+venv/
+env/
+quantum-sat-env/
+.python-version
+
+# ---- IDE & OS -----------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+.claude/
+
+# ---- Test artefacts -----------------------------------------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ---- LaTeX build artefacts ----------------------------------------------------
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.out
+submission/paper_revised.log
+paper.log
+paper.aux
+paper.fls
+paper.fdb_latexmk
+paper.synctex.gz
+paper.out
+
+# ---- Raw data (regenerable; downloadable from MediaTUM / EuroSAT) -------------
+data/raw/
+data/topological/
+data/processed/*.h5
+data/processed/*.joblib
+*.h5
+
+# ---- Large kernel caches (regenerable from experiment scripts) ----------------
+# By default ignore all .npy/.npz under results/.  Specific small ones we DO
+# want are explicitly added via `git add -f <path>` at staging time.
+results/**/*.npy
+results/**/*.npz
+results/**/*.ckpt.npz
+results/**/*.progress
+
+# Specific large cache files that must never be pushed even if force-added by
+# accident (each is 350+ MB):
+results/e38_max_data/cache_*.npz
+
+# ---- Internal scratch/working files (not part of the paper) ------------------
+*.zip
+Download+the+journal+article+template+package+(December+2024+version)/
+Download+the+journal+article+template+package+(December+2024+version).zip
+antigravity_artifacts/
+artifacts/
+kaggle/
+kaggle_upload/
+ccqk_implementation/
+notebooks/
+docs/
+paper/
+logs/
+
+# Internal markdown notes & scratch text files (not in paper)
+CRITICAL_ANALYSIS_AND_SUBMISSION_VERDICT.md
+FOR_NEXT_MODEL.md
+D4_OPTION_A_UPGRADE_PROMPT.md
+UPGRADE_PROMPT.md
+CPK_Analysis_and_Implementation_Plan.md
+CPK_Implementation_Report.md
+QUICK_REFERENCE.md
+walkthrough.md
+*.txt
+!requirements.txt
+*.fdb_latexmk
+
+# Old / pre-revised paper files
+paper.tex
+paper.pdf
+sn-basic.bst
+sn-jnl.cls
+sn-mathphys-num.bst
+
+# Root-level scratch & utility scripts (not referenced in paper)
+scratch_*.py
+tmp_*.py
+find_*.py
+check_*.py
+analyze_exp10.py
+diagnose_*.py
+generate_tables.py
+update_kaggle.py
+verify_install.py
+test_d4_invariance_fix.py
+test_tfk_bug.py
+pqk_gamma.py
+e24_error.log
+run_pid.txt
+*.aux
+*.log
+exp[0-9]*.log
+exp_e[0-9]*.log
+
+# Submission build artefacts only (keep the paper.tex and paper.pdf)
+submission/*.aux
+submission/*.log
+submission/*.fdb_latexmk
+submission/*.fls
+submission/*.synctex.gz
+submission/*.out
+submission/*.bbl
+submission/*.blg

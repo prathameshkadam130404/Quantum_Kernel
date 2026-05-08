@@ -1,0 +1,16 @@
+{
+    "model": "Lightweight-CNN",
+    "macro_f1": 0.012197697750554442,
+    "accuracy": 0.1155,
+    "params": {
+        "epochs": 20,
+        "batch_size": 32,
+        "lr": 0.001,
+        "device": "cuda",
+        "input_shape": [
+            18,
+            32,
+            32
+        ]
+    }
+}

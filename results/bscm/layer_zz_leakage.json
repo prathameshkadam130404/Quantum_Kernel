@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "tau": 0.5,
+      "n_samples": 16,
+      "zz_pair_l2_norm_mean": 0.23467089189218063,
+      "zz_pair_l2_norm_max": 0.38602308035587035,
+      "zz_leakage_mean": 0.019710477948320246,
+      "zz_leakage_max": 0.048430745397628316,
+      "generator_total_norm_mean": 1.770708601964642
+    },
+    {
+      "tau": 1.0,
+      "n_samples": 16,
+      "zz_pair_l2_norm_mean": 0.32154550477028976,
+      "zz_pair_l2_norm_max": 0.48049270842116576,
+      "zz_leakage_mean": 0.03404436215086022,
+      "zz_leakage_max": 0.06652832784139015,
+      "generator_total_norm_mean": 1.810892599225289
+    },
+    {
+      "tau": 2.0,
+      "n_samples": 16,
+      "zz_pair_l2_norm_mean": 0.33489743411795514,
+      "zz_pair_l2_norm_max": 0.5323939350039493,
+      "zz_leakage_mean": 0.0359878890616486,
+      "zz_leakage_max": 0.07693802257870011,
+      "generator_total_norm_mean": 1.8356283198877887
+    }
+  ],
+  "n_qubits": 4,
+  "reps": 2
+}

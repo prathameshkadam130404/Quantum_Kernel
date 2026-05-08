@@ -1,0 +1,106 @@
+2026-05-07 06:23:33,654 [exp_e37] INFO: E37: PQK Scaling Analysis (True 16 Features, 16 Qubits)
+2026-05-07 06:23:33,681 [exp_e37] INFO: 
+============================================================
+2026-05-07 06:23:33,682 [exp_e37] INFO:   Condition: so2sat (N=1800, features=16)
+2026-05-07 06:23:33,682 [exp_e37] INFO: ============================================================
+2026-05-07 06:23:38,161 [exp_e37] INFO:   RBF-SVM F1: 0.4769 +/- 0.0355
+
+2026-05-07 06:23:38,163 [exp_e37] INFO:   Computing SRQFM-PQK (L=2) so2sat...
+2026-05-07 06:25:13,998 [exp_e37] INFO:   Mean Bloch magnitude: 0.8691 (Time: 95.1s)
+2026-05-07 06:25:16,778 [exp_e37] INFO:   --> SRQFM-PQK (L=2) F1: 0.4978 +/- 0.0223  (K_off_diag=0.0953)
+2026-05-07 06:25:16,779 [exp_e37] INFO:   Computing BSCM-PQK (L=2) so2sat...
+2026-05-07 06:27:19,329 [exp_e37] INFO:   Mean Bloch magnitude: 0.9699 (Time: 122.5s)
+2026-05-07 06:27:22,213 [exp_e37] INFO:   --> BSCM-PQK (L=2) F1: 0.4932 +/- 0.0270  (K_off_diag=0.1040)
+2026-05-07 06:27:22,214 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=2) so2sat...
+2026-05-07 06:29:33,472 [exp_e37] INFO:   Mean Bloch magnitude: 0.9943 (Time: 131.3s)
+2026-05-07 06:29:36,591 [exp_e37] INFO:   --> SG-BSCM-PQK (L=2) F1: 0.4862 +/- 0.0315  (K_off_diag=0.1113)
+2026-05-07 06:29:36,592 [exp_e37] INFO:   Computing SRQFM-PQK (L=4) so2sat...
+2026-05-07 06:32:16,804 [exp_e37] INFO:   Mean Bloch magnitude: 0.8652 (Time: 160.2s)
+2026-05-07 06:32:19,768 [exp_e37] INFO:   --> SRQFM-PQK (L=4) F1: 0.4788 +/- 0.0142  (K_off_diag=0.0668)
+2026-05-07 06:32:19,769 [exp_e37] INFO:   Computing BSCM-PQK (L=4) so2sat...
+2026-05-07 06:35:56,906 [exp_e37] INFO:   Mean Bloch magnitude: 0.9626 (Time: 217.1s)
+2026-05-07 06:36:00,157 [exp_e37] INFO:   --> BSCM-PQK (L=4) F1: 0.4787 +/- 0.0145  (K_off_diag=0.0474)
+2026-05-07 06:36:00,159 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=4) so2sat...
+2026-05-07 06:39:25,847 [exp_e37] INFO:   Mean Bloch magnitude: 0.9981 (Time: 205.7s)
+2026-05-07 06:39:28,902 [exp_e37] INFO:   --> SG-BSCM-PQK (L=4) F1: 0.4721 +/- 0.0149  (K_off_diag=0.0401)
+2026-05-07 06:39:28,904 [exp_e37] INFO:   Computing SRQFM-PQK (L=6) so2sat...
+2026-05-07 06:43:07,968 [exp_e37] INFO:   Mean Bloch magnitude: 0.7943 (Time: 219.1s)
+2026-05-07 06:43:11,165 [exp_e37] INFO:   --> SRQFM-PQK (L=6) F1: 0.4624 +/- 0.0200  (K_off_diag=0.0348)
+2026-05-07 06:43:11,166 [exp_e37] INFO:   Computing BSCM-PQK (L=6) so2sat...
+2026-05-07 06:48:16,901 [exp_e37] INFO:   Mean Bloch magnitude: 0.9272 (Time: 305.7s)
+2026-05-07 06:48:20,165 [exp_e37] INFO:   --> BSCM-PQK (L=6) F1: 0.4804 +/- 0.0119  (K_off_diag=0.0267)
+2026-05-07 06:48:20,166 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=6) so2sat...
+2026-05-07 06:53:24,071 [exp_e37] INFO:   Mean Bloch magnitude: 0.9929 (Time: 303.9s)
+2026-05-07 06:53:27,472 [exp_e37] INFO:   --> SG-BSCM-PQK (L=6) F1: 0.4604 +/- 0.0173  (K_off_diag=0.0191)
+2026-05-07 06:53:27,473 [exp_e37] INFO:   Computing SRQFM-PQK (L=8) so2sat...
+2026-05-07 06:58:19,040 [exp_e37] INFO:   Mean Bloch magnitude: 0.7738 (Time: 291.6s)
+2026-05-07 06:58:22,181 [exp_e37] INFO:   --> SRQFM-PQK (L=8) F1: 0.4599 +/- 0.0148  (K_off_diag=0.0482)
+2026-05-07 06:58:22,183 [exp_e37] INFO:   Computing BSCM-PQK (L=8) so2sat...
+2026-05-07 07:04:43,519 [exp_e37] INFO:   Mean Bloch magnitude: 0.8967 (Time: 381.3s)
+2026-05-07 07:04:46,981 [exp_e37] INFO:   --> BSCM-PQK (L=8) F1: 0.4483 +/- 0.0286  (K_off_diag=0.0222)
+2026-05-07 07:04:46,982 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=8) so2sat...
+2026-05-07 07:11:05,405 [exp_e37] INFO:   Mean Bloch magnitude: 0.9935 (Time: 378.4s)
+2026-05-07 07:11:09,063 [exp_e37] INFO:   --> SG-BSCM-PQK (L=8) F1: 0.4236 +/- 0.0255  (K_off_diag=0.0109)
+2026-05-07 07:11:09,064 [exp_e37] INFO:   Computing SRQFM-PQK (L=10) so2sat...
+2026-05-07 07:17:01,280 [exp_e37] INFO:   Mean Bloch magnitude: 0.7243 (Time: 352.2s)
+2026-05-07 07:17:05,270 [exp_e37] INFO:   --> SRQFM-PQK (L=10) F1: 0.4427 +/- 0.0195  (K_off_diag=0.0375)
+2026-05-07 07:17:05,272 [exp_e37] INFO:   Computing BSCM-PQK (L=10) so2sat...
+2026-05-07 07:26:21,737 [exp_e37] INFO:   Mean Bloch magnitude: 0.8619 (Time: 556.5s)
+2026-05-07 07:26:25,721 [exp_e37] INFO:   --> BSCM-PQK (L=10) F1: 0.4343 +/- 0.0253  (K_off_diag=0.0226)
+2026-05-07 07:26:25,723 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=10) so2sat...
+2026-05-07 07:35:40,276 [exp_e37] INFO:   Mean Bloch magnitude: 0.9890 (Time: 554.6s)
+2026-05-07 07:35:43,955 [exp_e37] INFO:   --> SG-BSCM-PQK (L=10) F1: 0.3990 +/- 0.0196  (K_off_diag=0.0074)
+2026-05-07 07:35:44,038 [eurosat_data] INFO: Loading cached features from /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/eurosat_band_means.npz
+2026-05-07 07:35:44,123 [exp_e37] INFO: 
+============================================================
+2026-05-07 07:35:44,124 [exp_e37] INFO:   Condition: eurosat (N=1500, features=16)
+2026-05-07 07:35:44,124 [exp_e37] INFO: ============================================================
+2026-05-07 07:35:48,852 [exp_e37] INFO:   RBF-SVM F1: 0.7137 +/- 0.0210
+
+2026-05-07 07:35:48,853 [exp_e37] INFO:   Computing SRQFM-PQK (L=2) eurosat...
+2026-05-07 07:37:10,268 [exp_e37] INFO:   Mean Bloch magnitude: 0.9546 (Time: 81.4s)
+2026-05-07 07:37:12,275 [exp_e37] INFO:   --> SRQFM-PQK (L=2) F1: 0.6913 +/- 0.0201  (K_off_diag=0.1541)
+2026-05-07 07:37:12,276 [exp_e37] INFO:   Computing BSCM-PQK (L=2) eurosat...
+2026-05-07 07:39:00,152 [exp_e37] INFO:   Mean Bloch magnitude: 0.9671 (Time: 107.9s)
+2026-05-07 07:39:02,270 [exp_e37] INFO:   --> BSCM-PQK (L=2) F1: 0.6936 +/- 0.0203  (K_off_diag=0.1463)
+2026-05-07 07:39:02,272 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=2) eurosat...
+2026-05-07 07:40:50,070 [exp_e37] INFO:   Mean Bloch magnitude: 0.9974 (Time: 107.8s)
+2026-05-07 07:40:52,281 [exp_e37] INFO:   --> SG-BSCM-PQK (L=2) F1: 0.6954 +/- 0.0157  (K_off_diag=0.1713)
+2026-05-07 07:40:52,282 [exp_e37] INFO:   Computing SRQFM-PQK (L=4) eurosat...
+2026-05-07 07:43:17,814 [exp_e37] INFO:   Mean Bloch magnitude: 0.9442 (Time: 145.5s)
+2026-05-07 07:43:19,891 [exp_e37] INFO:   --> SRQFM-PQK (L=4) F1: 0.6867 +/- 0.0177  (K_off_diag=0.0897)
+2026-05-07 07:43:19,893 [exp_e37] INFO:   Computing BSCM-PQK (L=4) eurosat...
+2026-05-07 07:46:43,075 [exp_e37] INFO:   Mean Bloch magnitude: 0.9667 (Time: 203.2s)
+2026-05-07 07:46:44,976 [exp_e37] INFO:   --> BSCM-PQK (L=4) F1: 0.6803 +/- 0.0172  (K_off_diag=0.0743)
+2026-05-07 07:46:44,977 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=4) eurosat...
+2026-05-07 07:50:19,417 [exp_e37] INFO:   Mean Bloch magnitude: 0.9988 (Time: 214.4s)
+2026-05-07 07:50:21,669 [exp_e37] INFO:   --> SG-BSCM-PQK (L=4) F1: 0.6826 +/- 0.0134  (K_off_diag=0.0731)
+2026-05-07 07:50:21,671 [exp_e37] INFO:   Computing SRQFM-PQK (L=6) eurosat...
+2026-05-07 07:53:48,636 [exp_e37] INFO:   Mean Bloch magnitude: 0.8868 (Time: 207.0s)
+2026-05-07 07:53:50,790 [exp_e37] INFO:   --> SRQFM-PQK (L=6) F1: 0.6668 +/- 0.0135  (K_off_diag=0.0461)
+2026-05-07 07:53:50,791 [exp_e37] INFO:   Computing BSCM-PQK (L=6) eurosat...
+2026-05-07 07:58:20,040 [exp_e37] INFO:   Mean Bloch magnitude: 0.9320 (Time: 269.2s)
+2026-05-07 07:58:22,077 [exp_e37] INFO:   --> BSCM-PQK (L=6) F1: 0.6669 +/- 0.0184  (K_off_diag=0.0450)
+2026-05-07 07:58:22,078 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=6) eurosat...
+2026-05-07 08:02:43,238 [exp_e37] INFO:   Mean Bloch magnitude: 0.9964 (Time: 261.2s)
+2026-05-07 08:02:45,396 [exp_e37] INFO:   --> SG-BSCM-PQK (L=6) F1: 0.6697 +/- 0.0145  (K_off_diag=0.0399)
+2026-05-07 08:02:45,397 [exp_e37] INFO:   Computing SRQFM-PQK (L=8) eurosat...
+2026-05-07 08:07:02,344 [exp_e37] INFO:   Mean Bloch magnitude: 0.8796 (Time: 256.9s)
+2026-05-07 08:07:04,493 [exp_e37] INFO:   --> SRQFM-PQK (L=8) F1: 0.6408 +/- 0.0167  (K_off_diag=0.0370)
+2026-05-07 08:07:04,495 [exp_e37] INFO:   Computing BSCM-PQK (L=8) eurosat...
+2026-05-07 08:13:09,412 [exp_e37] INFO:   Mean Bloch magnitude: 0.8936 (Time: 364.9s)
+2026-05-07 08:13:11,704 [exp_e37] INFO:   --> BSCM-PQK (L=8) F1: 0.6450 +/- 0.0193  (K_off_diag=0.0333)
+2026-05-07 08:13:11,706 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=8) eurosat...
+2026-05-07 08:19:12,224 [exp_e37] INFO:   Mean Bloch magnitude: 0.9964 (Time: 360.5s)
+2026-05-07 08:19:14,741 [exp_e37] INFO:   --> SG-BSCM-PQK (L=8) F1: 0.6385 +/- 0.0095  (K_off_diag=0.0217)
+2026-05-07 08:19:14,742 [exp_e37] INFO:   Computing SRQFM-PQK (L=10) eurosat...
+2026-05-07 08:24:44,952 [exp_e37] INFO:   Mean Bloch magnitude: 0.8221 (Time: 330.2s)
+2026-05-07 08:24:47,406 [exp_e37] INFO:   --> SRQFM-PQK (L=10) F1: 0.6298 +/- 0.0173  (K_off_diag=0.0299)
+2026-05-07 08:24:47,407 [exp_e37] INFO:   Computing BSCM-PQK (L=10) eurosat...
+2026-05-07 08:32:18,026 [exp_e37] INFO:   Mean Bloch magnitude: 0.8549 (Time: 450.6s)
+2026-05-07 08:32:20,285 [exp_e37] INFO:   --> BSCM-PQK (L=10) F1: 0.6378 +/- 0.0127  (K_off_diag=0.0334)
+2026-05-07 08:32:20,286 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=10) eurosat...
+2026-05-07 08:38:55,481 [exp_e37] INFO:   Mean Bloch magnitude: 0.9939 (Time: 395.2s)
+2026-05-07 08:38:57,774 [exp_e37] INFO:   --> SG-BSCM-PQK (L=10) F1: 0.6314 +/- 0.0102  (K_off_diag=0.0145)
+2026-05-07 08:38:57,880 [exp_e37] INFO: 
+Experiment E37 Complete.

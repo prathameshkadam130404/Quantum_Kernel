@@ -1,0 +1,13 @@
+{
+  "depth": 6,
+  "so2sat": {
+    "n_samples": 10000,
+    "standard_pqk_f1_mean": 0.4419876719247487,
+    "standard_pqk_f1_std": 0.006436587658821506
+  },
+  "eurosat": {
+    "n_samples": 10000,
+    "standard_pqk_f1_mean": 0.684970913985288,
+    "standard_pqk_f1_std": 0.005722493699623566
+  }
+}

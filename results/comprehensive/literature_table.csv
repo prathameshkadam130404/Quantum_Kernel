@@ -1,0 +1,10 @@
+dataset,paper,model,input,metric,value,note
+So2Sat,"Sen2LCZ-Net (Qiu et al. 2020, ISPRS-J)",recurrent residual CNN,raw 32x32 image cube,OA (test),0.61,"Sentinel-2 only; 17 classes, official cultural-10 test split"
+So2Sat,"ResNeXt baseline (Zhu et al. 2020, IEEE-GRS-Mag)",ResNeXt-29,raw 32x32 S1+S2 cube,OA (test),0.63,multi-modal CNN; canonical baseline
+So2Sat,LCZ Transformer ensembles (2023+),SwinT / ViT,raw 32x32 image cube,OA (test),0.68,"state-of-the-art deep models, range 0.65-0.70"
+EuroSAT,Helber et al. 2019 (IEEE-JSTARS),ResNet-50 fine-tuned,64x64 RGB,OA,0.985,canonical EuroSAT result
+EuroSAT,EfficientNet ensembles 2022+,EfficientNet-B0/B3,64x64 multispectral,OA,0.99,near-saturated; all-bands
+EuroSAT,Classical RF/SVM with NDVI/NDBI features,RF / SVM,hand-crafted spectral indices,OA,0.85,typical range 0.60-0.90
+EuroSAT (binary),Rodriguez-Grasa et al. MLST 2025,Neural Quantum Kernel + U-Net,satellite patches,OA (binary solar),0.9,binary solar-panel detection; not directly comparable
+multiple,Schnabel & Roth QMI 2025,FQK / PQK 9 encodings,64 datasets,best F1 vs RBF,-0.01,"no consistent advantage; mostly synthetic, N <= 500"
+multiple,Bowles et al. 2024,12 QML models,160 binary tasks,vs classical,-0.02,classical >= QML in most cases

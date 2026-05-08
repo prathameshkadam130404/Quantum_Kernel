@@ -1,0 +1,119 @@
+2026-05-05 03:37:39,162 INFO: ========================================================================
+2026-05-05 03:37:39,162 INFO:   EuroSAT BSCM Fixed-Pool Evaluation
+2026-05-05 03:37:39,163 INFO: ========================================================================
+2026-05-05 03:37:39,181 INFO: Locked tau = 0.250  (selected on So2Sat held-out pool; applied to EuroSAT without re-tuning)
+2026-05-05 03:37:39,183 INFO: Loading cached features from data/processed/eurosat_band_means.npz
+2026-05-05 03:37:39,209 INFO: EuroSAT: 27597 samples, 10 classes
+2026-05-05 03:37:39,212 INFO: Fixed pool: 1500 samples (pool_seed=0, n_train_capacity=1000, n_test_capacity=500)
+  Class distribution: {'AnnualCrop': 164, 'Forest': 163, 'HerbaceousVegetation': 164, 'Highway': 136, 'Industrial': 135, 'Pasture': 108, 'PermanentCrop': 136, 'Residential': 164, 'River': 135, 'SeaLake': 195}
+2026-05-05 03:37:39,212 INFO: 
+Preparing pool features...
+2026-05-05 03:37:39,217 INFO:   PCA-8 explained variance: 0.999
+2026-05-05 03:37:39,218 INFO:   Physics-8: ['NDVI', 'NDBI', 'NDWI', 'BSI', 'SAVI', 'NDRE', 'MNDWI', 'EVI']
+2026-05-05 03:37:39,218 INFO: 
+========================================================================
+  FEATURE SET: PCA8  (n_qubits=8)
+========================================================================
+2026-05-05 03:37:39,219 INFO: 
+  [1/2] BSCM-uniform kernel...
+2026-05-05 03:37:39,263 INFO:   Using PennyLane device: lightning.qubit (8 wires)
+2026-05-05 03:37:39,413 INFO:   Loaded cached gram (1500×1500) from results/eurosat_bscm_fixed/kernels/K_pool_bscm_pca8.npy
+2026-05-05 03:37:39,413 INFO:   Global BSCM-uniform spectral metrics (N=1500):
+2026-05-05 03:37:51,868 INFO:     off_diag_mean = 0.2328
+2026-05-05 03:37:51,868 INFO:     off_diag_var = 0.0473
+2026-05-05 03:37:51,869 INFO:     within_1sigma = 0.7188
+2026-05-05 03:37:51,869 INFO:     eff_rank_shannon = 28.5277
+2026-05-05 03:37:51,869 INFO:     eff_rank_huang = 3.5856
+2026-05-05 03:37:51,870 INFO: 
+  [2/2] SRQFM-fid kernel...
+2026-05-05 03:37:51,875 INFO:   Using PennyLane device: lightning.qubit (8 wires)
+2026-05-05 03:37:51,997 INFO:   Loaded cached gram (1500×1500) from results/eurosat_bscm_fixed/kernels/K_pool_srqfm_linear_pca8.npy
+2026-05-05 03:37:51,998 INFO:   Global SRQFM-fid spectral metrics (N=1500):
+2026-05-05 03:37:54,763 INFO:     off_diag_mean = 0.2785
+2026-05-05 03:37:54,771 INFO:     off_diag_var = 0.0571
+2026-05-05 03:37:54,771 INFO:     within_1sigma = 0.6384
+2026-05-05 03:37:54,772 INFO:     eff_rank_shannon = 21.2416
+2026-05-05 03:37:54,772 INFO:     eff_rank_huang = 3.0276
+2026-05-05 03:37:54,772 INFO: 
+  Permutation KTA test (n_perm=1000) on full pool...
+2026-05-05 03:38:11,152 INFO:     BSCM-uniform     KTA(cc)=0.3505  null=0.0086±0.0009  p=0.0010  (16.4s)
+2026-05-05 03:38:27,746 INFO:     SRQFM-fid        KTA(cc)=0.3503  null=0.0077±0.0009  p=0.0010  (16.6s)
+2026-05-05 03:38:27,747 INFO: 
+  Evaluating on 5 within-pool splits...
+2026-05-05 03:38:36,341 INFO:   [pca8] seed=42  BSCM-uniform=0.7883  SRQFM-fid=0.7666  RBF-SVM=0.7514  RF=0.7374
+2026-05-05 03:38:45,801 INFO:   [pca8] seed=43  BSCM-uniform=0.7561  SRQFM-fid=0.7439  RBF-SVM=0.7471  RF=0.6982
+2026-05-05 03:38:49,853 INFO:   [pca8] seed=44  BSCM-uniform=0.7780  SRQFM-fid=0.7693  RBF-SVM=0.7827  RF=0.7417
+2026-05-05 03:39:02,858 INFO:   [pca8] seed=45  BSCM-uniform=0.7491  SRQFM-fid=0.7656  RBF-SVM=0.7693  RF=0.7408
+2026-05-05 03:39:16,221 INFO:   [pca8] seed=46  BSCM-uniform=0.7203  SRQFM-fid=0.7177  RBF-SVM=0.7353  RF=0.7095
+2026-05-05 03:39:26,588 INFO: 
+  Summary [pca8]:
+2026-05-05 03:39:26,589 INFO:     BSCM-uniform     F1 = 0.7583 ± 0.0238
+2026-05-05 03:39:26,589 INFO:     SRQFM-fid        F1 = 0.7526 ± 0.0197
+2026-05-05 03:39:26,591 INFO:     RBF-SVM          F1 = 0.7572 ± 0.0168
+2026-05-05 03:39:26,592 INFO:     RF               F1 = 0.7255 ± 0.0181
+2026-05-05 03:39:26,593 INFO:   Wilcoxon (Holm-corrected) — n=5 power floor p_raw=0.0625:
+2026-05-05 03:39:26,593 INFO:     BSCM-uniform    vs RBF-SVM          Δ=+0.0012  p_raw=1.0000  p_holm=1.0000  reject=False
+2026-05-05 03:39:26,593 INFO:     BSCM-uniform    vs RF               Δ=+0.0328  p_raw=0.0625  p_holm=0.2500  reject=False
+2026-05-05 03:39:26,594 INFO:     SRQFM-fid       vs RBF-SVM          Δ=-0.0045  p_raw=0.4375  p_holm=1.0000  reject=False
+2026-05-05 03:39:26,594 INFO:     BSCM-uniform    vs SRQFM-fid        Δ=+0.0057  p_raw=0.4375  p_holm=1.0000  reject=False
+2026-05-05 03:39:26,594 INFO:   Pooled bootstrap per-class CIs (B=1000):
+2026-05-05 03:39:26,595 INFO:     BSCM-uniform_vs_RBF-SVM : 1 / 10 classes with 95% CI excluding zero
+2026-05-05 03:39:26,595 INFO:     BSCM-uniform_vs_RF : 5 / 10 classes with 95% CI excluding zero
+2026-05-05 03:39:26,595 INFO:     SRQFM-fid_vs_RBF-SVM : 1 / 10 classes with 95% CI excluding zero
+2026-05-05 03:39:26,596 INFO:     BSCM-uniform_vs_SRQFM-fid : 0 / 10 classes with 95% CI excluding zero
+2026-05-05 03:39:26,608 INFO: 
+========================================================================
+  FEATURE SET: PHYSICS8  (n_qubits=8)
+========================================================================
+2026-05-05 03:39:26,608 INFO: 
+  [1/2] BSCM-uniform kernel...
+2026-05-05 03:39:26,613 INFO:   Using PennyLane device: lightning.qubit (8 wires)
+2026-05-05 03:39:26,697 INFO:   Loaded cached gram (1500×1500) from results/eurosat_bscm_fixed/kernels/K_pool_bscm_physics8.npy
+2026-05-05 03:39:26,699 INFO:   Global BSCM-uniform spectral metrics (N=1500):
+2026-05-05 03:39:29,253 INFO:     off_diag_mean = 0.0091
+2026-05-05 03:39:29,256 INFO:     off_diag_var = 0.0059
+2026-05-05 03:39:29,266 INFO:     within_1sigma = 0.9833
+2026-05-05 03:39:29,267 INFO:     eff_rank_shannon = 1122.3753
+2026-05-05 03:39:29,267 INFO:     eff_rank_huang = 22.0990
+2026-05-05 03:39:29,267 INFO: 
+  [2/2] SRQFM-fid kernel...
+2026-05-05 03:39:29,271 INFO:   Using PennyLane device: lightning.qubit (8 wires)
+2026-05-05 03:39:29,344 INFO:   Loaded cached gram (1500×1500) from results/eurosat_bscm_fixed/kernels/K_pool_srqfm_linear_physics8.npy
+2026-05-05 03:39:29,345 INFO:   Global SRQFM-fid spectral metrics (N=1500):
+2026-05-05 03:39:51,824 INFO:     off_diag_mean = 0.2570
+2026-05-05 03:39:51,846 INFO:     off_diag_var = 0.1022
+2026-05-05 03:39:51,846 INFO:     within_1sigma = 0.7850
+2026-05-05 03:39:51,846 INFO:     eff_rank_shannon = 10.8171
+2026-05-05 03:39:51,847 INFO:     eff_rank_huang = 2.9815
+2026-05-05 03:39:51,847 INFO: 
+  Permutation KTA test (n_perm=1000) on full pool...
+2026-05-05 03:40:08,980 INFO:     BSCM-uniform     KTA(cc)=0.0657  null=0.0301±0.0008  p=0.0010  (17.1s)
+2026-05-05 03:40:28,829 INFO:     SRQFM-fid        KTA(cc)=0.2880  null=0.0051±0.0009  p=0.0010  (19.8s)
+2026-05-05 03:40:28,829 INFO: 
+  Evaluating on 5 within-pool splits...
+2026-05-05 03:41:28,031 INFO:   [physics8] seed=42  BSCM-uniform=0.0270  SRQFM-fid=0.6958  RBF-SVM=0.6717  RF=0.6021
+2026-05-05 03:41:36,863 INFO:   [physics8] seed=43  BSCM-uniform=0.0470  SRQFM-fid=0.6234  RBF-SVM=0.6362  RF=0.5501
+2026-05-05 03:41:49,801 INFO:   [physics8] seed=44  BSCM-uniform=0.0300  SRQFM-fid=0.6599  RBF-SVM=0.6562  RF=0.6094
+2026-05-05 03:42:04,849 INFO:   [physics8] seed=45  BSCM-uniform=0.0322  SRQFM-fid=0.6766  RBF-SVM=0.6573  RF=0.5949
+2026-05-05 03:42:10,108 INFO:   [physics8] seed=46  BSCM-uniform=0.0228  SRQFM-fid=0.6267  RBF-SVM=0.6321  RF=0.5451
+2026-05-05 03:42:20,236 INFO: 
+  Summary [physics8]:
+2026-05-05 03:42:20,237 INFO:     BSCM-uniform     F1 = 0.0318 ± 0.0082
+2026-05-05 03:42:20,237 INFO:     SRQFM-fid        F1 = 0.6565 ± 0.0281
+2026-05-05 03:42:20,238 INFO:     RBF-SVM          F1 = 0.6507 ± 0.0146
+2026-05-05 03:42:20,238 INFO:     RF               F1 = 0.5803 ± 0.0271
+2026-05-05 03:42:20,238 INFO:   Wilcoxon (Holm-corrected) — n=5 power floor p_raw=0.0625:
+2026-05-05 03:42:20,239 INFO:     BSCM-uniform    vs RBF-SVM          Δ=-0.6189  p_raw=0.0625  p_holm=0.2500  reject=False
+2026-05-05 03:42:20,239 INFO:     BSCM-uniform    vs RF               Δ=-0.5485  p_raw=0.0625  p_holm=0.2500  reject=False
+2026-05-05 03:42:20,239 INFO:     SRQFM-fid       vs RBF-SVM          Δ=+0.0058  p_raw=0.6250  p_holm=0.6250  reject=False
+2026-05-05 03:42:20,240 INFO:     BSCM-uniform    vs SRQFM-fid        Δ=-0.6246  p_raw=0.0625  p_holm=0.2500  reject=False
+2026-05-05 03:42:20,240 INFO:   Pooled bootstrap per-class CIs (B=1000):
+2026-05-05 03:42:20,240 INFO:     BSCM-uniform_vs_RBF-SVM : 10 / 10 classes with 95% CI excluding zero
+2026-05-05 03:42:20,241 INFO:     BSCM-uniform_vs_RF : 10 / 10 classes with 95% CI excluding zero
+2026-05-05 03:42:20,241 INFO:     SRQFM-fid_vs_RBF-SVM : 0 / 10 classes with 95% CI excluding zero
+2026-05-05 03:42:20,241 INFO:     BSCM-uniform_vs_SRQFM-fid : 10 / 10 classes with 95% CI excluding zero
+2026-05-05 03:42:20,268 INFO: 
+========================================================================
+2026-05-05 03:42:20,268 INFO:   DONE.  Wall clock: 4.7 min
+2026-05-05 03:42:20,269 INFO:   Results: results/eurosat_bscm_fixed/eurosat_bscm_fixed_results.json
+2026-05-05 03:42:20,270 INFO: ========================================================================

@@ -1,0 +1,115 @@
+{
+  "selected_feature_indices": [
+    0,
+    2,
+    5,
+    6,
+    11,
+    12,
+    13,
+    15
+  ],
+  "selected_feature_names": [
+    "NDVI",
+    "NDWI",
+    "NDRE",
+    "MNDWI",
+    "PolCoh",
+    "VH_dB",
+    "VV_dB",
+    "NDVI_tex"
+  ],
+  "selected_feature_modalities": [
+    "OPT",
+    "OPT",
+    "OPT",
+    "OPT",
+    "SAR",
+    "SAR",
+    "SAR",
+    "SAR"
+  ],
+  "importance_scores": [
+    3.2953875041578065,
+    1.8512338628224105,
+    4.911111133468585,
+    1.6262230286145534,
+    2.158209980832043,
+    3.138512496679996,
+    5.786590615639294,
+    1.9328751603595289,
+    0.058464652256131934,
+    0.37261050167982607,
+    0.14536585317988662,
+    0.6067547670743557,
+    2.5345238401661545,
+    2.035794582637536,
+    0.13553371154190202,
+    0.41471491538335264
+  ],
+  "gamma_base": 0.5,
+  "gamma_per_qubit": [
+    0.580087306542691,
+    0.8,
+    0.5524725873520493,
+    0.8,
+    0.2,
+    0.44615241939080214,
+    0.358361071232568,
+    0.2
+  ],
+  "entanglement_pairs_qubit_space": [
+    [
+      2,
+      5
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      3,
+      6
+    ]
+  ],
+  "entanglement_pairs_feature_names": [
+    [
+      "NDRE",
+      "VH_dB"
+    ],
+    [
+      "NDWI",
+      "PolCoh"
+    ],
+    [
+      "NDVI",
+      "NDVI_tex"
+    ],
+    [
+      "MNDWI",
+      "VV_dB"
+    ]
+  ],
+  "outer_gamma": 0.67,
+  "n_qubits": 8,
+  "zz_reps": 2,
+  "top_k_pairs": 4,
+  "require_cross_modal": true,
+  "kta_centered_weighted": 0.26650809651971696,
+  "kta_full": {
+    "kta_weighted": 0.32315350350311467,
+    "kta_unweighted": 0.3855506479622466,
+    "kta_centered_weighted": 0.26650809651971696,
+    "kta_centered_unweighted": 0.3588375061418546
+  },
+  "concentration": {
+    "off_diag_mean": 0.2815230947169349,
+    "eff_rank": 16.429551334495187,
+    "cv": 0.9826257323889706,
+    "min_eigval": 2.406823559819664e-08
+  }
+}

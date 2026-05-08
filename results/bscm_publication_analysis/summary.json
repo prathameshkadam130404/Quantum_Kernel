@@ -1,0 +1,222 @@
+{
+  "date": "2026-05-04T08:30:59.617762",
+  "n_seeds": 5,
+  "n_boot": 1000,
+  "n_perm": 1000,
+  "f1_means": {
+    "BSCM-phi_only": 0.4922473321824171,
+    "BSCM-uniform": 0.48293518890094467,
+    "BSCM-14q": 0.4178804559935769,
+    "RF_phys8_N1800": 0.4323764775781071,
+    "RF_phys14_N800": 0.4300511935209183,
+    "RF_phys8_N800": 0.4003815698202199,
+    "SRQFM-PQK": 0.49244491895903686,
+    "RBF-SVM (E26)": 0.5183228519917027,
+    "RF (E26)": 0.4968434295702468,
+    "ZZ-PQK": 0.4449018176690537
+  },
+  "f1_stds": {
+    "BSCM-phi_only": 0.027232737269163077,
+    "BSCM-uniform": 0.030284752078358356,
+    "BSCM-14q": 0.0433423587598948,
+    "RF_phys8_N1800": 0.019807986118748424,
+    "RF_phys14_N800": 0.03264658629492249,
+    "RF_phys8_N800": 0.03149641800295763,
+    "SRQFM-PQK": 0.02419207692315427,
+    "RBF-SVM (E26)": 0.02006713253575509,
+    "RF (E26)": 0.01984853915955644,
+    "ZZ-PQK": 0.022531692411060913
+  },
+  "wilcoxon": [
+    {
+      "A": "BSCM-phi_only",
+      "B": "RBF-SVM (E26)",
+      "mean_A": 0.4922473321824171,
+      "mean_B": 0.5183228519917027,
+      "delta_mean": -0.02607551980928554,
+      "p_raw": 0.1875,
+      "p_holm": 1.0,
+      "reject_holm_05": false
+    },
+    {
+      "A": "BSCM-phi_only",
+      "B": "RF (E26)",
+      "mean_A": 0.4922473321824171,
+      "mean_B": 0.4968434295702468,
+      "delta_mean": -0.0045960973878297565,
+      "p_raw": 1.0,
+      "p_holm": 1.0,
+      "reject_holm_05": false
+    },
+    {
+      "A": "BSCM-phi_only",
+      "B": "SRQFM-PQK",
+      "mean_A": 0.4922473321824171,
+      "mean_B": 0.49244491895903686,
+      "delta_mean": -0.00019758677661970702,
+      "p_raw": 1.0,
+      "p_holm": 1.0,
+      "reject_holm_05": false
+    },
+    {
+      "A": "BSCM-phi_only",
+      "B": "BSCM-uniform",
+      "mean_A": 0.4922473321824171,
+      "mean_B": 0.48293518890094467,
+      "delta_mean": 0.009312143281472462,
+      "p_raw": 0.3125,
+      "p_holm": 1.0,
+      "reject_holm_05": false
+    },
+    {
+      "A": "BSCM-phi_only",
+      "B": "ZZ-PQK",
+      "mean_A": 0.4922473321824171,
+      "mean_B": 0.4449018176690537,
+      "delta_mean": 0.04734551451336346,
+      "p_raw": 0.0625,
+      "p_holm": 0.5625,
+      "reject_holm_05": false
+    },
+    {
+      "A": "BSCM-uniform",
+      "B": "ZZ-PQK",
+      "mean_A": 0.48293518890094467,
+      "mean_B": 0.4449018176690537,
+      "delta_mean": 0.038033371231891,
+      "p_raw": 0.0625,
+      "p_holm": 0.5625,
+      "reject_holm_05": false
+    },
+    {
+      "A": "BSCM-uniform",
+      "B": "RF_phys8_N1800",
+      "mean_A": 0.48293518890094467,
+      "mean_B": 0.4323764775781071,
+      "delta_mean": 0.05055871132283753,
+      "p_raw": 0.0625,
+      "p_holm": 0.5625,
+      "reject_holm_05": false
+    },
+    {
+      "A": "BSCM-14q",
+      "B": "RF_phys14_N800",
+      "mean_A": 0.4178804559935769,
+      "mean_B": 0.4300511935209183,
+      "delta_mean": -0.012170737527341347,
+      "p_raw": 0.3125,
+      "p_holm": 1.0,
+      "reject_holm_05": false
+    },
+    {
+      "A": "SRQFM-PQK",
+      "B": "RBF-SVM (E26)",
+      "mean_A": 0.49244491895903686,
+      "mean_B": 0.5183228519917027,
+      "delta_mean": -0.025877933032665834,
+      "p_raw": 0.3125,
+      "p_holm": 1.0,
+      "reject_holm_05": false
+    }
+  ],
+  "perm_kta": [
+    {
+      "n_eval": 500,
+      "kta_product": 0.5970702426476394,
+      "kta_product_pvalue": 0.03896103896103896,
+      "kta_product_null_mean": 0.5866881829261461,
+      "kta_product_null_std": 0.005313968285141728,
+      "kta_class_centered": 0.28188811828967153,
+      "kta_class_centered_pvalue": 0.000999000999000999,
+      "kta_class_centered_null_mean": 0.027228376007758993,
+      "kta_class_centered_null_std": 0.0026092397392967325,
+      "name": "BSCM-phi_only 8q (N=1800)"
+    },
+    {
+      "n_eval": 500,
+      "kta_product": 0.5898038996501799,
+      "kta_product_pvalue": 0.022977022977022976,
+      "kta_product_null_mean": 0.5804716026911647,
+      "kta_product_null_std": 0.004167382536598529,
+      "kta_class_centered": 0.28707452895490937,
+      "kta_class_centered_pvalue": 0.000999000999000999,
+      "kta_class_centered_null_mean": 0.024468868027817864,
+      "kta_class_centered_null_std": 0.002556135251121606,
+      "name": "BSCM-uniform 8q  (N=1800)"
+    },
+    {
+      "n_eval": 500,
+      "kta_product": 0.4174796803518338,
+      "kta_product_pvalue": 0.000999000999000999,
+      "kta_product_null_mean": 0.40439131355671465,
+      "kta_product_null_std": 0.004173682141090127,
+      "kta_class_centered": 0.31665965982410776,
+      "kta_class_centered_pvalue": 0.000999000999000999,
+      "kta_class_centered_null_mean": 0.05494135828669566,
+      "kta_class_centered_null_std": 0.002622405145976108,
+      "name": "BSCM-uniform 14q (N=800)"
+    }
+  ],
+  "concentration": [
+    {
+      "N": 500,
+      "off_diag_mean": 0.216100054541823,
+      "off_diag_var": 0.07389982788200872,
+      "off_diag_std": 0.27184522780804654,
+      "within_1sigma": 0.8046412825651302,
+      "eff_rank_shannon": 16.209667809246866,
+      "eff_rank_huang": 3.960299981105618,
+      "kta_product": 0.5971645199528682,
+      "kta_class_centered": 0.28528685771876017,
+      "kernel": "BSCM-uniform   n=8  (N=500)"
+    },
+    {
+      "N": 500,
+      "off_diag_mean": 0.20980877156729968,
+      "off_diag_var": 0.06728505821062496,
+      "off_diag_std": 0.2593936356401694,
+      "within_1sigma": 0.8118236472945892,
+      "eff_rank_shannon": 19.347098030526634,
+      "eff_rank_huang": 3.7885011716811627,
+      "kta_product": 0.604122185804542,
+      "kta_class_centered": 0.2788971221508131,
+      "kernel": "BSCM-phi_only  n=8  (N=500)"
+    },
+    {
+      "N": 1800,
+      "off_diag_mean": 0.21462961900227473,
+      "off_diag_var": 0.07420917918979118,
+      "off_diag_std": 0.2724136178493858,
+      "within_1sigma": 0.8066364029399049,
+      "eff_rank_shannon": 16.69234181820305,
+      "eff_rank_huang": 4.000167242198066,
+      "kta_product": 0.5900287494219307,
+      "kta_class_centered": 0.275483461193544,
+      "kernel": "BSCM-uniform   n=8  (N=1800)"
+    },
+    {
+      "N": 1800,
+      "off_diag_mean": 0.20725175357551176,
+      "off_diag_var": 0.06728587872857889,
+      "off_diag_std": 0.25939521724306885,
+      "within_1sigma": 0.813137545549997,
+      "eff_rank_shannon": 20.271455905273555,
+      "eff_rank_huang": 3.821610725313467,
+      "kta_product": 0.5956401859237098,
+      "kta_class_centered": 0.2688839276007314,
+      "kernel": "BSCM-phi_only  n=8  (N=1800)"
+    },
+    {
+      "N": 800,
+      "off_diag_mean": 0.06556671118758722,
+      "off_diag_var": 0.01887440907030635,
+      "off_diag_std": 0.1373841660101569,
+      "within_1sigma": 0.891520650813517,
+      "eff_rank_shannon": 111.18350731346673,
+      "eff_rank_huang": 11.493901198010617,
+      "kta_product": 0.41749008030421136,
+      "kta_class_centered": 0.29823179053955673,
+      "kernel": "BSCM-uniform   n=14 (N=800)"
+    }
+  ]
+}
