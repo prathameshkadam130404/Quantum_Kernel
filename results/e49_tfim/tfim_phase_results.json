@@ -1,0 +1,183 @@
+{
+  "protocol": {
+    "n_qubits": 16,
+    "depth": 6,
+    "tau": 0.25,
+    "n_splits": 5,
+    "test_fraction": 0.3,
+    "split_seed": 42,
+    "C_grid": [
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "gamma_multipliers": [
+      0.1,
+      0.5,
+      1.0,
+      2.0,
+      5.0
+    ],
+    "rbf_gamma_grid": [
+      "scale",
+      "auto",
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "inner_cv_folds": 3
+  },
+  "dataset": {
+    "name": "TFIM phase classification",
+    "L_sites": 16,
+    "h_over_J_ferro_range": [
+      0.05,
+      0.9
+    ],
+    "h_over_J_para_range": [
+      1.1,
+      2.5
+    ],
+    "n_samples": 600,
+    "feature_description": "15 nearest-neighbour <Z_i Z_{i+1}> correlators + 1 average <X> on the ground state of -J sum ZZ - h sum X (open BC)"
+  },
+  "summary": {
+    "BSCM-uniform": {
+      "f1_mean": 1.0,
+      "f1_std": 0.0,
+      "acc_mean": 1.0,
+      "acc_std": 0.0,
+      "f1_per_split": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "acc_per_split": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "best_C_per_split": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "best_gamma_multiplier_per_split": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "dyn_gamma_train_per_split": [
+        0.09908616903869039,
+        0.09817303013617072,
+        0.09745512615150763,
+        0.10177253067351713,
+        0.10229234408790638
+      ]
+    },
+    "Standard-ZZ": {
+      "f1_mean": 0.9521188600029691,
+      "f1_std": 0.02359987213734095,
+      "acc_mean": 0.9522222222222222,
+      "acc_std": 0.023465235646603196,
+      "f1_per_split": [
+        0.9555335968379447,
+        0.9107142857142857,
+        0.983332818914164,
+        0.9610522085870606,
+        0.94996138996139
+      ],
+      "acc_per_split": [
+        0.9555555555555556,
+        0.9111111111111111,
+        0.9833333333333333,
+        0.9611111111111111,
+        0.95
+      ],
+      "best_C_per_split": [
+        1.0,
+        10.0,
+        1.0,
+        100.0,
+        10.0
+      ],
+      "best_gamma_multiplier_per_split": [
+        2.0,
+        0.5,
+        2.0,
+        1.0,
+        2.0
+      ],
+      "dyn_gamma_train_per_split": [
+        0.6036737231139617,
+        0.6682559899504492,
+        0.5465571641544378,
+        0.37490698932546546,
+        0.39539755881576427
+      ]
+    },
+    "RBF-SVM": {
+      "f1_mean": 1.0,
+      "f1_std": 0.0,
+      "acc_mean": 1.0,
+      "acc_std": 0.0,
+      "f1_per_split": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "acc_per_split": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "RandomForest": {
+      "f1_mean": 1.0,
+      "f1_std": 0.0,
+      "acc_mean": 1.0,
+      "acc_std": 0.0,
+      "f1_per_split": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "acc_per_split": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "architectural_gap": {
+    "bscm_minus_zz_f1": 0.04788113999703099,
+    "bscm_minus_zz_f1_per_split": [
+      0.0444664031620553,
+      0.0892857142857143,
+      0.01666718108583598,
+      0.03894779141293936,
+      0.05003861003860999
+    ],
+    "bscm_minus_zz_acc": 0.04777777777777779
+  }
+}

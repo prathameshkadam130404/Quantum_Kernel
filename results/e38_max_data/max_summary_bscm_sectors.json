@@ -1,0 +1,17 @@
+{
+  "depth": 6,
+  "n_so2sat": 10000,
+  "n_eurosat": 10000,
+  "so2sat_bscm_uniform_f1_mean": 0.6551472322957148,
+  "so2sat_bscm_uniform_f1_std": 0.013881437296910052,
+  "eurosat_bscm_uniform_f1_mean": 0.8114303209718108,
+  "eurosat_bscm_uniform_f1_std": 0.005120108543745729,
+  "so2sat_bscm_phi_only_f1_mean": 0.6582600108311659,
+  "so2sat_bscm_phi_only_f1_std": 0.006584318232724107,
+  "eurosat_bscm_phi_only_f1_mean": 0.8122701390814534,
+  "eurosat_bscm_phi_only_f1_std": 0.006905810114509657,
+  "so2sat_bscm_psi_only_f1_mean": 0.6549181460336737,
+  "so2sat_bscm_psi_only_f1_std": 0.011406832785896104,
+  "eurosat_bscm_psi_only_f1_mean": 0.8009450883451157,
+  "eurosat_bscm_psi_only_f1_std": 0.0033977573665231143
+}

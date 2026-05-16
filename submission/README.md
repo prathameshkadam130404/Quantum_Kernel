@@ -1,41 +1,54 @@
-# Submission Package
-## Quantum Kernel Methods for Multi-Class Land Cover Classification on the So2Sat LCZ42 Dataset
+# Submission package
 
-**Target Journal:** Quantum Machine Intelligence (Springer)
+**Manuscript title.**  Bell-Decomposition Quantum Kernels: A Multi-Scale Benchmark on Earth Observation and Beyond.
+
+**Target journal.**  *Quantum Machine Intelligence* (Springer Nature), `sn-jnl` class with the `sn-mathphys` (numbered) reference style.
+
+**Corresponding author.**  Prathamesh Balasaheb Kadam, AISSMS Institute of Information Technology, Pune, India.
 
 ---
 
 ## Contents
 
+| File | Role |
+|---|---|
+| `sn-article.tex`        | Main manuscript source (the Springer Nature template default name). |
+| `sn-article.pdf`        | Compiled manuscript (39 pages). |
+| `sn-article.bbl`        | BibTeX-generated bibliography, uploaded as a backup. |
+| `refs.bib`              | BibTeX database (22 entries). |
+| `sn-jnl.cls`            | Springer Nature journal class (full template). |
+| `sn-mathphys.bst`       | Bibliography style for math/physics journals. |
+| `cover_letter.tex`      | Cover letter source. |
+| `cover_letter.pdf`      | Cover letter (2 pages). |
+| `figures/fig_*.pdf` (×8) | All figures cited in the manuscript, vector PDF. |
+
+## Compile
+
+From this directory (`submission/`):
+
+```bash
+pdflatex -interaction=nonstopmode sn-article.tex
+bibtex sn-article
+pdflatex -interaction=nonstopmode sn-article.tex
+pdflatex -interaction=nonstopmode sn-article.tex
 ```
-submission/
-├── paper.tex              # Main manuscript (LaTeX source)
-├── sn-jnl.cls             # Springer Nature journal class (YOU MUST ADD THIS)
-├── figures/
-│   ├── fig_learning_curves.pdf        # Fig 1: AGPQK vs RBF-SVM learning curves
-│   ├── fig_concentration_scaling.pdf  # Fig 2: Off-diagonal variance vs qubit count
-│   ├── fig_noise_degradation.pdf      # Fig 3: F1 vs depolarizing noise rate
-│   ├── fig_srqfm_ablation.pdf         # Fig 4: SRQFM coupling variant ablation
-│   ├── fig_topology_comparison.pdf    # Fig 5: Entanglement topology comparison
-│   └── fig_ood_comparison.pdf         # Fig 6: OOD generalization bar chart
-└── README.md              # This file
-```
 
-## Before Submission Checklist
+Expected output: `sn-article.pdf`, 39 pages, no `! LaTeX Error` and no undefined references.
 
-- [ ] Place `sn-jnl.cls` in this directory (download from Overleaf or Springer)
-- [ ] Compile: `pdflatex paper.tex && pdflatex paper.tex`
-- [ ] Verify all 6 figures render correctly in the PDF
-- [ ] Add GitHub/Zenodo repository URL in Data Availability section
-- [ ] Final proofread for any remaining em-dash or encoding issues
-- [ ] Remove `sn-template.zip` and `sn-template-tmp/` from parent directory
+## Cited figures (8, all PDF vector)
 
-## Authors
+`fig_circuit.pdf`, `fig_concentration_hist.pdf`, `fig_depth_scaling.pdf`, `fig_domain_generalisation.pdf`, `fig_feature_correlation.pdf`, `fig_max_capacity.pdf`, `fig_pauli_heatmap.pdf`, `fig_topology.pdf`.
 
-1. Prathamesh Balasaheb Kadam (corresponding) — prathameshkadam130404@gmail.com
-2. Shreyas Subhash Raut
-3. Tejas Uttam Shitole
-4. Prajwal S. Gaikwad
+## Pre-upload checklist
 
-**Affiliation:** Department of Artificial Intelligence and Data Science,
-AISSMS Institute of Information Technology, Pune, India
+- [x] Abstract = 229 words (QMI limit 150--250).
+- [x] 6 keywords (QMI limit 4--6).
+- [x] Heading `Statements and Declarations` present.
+- [x] All required declarations included (Funding, Competing interests, Ethics, Consent to participate, Consent for publication, Data availability, Materials availability, Code availability, Author contributions).
+- [x] Generative-AI tool use disclosed in Methods per Springer Nature policy.
+- [x] Bibliography migrated to BibTeX (`refs.bib` + `sn-mathphys.bst`).
+- [x] Full Springer `sn-jnl.cls` template installed.
+- [x] 8 cited figures present as vector PDF.
+- [x] Cover letter compiled.
+- [ ] **ORCID iDs to be added** by the authors before final submission (line 45--48 of `sn-article.tex`, after each `\author[1]{\fnm{...} \sur{...}}` block, insert `\orcid{0000-0000-0000-0000}`).
+- [ ] **Co-author emails** to be added if desired.

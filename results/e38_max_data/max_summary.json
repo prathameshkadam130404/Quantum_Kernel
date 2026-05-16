@@ -1,9 +1,0 @@
-{
-  "depth": 6,
-  "n_so2sat": 10000,
-  "n_eurosat": 10000,
-  "so2sat_bscm_f1_mean": 0.5729086342199636,
-  "so2sat_bscm_f1_std": 0.00864445825079898,
-  "eurosat_bscm_f1_mean": 0.7594678555720191,
-  "eurosat_bscm_f1_std": 0.0035574631102958253
-}

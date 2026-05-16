@@ -292,6 +292,10 @@ def compute_gram_pool(
                 K_part = np.load(cache_path)
                 if K_part.shape == (N, N):
                     K[:start_row] = K_part[:start_row]
+                    # Fix: Mirror the loaded rows to maintain symmetry!
+                    for i in range(start_row):
+                        for j in range(i + 1, N):
+                            K[j, i] = K[i, j]
                     log.info("  Resuming %s from row %d / %d", label, start_row, N)
         except Exception:
             start_row = 0

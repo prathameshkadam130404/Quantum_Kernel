@@ -1,0 +1,116 @@
+{
+  "selection_rule": "argmax KTA on holdout pool, ties broken by smaller tau",
+  "tau_grid_extended": [
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.5
+  ],
+  "tau_grid_original": [
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.5
+  ],
+  "holdout_size": 200,
+  "split_seed": 1234,
+  "sweep": [
+    {
+      "tau": 0.05,
+      "kta": 0.43400141057305314,
+      "off_diag_mean": 0.2834544254818405,
+      "off_diag_var": 0.09439953079227204,
+      "eff_rank_shannon": 10.596894328125895,
+      "wall_clock_s": 835.0768389701843,
+      "from_cache": false
+    },
+    {
+      "tau": 0.1,
+      "kta": 0.4386763195293748,
+      "off_diag_mean": 0.26594218196208297,
+      "off_diag_var": 0.09059596664059139,
+      "eff_rank_shannon": 11.413083228609782,
+      "wall_clock_s": 707.1739735603333,
+      "from_cache": false
+    },
+    {
+      "tau": 0.15,
+      "kta": 0.4411280625537424,
+      "off_diag_mean": 0.24885164189388878,
+      "off_diag_var": 0.08594637353449869,
+      "eff_rank_shannon": 12.437887435066294,
+      "wall_clock_s": 695.896722316742,
+      "from_cache": false
+    },
+    {
+      "tau": 0.2,
+      "kta": 0.4416686987880587,
+      "off_diag_mean": 0.2324869486741081,
+      "off_diag_var": 0.08059425236490182,
+      "eff_rank_shannon": 13.69661751755175,
+      "wall_clock_s": 593.2661249637604,
+      "from_cache": false
+    },
+    {
+      "tau": 0.25,
+      "kta": 0.4406130078076566,
+      "off_diag_mean": 0.21682232723431683,
+      "off_diag_var": 0.07482252696808149,
+      "eff_rank_shannon": 15.220961210156025,
+      "wall_clock_s": 0.022877931594848633,
+      "from_cache": true
+    },
+    {
+      "tau": 0.5,
+      "kta": 0.41564869675989585,
+      "off_diag_mean": 0.1472900576389308,
+      "off_diag_var": 0.04863296012486601,
+      "eff_rank_shannon": 27.15804277201768,
+      "wall_clock_s": 0.01832890510559082,
+      "from_cache": true
+    },
+    {
+      "tau": 0.75,
+      "kta": 0.3707870061810924,
+      "off_diag_mean": 0.10293374937843042,
+      "off_diag_var": 0.03388644288708732,
+      "eff_rank_shannon": 42.90756302333845,
+      "wall_clock_s": 0.01827859878540039,
+      "from_cache": true
+    },
+    {
+      "tau": 1.0,
+      "kta": 0.3425075624491629,
+      "off_diag_mean": 0.07804032993519845,
+      "off_diag_var": 0.024639969695165367,
+      "eff_rank_shannon": 60.17318391042921,
+      "wall_clock_s": 0.01892709732055664,
+      "from_cache": true
+    },
+    {
+      "tau": 1.5,
+      "kta": 0.3363406996059576,
+      "off_diag_mean": 0.03605215898037506,
+      "off_diag_var": 0.009751036026256965,
+      "eff_rank_shannon": 103.45825432979423,
+      "wall_clock_s": 0.021510601043701172,
+      "from_cache": true
+    }
+  ],
+  "locked_extended": {
+    "tau": 0.2,
+    "kta": 0.4416686987880587
+  },
+  "locked_original": {
+    "tau": 0.25,
+    "kta": 0.4406130078076567
+  },
+  "headline_experiments_tau": 0.25,
+  "boundary_behaviour_note": "The extended sweep adds {0.05, 0.10, 0.15, 0.20} below the originally pre-registered minimum of 0.25.  All headline E26 through E43 experiments use the original lock tau=0.25; this file documents the boundary check requested by reviewers."
+}

@@ -1,48 +1,47 @@
 """
-Bell-Spectrum Coupling Map (BSCM) Quantum Kernel.
+Bell-Spectrum Coupling Map (BSCM) quantum kernel.
 
-A fidelity-based quantum kernel whose entangling layer is derived from the
-uniform-prior Bell-projector decomposition of the two-qubit product state
-|psi(x_i)> tensor |psi(x_j)> produced by the H * RZ(x) single-qubit
+A fidelity- and projected-kernel feature map whose per-pair generator is
+the prior-weighted Bell-projector decomposition of the two-qubit product
+state |psi(x_i)> ⊗ |psi(x_j)> produced by the H * RZ(x) single-qubit
 encoder.
 
-Derivation (one-paragraph).
-    For the encoder |psi(x)> = (e^{-ix/2}|0> + e^{ix/2}|1>) / sqrt(2),
-    the four Bell-state weights of |psi(x_i)>|psi(x_j)> are
-        w_{Phi+}  = (1/2) cos^2((x_i + x_j)/2)
-        w_{Phi-}  = (1/2) sin^2((x_i + x_j)/2)
-        w_{Psi+}  = (1/2) cos^2((x_i - x_j)/2)
-        w_{Psi-}  = (1/2) sin^2((x_i - x_j)/2)
-    SRQFM uses the singlet weight  w_{Psi-}  as an IsingZZ angle,
-    discarding the other three sectors.  BSCM uses *all four* sectors
-    with uniform prior weight by defining
-        H_{ij}(x_i, x_j) = sum_k  (2 * w_k(x_i, x_j))  |k><k|.
-    Substituting Bell projectors in the Pauli basis collapses to
-        H_{ij} = (1/2) I + (1/2) cos x_i cos x_j  X_i X_j
-                       + (1/2) sin x_i sin x_j  Y_i Y_j.
-    The Z_i Z_j coefficient is identically zero (verified by
-    scripts/verify_bscm_derivation.py, P2).  This makes BSCM a strict
-    Pauli-orthogonal complement of any SRQFM coupling.
+Bell-state weights of |psi(x_i)>|psi(x_j)>:
+    w_{Phi+}  = (1/2) cos^2((x_i + x_j) / 2)
+    w_{Phi-}  = (1/2) sin^2((x_i + x_j) / 2)
+    w_{Psi+}  = (1/2) cos^2((x_i - x_j) / 2)
+    w_{Psi-}  = (1/2) sin^2((x_i - x_j) / 2)
 
-The kernel evaluation is the standard fidelity readout
-    K(x, x') = | <psi(x') | psi(x)> |^2
-            = | <0...0 | U^dagger(x') U(x) | 0...0> |^2
-where U(x) is the BSCM feature map circuit (H, RZ(x), then per-pair
-BSCM unitaries) repeated `reps` times.
+The per-pair generator is
+    H_{ij}(x_i, x_j; p) = sum_k 2 * p_k * w_k(x_i, x_j) * |B_k><B_k|
+for non-negative prior weights p = (p_{Phi+}, p_{Phi-}, p_{Psi+}, p_{Psi-}).
+Three priors are exposed in BELL_WEIGHT_PRESETS:
+    "uniform"   = (1, 1, 1, 1)       -- alpha_ZZ ≡ 0; XX & YY only.
+    "phi_only"  = (2, 2, 0, 0)       -- alpha_ZZ ≡ +1/2 (constant); XX & YY.
+    "psi_only"  = (0, 0, 2, 2)       -- alpha_ZZ ≡ -1/2 (constant); XX & YY.
 
-Kernel time evolution is governed by a single hyperparameter `tau`
-(default 1.0), which scales the per-pair generators uniformly.  At
-tau = 1.0 the per-pair effective rotation magnitude is bounded by
-1/2 rad (P1), placing BSCM in the same well-bounded regime as
-SRQFM v1 and avoiding gate-angle wrap.
+For the uniform prior, substituting Bell projectors in the Pauli basis
+collapses to
+    H_{ij} = (1/2) I + (1/2) cos x_i cos x_j X_i X_j
+                     + (1/2) sin x_i sin x_j Y_i Y_j,
+i.e. the Z_i Z_j coefficient is identically zero (Theorem 1(b) in the
+paper; verified numerically by scripts/verify_bscm_derivation.py and
+tests/test_proofs.py:TestUniformAlphaZZIsZero).
+
+The kernel readout is the standard fidelity overlap
+    K(x, x') = |<0...0| U^dagger(x') U(x) |0...0>|^2
+or, alternatively, the Bloch-vector PQK readout of single-qubit Pauli
+expectations on U(x)|0...0>.  The per-pair entangling block is
+    IsingXX(2 tau alpha_XX) IsingYY(2 tau alpha_YY) IsingZZ(2 tau alpha_ZZ)
+with tau a single global scalar (locked to tau=0.25 in this paper from
+the holdout sweep in scripts/bscm_phase2_lockdown.py).  Theorem 1(a)
+guarantees |alpha_P| <= 1/2 for all three priors evaluated here.
 
 References:
-    - Havlicek et al., Nature 567, 209 (2019). ZZFeatureMap.
-    - Huang et al., Nature Comm. 12, 2631 (2021). PQK.
-    - Kadam et al. (this paper). SRQFM.
-    - This module. BSCM.
-
-Author: Prathamesh Kadam et al.
+    Havlicek et al., Nature 567, 209 (2019).  ZZ feature map.
+    Huang et al., Nature Communications 12, 2631 (2021).  PQK.
+    Incudini et al., QMI 2025.  General Pauli-decomposition formalism.
+    This paper.  BSCM and its prior-specific structural identities.
 """
 from __future__ import annotations
 
@@ -158,7 +157,6 @@ def apply_bscm_feature_map(
     connectivity: str = "all",
     bell_weights: Tuple[float, float, float, float]
         = BELL_WEIGHT_PRESETS["uniform"],
-    singlet_gated: bool = False,
 ) -> None:
     """Apply U(x) = product of BSCM layers, in-place inside a QNode.
 
@@ -177,12 +175,7 @@ def apply_bscm_feature_map(
     only IsingXX, IsingYY are emitted.  Non-uniform priors generate a
     feature-dependent ZZ component, providing ablation control.
 
-    Singlet gating (singlet_gated=True):
-        Multiplies each pair's Pauli coefficients by the singlet fraction
-        w_{Psi-} = sin^2((x_i - x_j) / 2).  This suppresses entanglement
-        between qubits encoding similar feature values (x_i ~ x_j),
-        preventing kernel concentration on correlated feature sets while
-        preserving the BSCM XX+YY Pauli structure.
+
     """
     import pennylane as qml
 
@@ -197,12 +190,7 @@ def apply_bscm_feature_map(
             a_xx, a_yy, a_zz = bscm_pauli_coefficients(
                 x[qi], x[qj], bell_weights
             )
-            # Singlet-gated BSCM: modulate by the singlet fraction.
-            if singlet_gated:
-                sg = float(np.sin((x[qi] - x[qj]) / 2.0) ** 2)
-                a_xx *= sg
-                a_yy *= sg
-                a_zz *= sg
+
             if max(abs(a_xx), abs(a_yy), abs(a_zz)) < coupling_threshold:
                 continue
             if abs(a_xx) >= coupling_threshold:
@@ -222,7 +210,6 @@ def apply_bscm_feature_map_adjoint(
     connectivity: str = "all",
     bell_weights: Tuple[float, float, float, float]
         = BELL_WEIGHT_PRESETS["uniform"],
-    singlet_gated: bool = False,
 ) -> None:
     """Apply U^dagger(x) by reversing the gate ordering and negating angles."""
     import pennylane as qml
@@ -234,11 +221,7 @@ def apply_bscm_feature_map_adjoint(
             a_xx, a_yy, a_zz = bscm_pauli_coefficients(
                 x[qi], x[qj], bell_weights
             )
-            if singlet_gated:
-                sg = float(np.sin((x[qi] - x[qj]) / 2.0) ** 2)
-                a_xx *= sg
-                a_yy *= sg
-                a_zz *= sg
+
             if max(abs(a_xx), abs(a_yy), abs(a_zz)) < coupling_threshold:
                 continue
             if abs(a_zz) >= coupling_threshold:
@@ -264,7 +247,6 @@ def _build_fidelity_circuit(
     coupling_threshold: float,
     connectivity: str,
     bell_weights: Tuple[float, float, float, float] = BELL_WEIGHT_PRESETS["uniform"],
-    singlet_gated: bool = False,
 ):
     """Construct the QNode that computes |<0...0| U^dagger(x2) U(x1) |0...0>|^2."""
     import pennylane as qml
@@ -275,11 +257,11 @@ def _build_fidelity_circuit(
     def circuit(x1, x2):
         apply_bscm_feature_map(
             x1, n_qubits, reps, tau, coupling_threshold, connectivity,
-            bell_weights, singlet_gated,
+            bell_weights,
         )
         apply_bscm_feature_map_adjoint(
             x2, n_qubits, reps, tau, coupling_threshold, connectivity,
-            bell_weights, singlet_gated,
+            bell_weights,
         )
         return qml.probs(wires=range(n_qubits))
 
@@ -298,7 +280,6 @@ def compute_bscm_fidelity_kernel(
         = BELL_WEIGHT_PRESETS["uniform"],
     kernel_save_path: Optional[str] = None,
     desc: str = "BSCM",
-    singlet_gated: bool = False,
 ) -> np.ndarray:
     """Compute the BSCM fidelity kernel matrix.
 
@@ -308,11 +289,6 @@ def compute_bscm_fidelity_kernel(
 
     Caching: if `kernel_save_path` exists on disk it is loaded and
     returned; otherwise the computed matrix is saved at that path.
-
-    If singlet_gated=True, the singlet-fraction modulation
-    sin^2((x_i - x_j)/2) is applied to every pair's Pauli coupling
-    coefficients before emitting Ising gates.  See
-    apply_bscm_feature_map() for details.
     """
     if kernel_save_path is not None and os.path.exists(kernel_save_path):
         logger.info(f"[CACHE] Loading BSCM kernel from {kernel_save_path}")
@@ -320,7 +296,7 @@ def compute_bscm_fidelity_kernel(
 
     circuit = _build_fidelity_circuit(
         n_qubits, reps, tau, coupling_threshold, connectivity,
-        bell_weights, singlet_gated,
+        bell_weights,
     )
 
     if kernel_save_path is not None:
@@ -393,7 +369,6 @@ def extract_bscm_bloch_vectors(
     connectivity: str = "all",
     bell_weights: Tuple[float, float, float, float]
         = BELL_WEIGHT_PRESETS["uniform"],
-    singlet_gated: bool = False,
     cache_path: Optional[str] = None,
     desc: str = "BSCM-PQK",
 ) -> np.ndarray:
@@ -423,8 +398,6 @@ def extract_bscm_bloch_vectors(
         coupling_threshold: Minimum |coefficient| to emit a gate.
         connectivity: Qubit pair topology ("all", "linear", "cross").
         bell_weights: Bell-sector prior weights.
-        singlet_gated: If True, multiply Pauli coefficients by the singlet
-                       fraction sin²((x_i − x_j)/2) before gating.
         cache_path:   If set, save/load Bloch array to/from this .npy path.
         desc:         Progress bar label.
 
@@ -455,7 +428,7 @@ def extract_bscm_bloch_vectors(
     def _measure_pauli_x(x):
         apply_bscm_feature_map(
             x, n_qubits, reps, tau, coupling_threshold, connectivity,
-            bell_weights, singlet_gated,
+            bell_weights,
         )
         return [qml.expval(qml.PauliX(q)) for q in range(n_qubits)]
 
@@ -463,7 +436,7 @@ def extract_bscm_bloch_vectors(
     def _measure_pauli_y(x):
         apply_bscm_feature_map(
             x, n_qubits, reps, tau, coupling_threshold, connectivity,
-            bell_weights, singlet_gated,
+            bell_weights,
         )
         return [qml.expval(qml.PauliY(q)) for q in range(n_qubits)]
 
@@ -471,7 +444,7 @@ def extract_bscm_bloch_vectors(
     def _measure_pauli_z(x):
         apply_bscm_feature_map(
             x, n_qubits, reps, tau, coupling_threshold, connectivity,
-            bell_weights, singlet_gated,
+            bell_weights,
         )
         return [qml.expval(qml.PauliZ(q)) for q in range(n_qubits)]
 

@@ -1,3 +1,17 @@
+"""
+E38 baselines arm: SRQFM-PQK + tuned classical (RBF-SVM, Random Forest).
+
+Three methods on each of the E38 pools (So2Sat and EuroSAT, N=10,000):
+* SRQFM-PQK: Bloch-vector PQK from the singlet-only IsingZZ circuit
+  on the same block-bipartite ladder connectivity as BSCM (E38).
+* RBF-SVM:    sklearn SVC with rbf kernel, C and gamma grid-tuned.
+* RandomForest: 300 trees, balanced class weights.
+All three are evaluated on the 10 stratified shuffle splits used by the
+BSCM and Standard-ZZ arms.
+
+Output: results/e38_max_data/cache_<dataset>_srqfm.npz   (K, y, gamma)
+        results/e38_max_data/baselines_summary.json
+"""
 import os
 import sys
 import json
@@ -27,14 +41,16 @@ log = logging.getLogger("e38_baselines")
 N_QUBITS = 16
 DEPTH = 6
 CV_FOLDS = 3
-C_GRID = [0.1, 1.0, 10.0]
+C_GRID = [0.1, 1.0, 10.0, 100.0, 1000.0]
 
 # ============================================================================
-# SRQFM-PQK (NORMAL COMMUTING ZZ KERNEL)
+# SRQFM-PQK (singlet IsingZZ, commuting Pauli generator)
 # ============================================================================
 
 def _build_srqfm_bloch_extractor(n_qubits: int, reps: int):
-    """ZZ channel, Ladder connectivity (OPT-OPT, SAR-SAR, and OPT-SAR)."""
+    """Bloch-readout QNodes for SRQFM (singlet-Bell IsingZZ angle) on the
+    block-bipartite ladder connectivity (intra-OPT, intra-SAR, OPT-SAR rungs).
+    """
     dev = config.get_device(n_qubits)
     
     mid = n_qubits // 2
@@ -85,8 +101,8 @@ def extract_srqfm_bloch_vectors(X: np.ndarray, n_qubits: int, reps: int, name: s
 # ============================================================================
 
 def run_baseline_evaluations(K_srqfm: np.ndarray, X_raw: np.ndarray, y: np.ndarray) -> dict:
-    """Runs exactly the same 5 splits as the BSCM-PQK E38 evaluation for fair comparison."""
-    sss = StratifiedShuffleSplit(n_splits=5, test_size=0.3, random_state=42)
+    """Runs exactly the same 10 splits as the BSCM-PQK E38 evaluation for fair comparison."""
+    sss = StratifiedShuffleSplit(n_splits=10, test_size=0.3, random_state=42)
     
     scores_srqfm = []
     scores_rbf = []
@@ -96,17 +112,17 @@ def run_baseline_evaluations(K_srqfm: np.ndarray, X_raw: np.ndarray, y: np.ndarr
         # 1. SRQFM (Precomputed)
         K_tr = K_srqfm[np.ix_(tr, tr)]
         K_te = K_srqfm[np.ix_(te, tr)]
-        clf_q = GridSearchCV(SVC(kernel="precomputed", class_weight="balanced"), {"C": C_GRID}, cv=CV_FOLDS, n_jobs=-1)
+        clf_q = GridSearchCV(SVC(kernel="precomputed", class_weight="balanced"), {"C": C_GRID}, cv=CV_FOLDS, scoring="f1_macro", n_jobs=-1)
         clf_q.fit(K_tr, y[tr])
         scores_srqfm.append(f1_score(y[te], clf_q.predict(K_te), average="macro"))
-        
+
         # 2. Classical RBF SVM
         # Scale strictly on training split
         sc = StandardScaler()
         X_tr_sc = sc.fit_transform(X_raw[tr])
         X_te_sc = sc.transform(X_raw[te])
-        
-        clf_c = GridSearchCV(SVC(kernel="rbf", class_weight="balanced"), {"C": C_GRID, "gamma": ["scale", "auto"]}, cv=CV_FOLDS, n_jobs=-1)
+
+        clf_c = GridSearchCV(SVC(kernel="rbf", class_weight="balanced"), {"C": C_GRID, "gamma": ["scale", "auto", 0.01, 0.1, 1.0]}, cv=CV_FOLDS, scoring="f1_macro", n_jobs=-1)
         clf_c.fit(X_tr_sc, y[tr])
         scores_rbf.append(f1_score(y[te], clf_c.predict(X_te_sc), average="macro"))
         

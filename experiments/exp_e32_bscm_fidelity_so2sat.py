@@ -47,6 +47,7 @@ import os
 import sys
 import time
 from datetime import datetime
+from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -171,39 +172,56 @@ def eval_rf(X_raw, y, seed):
 
 # ----- Feature-set loaders --------------------------------------------------
 
-def load_feature_set(name: str):
-    """Returns (X_encoded[N,8], X_raw[N,8], y[N]) all restricted to the
-    EVAL pool defined by experiments/_bscm_split.
+def load_feature_set(name: str, seed: Optional[int] = None):
+    """Returns (X_encoded[N,8], X_raw[N,8], y[N]) restricted to the EVAL pool.
 
-    name = 'physics8' -> Fisher-selected 8 of 16 physics features
-    name = 'pca8'     -> 8-D fused PCA representation
+    name = 'physics8' -> Fisher-selected 8 of 16 physics features.
+    name = 'pca8'     -> 8-D fused PCA representation.
+
+    When *seed* is provided and name='physics8', Fisher selection runs on
+    the *training* portion of that seed's split only (no leakage). When
+    seed is None, Fisher runs on the full eval pool (original leaky
+    behaviour, kept for backward compatibility).
     """
     if name == "physics8":
         X_norm, X_raw, y = load_physics_16()
-        sel_idx, _ = select_features_by_fisher(X_raw, y)
+        split = make_or_load_split(y)
+        y_eval = y[split.eval_pool]
+
+        if seed is not None:
+            # Fisher-select on TRAINING portion of this seed's split
+            sss = StratifiedShuffleSplit(n_splits=1, test_size=TEST_FRAC,
+                                         random_state=seed)
+            (tr, _), = sss.split(np.zeros(len(y_eval)), y_eval)
+            train_orig = split.eval_pool[tr]
+            sel_idx, _ = select_features_by_fisher(X_raw[train_orig],
+                                                    y[train_orig])
+        else:
+            # Original leaky path (full eval pool)
+            sel_idx, _ = select_features_by_fisher(
+                X_raw[split.eval_pool], y[split.eval_pool])
+
         X_enc = X_norm[:, sel_idx]
         X_raw_sel = X_raw[:, sel_idx]
         sel_names = [FEATURE_NAMES_16[i] for i in sel_idx]
+
+        return (X_enc[split.eval_pool], X_raw_sel[split.eval_pool],
+                y_eval, sel_names)
+
     elif name == "pca8":
         p = os.path.join(config.PROCESSED_DIR, "subsample_2000.npz")
         d = np.load(p)
         X_enc = d["fused_X_train"]            # already in [0, pi]
-        # Build a "raw" feature matrix in the original (pre-pi) scale
-        # by inverse-mapping x_enc / pi  in [0, 1] domain.  RBF/RF will
-        # see the [0, 1]-scaled features.
         X_raw_sel = X_enc / np.pi
         y = d["y_train"]
         sel_names = [f"pc{i+1}" for i in range(8)]
+
+        split = make_or_load_split(y)
+        return (X_enc[split.eval_pool], X_raw_sel[split.eval_pool],
+                y[split.eval_pool], sel_names)
+
     else:
         raise ValueError(f"Unknown feature set: {name}")
-
-    split = make_or_load_split(y)
-    return (
-        X_enc[split.eval_pool],
-        X_raw_sel[split.eval_pool],
-        y[split.eval_pool],
-        sel_names,
-    )
 
 
 # ----- Kernel builders ------------------------------------------------------
@@ -243,58 +261,171 @@ def build_srqfm_pqk(X_enc, fset_name: str):
 
 # ----- Per-feature-set evaluation -------------------------------------------
 
-def evaluate_feature_set(name: str, tau_locked: float, rows_out: list):
-    logger.info("\n" + "=" * 72)
-    logger.info("  Feature set: %s  (tau_locked = %.3f)", name, tau_locked)
-    logger.info("=" * 72)
-
-    X_enc, X_raw, y, sel_names = load_feature_set(name)
-    logger.info("  EVAL pool: N=%d  features=%s", len(y), sel_names)
-
-    # Build kernels.
+def _build_kernels_physics8_eval(X_enc, name, tau_locked, seed):
+    """Build all kernels for physics8 with per-seed caching."""
     kernels = {}
     for prior in BELL_PRIORS:
+        cache = os.path.join(SAVE_DIR,
+                             f"K_bscm_{name}_{prior}_seed{seed}.npy")
         t0 = time.time()
-        kernels[f"BSCM-{prior}"] = build_bscm(X_enc, name, prior, tau_locked)
+        kernels[f"BSCM-{prior}"] = compute_bscm_fidelity_kernel(
+            X_enc, n_qubits=N_QUBITS, reps=REPS, tau=tau_locked,
+            coupling_threshold=1e-4, connectivity="all",
+            bell_weights=BELL_WEIGHT_PRESETS[prior],
+            kernel_save_path=cache,
+            desc=f"BSCM-{prior}({name},seed{seed})",
+        )
         logger.info("  BSCM-%s built  (%.1fs)", prior, time.time() - t0)
+
+    cache_srqfm_fid = os.path.join(SAVE_DIR,
+                                   f"K_srqfm_fid_{name}_seed{seed}.npy")
     t0 = time.time()
-    kernels["SRQFM-fid"] = build_srqfm_fidelity(X_enc, name)
+    kernels["SRQFM-fid"] = compute_srqfm_fidelity_kernel(
+        X_enc, n_qubits=N_QUBITS, reps=REPS,
+        coupling_threshold=0.01, connectivity="all",
+        kernel_save_path=cache_srqfm_fid,
+        desc=f"SRQFM-fid({name},seed{seed})",
+    )
     logger.info("  SRQFM-fid built  (%.1fs)", time.time() - t0)
+
+    cache_srqfm_pqk = os.path.join(SAVE_DIR,
+                                   f"K_srqfm_pqk_{name}_seed{seed}.npy")
     t0 = time.time()
-    kernels["SRQFM-PQK"] = build_srqfm_pqk(X_enc, name)
+    if os.path.exists(cache_srqfm_pqk):
+        logger.info("  [CACHE] Loading SRQFM-PQK from %s", cache_srqfm_pqk)
+        kernels["SRQFM-PQK"] = np.load(cache_srqfm_pqk)
+    else:
+        K = compute_srqfm_pqk_kernel(
+            X_enc, gamma=config.PQK_GAMMA, n_qubits=N_QUBITS, reps=REPS,
+            coupling_threshold=0.01, connectivity="all",
+            kernel_save_path=cache_srqfm_pqk,
+        )
+        kernels["SRQFM-PQK"] = K
     logger.info("  SRQFM-PQK built  (%.1fs)", time.time() - t0)
 
-    # Spectral diagnostics.
-    for kname, K in kernels.items():
-        sm = spectral_metrics(K)
-        logger.info(
-            "  %-18s off_mean=%.4f  off_var=%.5f  eff_rank=%.1f",
-            kname, sm["off_diag_mean"], sm["off_diag_var"],
-            sm["eff_rank_shannon"],
-        )
+    return kernels
 
-    # Seed-level evaluation.
-    for seed in SEEDS:
-        logger.info("\n  Seed %d (feature_set=%s):", seed, name)
+
+def evaluate_feature_set(name: str, tau_locked: float, rows_out: list):
+    logger.info("\n" + "=" * 72)
+    if name == "physics8":
+        logger.info("  Feature set: %s  (tau_locked=%.3f, per-seed Fisher)",
+                     name, tau_locked)
+    else:
+        logger.info("  Feature set: %s  (tau_locked=%.3f)", name, tau_locked)
+    logger.info("=" * 72)
+
+    if name == "pca8":
+        # PCA-8: no Fisher selection needed. Load once, evaluate per seed.
+        X_enc, X_raw, y, sel_names = load_feature_set(name)
+        logger.info("  EVAL pool: N=%d  features=%s", len(y), sel_names)
+
+        # Build kernels (shared across seeds)
+        kernels = {}
+        for prior in BELL_PRIORS:
+            t0 = time.time()
+            kernels[f"BSCM-{prior}"] = build_bscm(
+                X_enc, name, prior, tau_locked)
+            logger.info("  BSCM-%s built  (%.1fs)", prior, time.time() - t0)
+        t0 = time.time()
+        kernels["SRQFM-fid"] = build_srqfm_fidelity(X_enc, name)
+        logger.info("  SRQFM-fid built  (%.1fs)", time.time() - t0)
+        t0 = time.time()
+        kernels["SRQFM-PQK"] = build_srqfm_pqk(X_enc, name)
+        logger.info("  SRQFM-PQK built  (%.1fs)", time.time() - t0)
+
+        # Spectral diagnostics
         for kname, K in kernels.items():
-            r = eval_kernel_tuned(K, y, seed)
-            rows_out.append({
-                "feature_set": name, "method": kname,
-                "seed": seed, "macro_f1": r["macro_f1"],
-                "best_C": r["best_C"],
-            })
-            logger.info("    %-18s F1=%.4f  C=%s",
-                         kname, r["macro_f1"], r["best_C"])
-        r_rbf = eval_rbf_tuned(X_raw, y, seed)
-        rows_out.append({"feature_set": name, "method": "RBF-SVM",
-                          "seed": seed, **r_rbf})
-        logger.info("    %-18s F1=%.4f  C=%s  gamma=%s",
-                     "RBF-SVM", r_rbf["macro_f1"], r_rbf["best_C"],
-                     r_rbf.get("best_gamma"))
-        r_rf = eval_rf(X_raw, y, seed)
-        rows_out.append({"feature_set": name, "method": "RandomForest",
-                          "seed": seed, "macro_f1": r_rf["macro_f1"]})
-        logger.info("    %-18s F1=%.4f", "RandomForest", r_rf["macro_f1"])
+            sm = spectral_metrics(K)
+            logger.info(
+                "  %-18s off_mean=%.4f  off_var=%.5f  eff_rank=%.1f",
+                kname, sm["off_diag_mean"], sm["off_diag_var"],
+                sm["eff_rank_shannon"],
+            )
+
+        # Seed-level evaluation (shared kernels, same feature set)
+        for seed in SEEDS:
+            logger.info("\n  Seed %d (feature_set=%s):", seed, name)
+            for kname, K in kernels.items():
+                r = eval_kernel_tuned(K, y, seed)
+                rows_out.append({
+                    "feature_set": name, "method": kname,
+                    "seed": seed, "macro_f1": r["macro_f1"],
+                    "best_C": r["best_C"],
+                })
+                logger.info("    %-18s F1=%.4f  C=%s",
+                             kname, r["macro_f1"], r["best_C"])
+            r_rbf = eval_rbf_tuned(X_raw, y, seed)
+            rows_out.append({"feature_set": name, "method": "RBF-SVM",
+                              "seed": seed, **r_rbf})
+            logger.info("    %-18s F1=%.4f  C=%s  gamma=%s",
+                         "RBF-SVM", r_rbf["macro_f1"], r_rbf["best_C"],
+                         r_rbf.get("best_gamma"))
+            r_rf = eval_rf(X_raw, y, seed)
+            rows_out.append({"feature_set": name, "method": "RandomForest",
+                              "seed": seed, "macro_f1": r_rf["macro_f1"]})
+            logger.info("    %-18s F1=%.4f", "RandomForest", r_rf["macro_f1"])
+
+    else:  # physics8 — per-seed Fisher selection, per-seed kernels
+        X_norm, X_raw_full, y_full = load_physics_16()
+        split = make_or_load_split(y_full)
+        y_eval = y_full[split.eval_pool]
+        X_norm_eval = X_norm[split.eval_pool]
+        X_raw_eval = X_raw_full[split.eval_pool]
+        logger.info("  EVAL pool: N=%d", len(y_eval))
+
+        for seed in SEEDS:
+            logger.info("\n  Seed %d (physics8, per-seed Fisher):", seed)
+
+            # Split eval pool into train/test
+            sss = StratifiedShuffleSplit(n_splits=1, test_size=TEST_FRAC,
+                                         random_state=seed)
+            (tr, te), = sss.split(np.zeros(len(y_eval)), y_eval)
+
+            # Fisher-select on TRAINING portion only
+            train_orig = split.eval_pool[tr]
+            sel_idx, _ = select_features_by_fisher(
+                X_raw_full[train_orig], y_full[train_orig])
+            sel_names = [FEATURE_NAMES_16[i] for i in sel_idx]
+            logger.info("  Fisher-selected %d features (train portion): %s",
+                         len(sel_idx), sel_names)
+
+            X_enc = X_norm_eval[:, sel_idx]
+            X_raw_sel = X_raw_eval[:, sel_idx]
+
+            # Build kernels per seed with selected features
+            kernels = _build_kernels_physics8_eval(
+                X_enc, name, tau_locked, seed)
+
+            # Spectral diagnostics
+            for kname, K in kernels.items():
+                sm = spectral_metrics(K)
+                logger.info(
+                    "  %-18s off_mean=%.4f  off_var=%.5f  eff_rank=%.1f",
+                    kname, sm["off_diag_mean"], sm["off_diag_var"],
+                    sm["eff_rank_shannon"],
+                )
+
+            # Evaluate
+            for kname, K in kernels.items():
+                r = eval_kernel_tuned(K, y_eval, seed)
+                rows_out.append({
+                    "feature_set": name, "method": kname,
+                    "seed": seed, "macro_f1": r["macro_f1"],
+                    "best_C": r["best_C"],
+                })
+                logger.info("    %-18s F1=%.4f  C=%s",
+                             kname, r["macro_f1"], r["best_C"])
+            r_rbf = eval_rbf_tuned(X_raw_sel, y_eval, seed)
+            rows_out.append({"feature_set": name, "method": "RBF-SVM",
+                              "seed": seed, **r_rbf})
+            logger.info("    %-18s F1=%.4f  C=%s  gamma=%s",
+                         "RBF-SVM", r_rbf["macro_f1"], r_rbf["best_C"],
+                         r_rbf.get("best_gamma"))
+            r_rf = eval_rf(X_raw_sel, y_eval, seed)
+            rows_out.append({"feature_set": name, "method": "RandomForest",
+                              "seed": seed, "macro_f1": r_rf["macro_f1"]})
+            logger.info("    %-18s F1=%.4f", "RandomForest", r_rf["macro_f1"])
 
 
 def stat_tests(df: pd.DataFrame, fset: str, primary: str = "BSCM-uniform"):

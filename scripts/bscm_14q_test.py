@@ -255,21 +255,38 @@ def main() -> int:
     eval_pool = sp.eval_pool   # 1800 indices
     log.info("  Eval pool size: %d", len(eval_pool))
 
-    # ----- Feature selection (top 14 by Fisher) -------------------------- #
-    log.info("\n[step 2] Select 14 features (drop 2 lowest-Fisher)")
-    keep_idx, keep_names = select_14_features(X_raw_full[eval_pool],
-                                               y_full[eval_pool])
+    # ----- Stratified sub-sample of N=800 from the eval pool ------------- #
+    log.info("\n[step 2] Stratified sub-sample to N=%d", N_SAMPLES)
+    sub_idx = stratified_subsample(y_full[eval_pool], N_SAMPLES,
+                                    SUBSAMPLE_SEED)
+    # Map sub-sample indices back to original eval pool indices
+    sub_orig = eval_pool[sub_idx]
+    y = y_full[sub_orig]
+    log.info("  Sub-sample size: %d", len(y))
+    cls, cnt = np.unique(y, return_counts=True)
+    for c, n in zip(cls, cnt):
+        log.info("    [%2d] %-22s %4d  (%.1f%%)", c, LCZ[c], n, 100*n/len(y))
+
+    # ----- Feature selection (top 14 by Fisher, on TRAINING only) ------- #
+    log.info("\n[step 3] Select 14 features (training-only Fisher, no leakage)")
+    # Split N=800 into train/test using first seed to define the training set
+    FIRST_SEED = SEEDS[0]  # 42
+    sss_feat = StratifiedShuffleSplit(n_splits=1, test_size=TEST_FRAC,
+                                      random_state=FIRST_SEED)
+    (train_sub, _), = sss_feat.split(np.zeros(N_SAMPLES), y)
+    train_orig = sub_orig[train_sub]
+
+    keep_idx, keep_names = select_14_features(
+        X_raw_full[train_orig], y_full[train_orig])
+    log.info("  Selected (14) from seed=%d training portion: %s",
+             FIRST_SEED, keep_names)
+
     X_norm_eval = X_norm_full[eval_pool][:, keep_idx]
     X_raw_eval = X_raw_full[eval_pool][:, keep_idx]
     y_eval = y_full[eval_pool]
-    log.info("  Selected (14): %s", keep_names)
 
-    # ----- Stratified sub-sample of N=800 from the eval pool ------------- #
-    log.info("\n[step 3] Stratified sub-sample to N=%d", N_SAMPLES)
-    sub_idx = stratified_subsample(y_eval, N_SAMPLES, SUBSAMPLE_SEED)
-    X_enc = X_norm_eval[sub_idx]    # already in [0, pi]
-    X_raw = X_raw_eval[sub_idx]
-    y = y_eval[sub_idx]
+    X_enc = X_norm_full[sub_orig][:, keep_idx]
+    X_raw = X_raw_full[sub_orig][:, keep_idx]
     log.info("  Sub-sample size: %d", len(y))
     cls, cnt = np.unique(y, return_counts=True)
     for c, n in zip(cls, cnt):

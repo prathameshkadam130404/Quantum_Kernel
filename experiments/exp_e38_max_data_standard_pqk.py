@@ -1,3 +1,15 @@
+"""
+E38: Standard-ZZ-PQK arm of the maximum-capacity benchmark.
+
+Evaluates the canonical Havlicek ZZ feature-map as a Bloch-vector PQK at
+n=16, depth=6 on the So2Sat and EuroSAT N=10,000 pools, using the same
+block-bipartite ladder connectivity and the same 10-stratified-shuffle-split
+SVM evaluation as exp_e38_max_data_pqk.py.  This is the "vanilla" baseline
+the BSCM family is compared against (paper Table 9).
+
+Output: results/e38_max_data/cache_<dataset>_standard_pqk.npz   (K, y, gamma)
+        results/e38_max_data/standard_pqk_summary.json
+"""
 import os
 import sys
 import json
@@ -25,15 +37,16 @@ log = logging.getLogger("e38_standard_pqk")
 N_QUBITS = 16
 DEPTH = 6
 CV_FOLDS = 3
-C_GRID = [0.1, 1.0, 10.0]
+C_GRID = [0.1, 1.0, 10.0, 100.0, 1000.0]
 
 # ============================================================================
 # STANDARD PQK (HAVLICEK ZZFeatureMap PROJECTED)
 # ============================================================================
 
 def _build_standard_pqk_bloch_extractor(n_qubits: int, reps: int):
-    """Standard ZZFeatureMap (Havlicek et al.) circuit for PQK extraction.
-    Uses the exact same Ladder topology as E38 for a perfectly fair baseline.
+    """Build the three Bloch-readout QNodes for the canonical Havlicek
+    ZZ feature map on the same block-bipartite ladder topology as the
+    BSCM extractor in exp_e38_max_data_pqk.py.
     """
     dev = config.get_device(n_qubits)
     
@@ -85,14 +98,14 @@ def extract_standard_pqk_bloch_vectors(X: np.ndarray, n_qubits: int, reps: int, 
 # ============================================================================
 
 def run_pqk_evaluations(K_pqk: np.ndarray, y: np.ndarray) -> Tuple[float, float]:
-    """Runs exactly the same 5 splits as the BSCM-PQK E38 evaluation for fair comparison."""
-    sss = StratifiedShuffleSplit(n_splits=5, test_size=0.3, random_state=42)
+    """Runs exactly the same 10 splits as the BSCM-PQK E38 evaluation for fair comparison."""
+    sss = StratifiedShuffleSplit(n_splits=10, test_size=0.3, random_state=42)
     
     scores = []
     for tr, te in sss.split(K_pqk, y):
         K_tr = K_pqk[np.ix_(tr, tr)]
         K_te = K_pqk[np.ix_(te, tr)]
-        clf = GridSearchCV(SVC(kernel="precomputed", class_weight="balanced"), {"C": C_GRID}, cv=CV_FOLDS, n_jobs=-1)
+        clf = GridSearchCV(SVC(kernel="precomputed", class_weight="balanced"), {"C": C_GRID}, cv=CV_FOLDS, scoring="f1_macro", n_jobs=-1)
         clf.fit(K_tr, y[tr])
         scores.append(f1_score(y[te], clf.predict(K_te), average="macro"))
         

@@ -42,7 +42,17 @@ from src.attention_kernel import select_features_by_fisher, FEATURE_NAMES_16
 from src.bscm_kernel import compute_bscm_fidelity_kernel
 from src.srqfm_fidelity_kernel import compute_srqfm_fidelity_kernel
 
-TAU_GRID = [0.25, 0.5, 0.75, 1.0, 1.5]   # pre-registered.
+TAU_GRID = [0.25, 0.5, 0.75, 1.0, 1.5]   # original pre-registered grid.
+
+# Extended grid: probes the region below the originally-selected tau=0.25 to
+# verify that the lock is not pathologically pinned to the grid minimum.
+# Five additional points are added at the low end {0.05, 0.10, 0.15, 0.20} and
+# the original five are retained for continuity.  The selection rule (argmax
+# KTA, ties broken by smaller tau) is unchanged; we publish *both* the
+# original lock and the extended-grid lock so reviewers can see the boundary
+# behaviour directly.
+TAU_GRID_EXTENDED = [0.05, 0.10, 0.15, 0.20] + TAU_GRID
+
 SAVE_DIR = os.path.join(config.RESULTS_DIR, "bscm")
 os.makedirs(SAVE_DIR, exist_ok=True)
 

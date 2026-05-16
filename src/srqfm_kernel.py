@@ -1,29 +1,22 @@
 """
-Self-Regulating Quantum Feature Map (SRQFM) Kernel.
+Self-Regulating Quantum Feature Map (SRQFM) kernel.
 
-A novel quantum kernel architecture where the entanglement strength between
-qubits is automatically determined by the quantum fidelity distance between
-their encoded states. No classical selection loop, no external attention
-mechanism — the circuit mathematics itself performs smart feature interaction.
+The per-pair entangling angle is the single-qubit fidelity distance between
+the two encoded states, rather than the bilinear Havlicek angle:
 
-Core Innovation:
-    Standard ZZ:  J(x_i, x_j) = (pi - x_i)(pi - x_j)        [fixed coupling]
-    SRQFM:        J(x_i, x_j) = sin^2((x_i - x_j) / 2)      [self-regulating]
+    Standard ZZ:  J(x_i, x_j) = (pi - x_i)(pi - x_j)        (bilinear)
+    SRQFM:        J(x_i, x_j) = sin^2((x_i - x_j) / 2)      (fidelity distance)
 
-    The SRQFM coupling equals the quantum fidelity distance between the
-    single-qubit states |psi(x_i)> and |psi(x_j)>:
-        d(x_i, x_j) = 1 - |<psi(x_i)|psi(x_j)>|^2
-                     = sin^2((x_i - x_j) / 2)
-
-    Properties:
-        - d = 0 when x_i = x_j  -> NO entanglement (redundant features)
-        - d = 1 when |x_i - x_j| = pi -> MAX entanglement (complementary)
-        - Continuous, differentiable interpolation otherwise
-
-Physical Motivation:
-    Analogous to the Heisenberg exchange interaction in condensed matter:
-    spin-spin coupling depends on the relative orientation of the spins.
-    Here, qubit-qubit coupling depends on the relative encoding angle.
+The SRQFM coupling equals the quantum fidelity distance between the
+single-qubit states |psi(x)> = RZ(x) H |0>:
+    d(x_i, x_j) = 1 - |<psi(x_i)|psi(x_j)>|^2
+                = sin^2((x_i - x_j) / 2),
+so the entangling angle is bounded in [0, 1] and vanishes when x_i = x_j
+(coupling-threshold sparsification when feature values collide).
+Properties (proofs in Appendix A of the paper):
+    d = 0 at x_i = x_j           -- no entanglement (redundant features),
+    d = 1 at |x_i - x_j| = pi    -- maximal entangling angle,
+    differentiable interpolation between the two extremes.
 
 Architecture:
     Per repetition:

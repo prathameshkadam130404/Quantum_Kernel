@@ -1,39 +1,28 @@
 """
-E37 -- PQK Scaling Analysis (XX+YY vs ZZ at 16 Qubits)
+E37: PQK depth-scaling experiment at n=16.
 
-Motivation
-----------
-At 8 qubits, the Hilbert space (256 dimensions) is too small to show 
-distinct quantum advantage over classical RBF kernels. To properly test 
-if the non-commuting XX+YY generators (BSCM-PQK) overpower the commuting 
-ZZ generators (Normal PQK), we must scale to 16 Qubits.
+Measures concentration with depth on real multi-class data.  For each of
+SRQFM-PQK and BSCM-PQK on So2Sat physics-16 and EuroSAT physics-16 (each
+N=2,000 pool, 5 seeds), Bloch vectors are extracted at depths L in
+{2, 4, 6, 8, 10}; macro-F1 and kernel-health diagnostics (off-diagonal
+mean / variance) are reported as L increases.
 
-Data Structure:
-Rather than using artificial data re-uploading (duplicating features), 
-this experiment uses *true* 16-dimensional physical features:
-1. So2Sat: Uses the native `physics_features_16.npz` (8 Optical + 8 SAR).
-2. EuroSAT: Synthesizes 16 features by combining the 8 physics indices 
-   with the first 8 raw Sentinel-2 bands.
+Data
+----
+* So2Sat: physics-Fisher-16 (8 Sentinel-2 indices + 8 Sentinel-1 features).
+* EuroSAT: 8 physics indices + 8 highest-Fisher-rank raw Sentinel-2 bands.
 
-We use a block-bipartite (8+8) connectivity: linear chains within each
-block plus rungs between blocks. On So2Sat the two blocks correspond to
-optical (Sentinel-2) and SAR (Sentinel-1) features; on EuroSAT (single-
-modal Sentinel-2) the split is by Fisher rank for protocol consistency.
-The sparser topology prevents instantaneous scrambling (concentration /
-barren plateaus) while letting the XX+YY geometry build across depths
-L=2, 4, 6, 8, 10.
+Connectivity
+------------
+Block-bipartite (8+8) ladder: linear chain inside each 8-block plus rungs
+between blocks.  On So2Sat the two blocks correspond to optical and SAR
+features; on EuroSAT the split is by Fisher rank for protocol consistency.
 
-Protocol
---------
-Datasets:    So2Sat physics16 (N=1800), EuroSAT physics16 (N=1500 pool)
-Qubits:      16
-Depths (L):  [2, 4, 6, 8, 10]
-Topology:    Block-bipartite (8+8) ladder
-Methods:     1. SG-BSCM-PQK (XX+YY, gated)
-             2. SRQFM-PQK (ZZ)
-             3. RBF-SVM (Classical baseline)
-
-Author: Prathamesh Kadam et al.
+Methods
+-------
+* BSCM-PQK   (non-commuting XX + YY + ZZ generators, uniform Bell prior)
+* SRQFM-PQK  (singlet IsingZZ, commuting ZZ generator)
+* RBF-SVM    (tuned classical baseline, depth-independent)
 """
 from __future__ import annotations
 

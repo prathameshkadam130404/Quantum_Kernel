@@ -375,6 +375,43 @@ def main() -> None:
         }
     summary["rescue_gap"] = gap
 
+    # Proposition 4 quantitative verification.
+    # Prop 4 (Appendix C) predicts: E[w_{Psi-}] = (1/4)(1 - exp(-sigma^2 * (1 - rho)))
+    # where sigma^2 = Var(x_i) in the encoded [0, pi] space (marginal per-feature variance).
+    # We compare the analytic prediction against the empirical mean computed by
+    # _measure_w_psi_minus() and stored in the per-row w_psi fields.
+    prop4 = {}
+    w_cols = [f"E_w_psi_minus_pair_{k}_{k + 4}" for k in range(N_INFORM_DIM)]
+    for rho in RHO_LIST:
+        # Empirical E[w_psi-]: mean over seeds and redundant pairs.
+        sub_rho = df[df["rho"] == rho]
+        empirical_vals = []
+        for col in w_cols:
+            if col in sub_rho.columns:
+                empirical_vals.extend(sub_rho[col].dropna().tolist())
+        empirical_mean = float(np.mean(empirical_vals)) if empirical_vals else float("nan")
+
+        # sigma^2: marginal variance of encoded features across all seeds at this rho.
+        # We regenerate the dataset for seed=42 (representative) to measure sigma^2.
+        _, X_enc_ref, _ = make_synthetic_dataset(rho, seed=42)
+        sigma2 = float(np.var(X_enc_ref))  # pooled marginal variance over all 8 features
+
+        # Analytic prediction from Prop 4.
+        analytic = 0.25 * (1.0 - np.exp(-sigma2 * (1.0 - rho)))
+
+        prop4[str(rho)] = {
+            "rho_nominal": float(rho),
+            "sigma2_enc": sigma2,
+            "E_w_psi_minus_analytic": float(analytic),
+            "E_w_psi_minus_empirical": empirical_mean,
+            "abs_error": float(abs(analytic - empirical_mean)),
+        }
+        log.info(
+            "  Prop4 rho=%.2f  sigma2=%.4f  analytic=%.4f  empirical=%.4f  |err|=%.4f",
+            rho, sigma2, analytic, empirical_mean, abs(analytic - empirical_mean),
+        )
+    summary["prop4_verification"] = prop4
+
     with open(os.path.join(SAVE_DIR, "summary.json"), "w") as f:
         json.dump(summary, f, indent=2)
     log.info("Wrote summary.json")

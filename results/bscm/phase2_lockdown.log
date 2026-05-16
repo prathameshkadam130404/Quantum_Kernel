@@ -1,20 +1,29 @@
-2026-05-01 22:47:31,032 [bscm_phase2_lockdown] INFO: ========================================================================
-2026-05-01 22:47:31,033 [bscm_phase2_lockdown] INFO:   BSCM Phase 2 LOCK-DOWN  (holdout-only tau selection)
-2026-05-01 22:47:31,033 [bscm_phase2_lockdown] INFO: ========================================================================
-2026-05-01 22:47:31,052 [bscm_phase2_lockdown] INFO:   Selected features: ['NDVI', 'NDWI', 'SAVI', 'NDRE', 'MNDWI', 'EVI', 'VH_dB', 'VV_dB']
-2026-05-01 22:47:31,059 [bscm_phase2_lockdown] INFO:   Holdout pool: 200 samples, 17 unique classes
-2026-05-01 22:48:37,683 [src.srqfm_fidelity_kernel] INFO: Saved SRQFM-fidelity kernel to D:\Quantum_kernel\quantum-sat-classification\results\bscm\K_srqfm_fid_holdout.npy
-2026-05-01 22:48:37,689 [bscm_phase2_lockdown] INFO:   SRQFM-fid: KTA=0.3486  off_var=0.0562  eff_rank=25.6  (66.6s)
-2026-05-01 22:50:49,263 [src.bscm_kernel] INFO: Saved BSCM kernel to D:\Quantum_kernel\quantum-sat-classification\results\bscm\K_bscm_holdout_tau0.25.npy
-2026-05-01 22:50:49,268 [bscm_phase2_lockdown] INFO:   tau=0.25: KTA=0.4406  off_mean=0.2168  off_var=0.0748  eff_rank=15.2  (131.6s)
-2026-05-01 22:53:02,291 [src.bscm_kernel] INFO: Saved BSCM kernel to D:\Quantum_kernel\quantum-sat-classification\results\bscm\K_bscm_holdout_tau0.5.npy
-2026-05-01 22:53:02,297 [bscm_phase2_lockdown] INFO:   tau=0.50: KTA=0.4156  off_mean=0.1473  off_var=0.0486  eff_rank=27.2  (133.0s)
-2026-05-01 22:55:13,713 [src.bscm_kernel] INFO: Saved BSCM kernel to D:\Quantum_kernel\quantum-sat-classification\results\bscm\K_bscm_holdout_tau0.75.npy
-2026-05-01 22:55:13,718 [bscm_phase2_lockdown] INFO:   tau=0.75: KTA=0.3708  off_mean=0.1029  off_var=0.0339  eff_rank=42.9  (131.4s)
-2026-05-01 22:57:25,190 [src.bscm_kernel] INFO: Saved BSCM kernel to D:\Quantum_kernel\quantum-sat-classification\results\bscm\K_bscm_holdout_tau1.0.npy
-2026-05-01 22:57:25,193 [bscm_phase2_lockdown] INFO:   tau=1.00: KTA=0.3425  off_mean=0.0780  off_var=0.0246  eff_rank=60.2  (131.5s)
-2026-05-01 22:59:37,327 [src.bscm_kernel] INFO: Saved BSCM kernel to D:\Quantum_kernel\quantum-sat-classification\results\bscm\K_bscm_holdout_tau1.5.npy
-2026-05-01 22:59:37,331 [bscm_phase2_lockdown] INFO:   tau=1.50: KTA=0.3363  off_mean=0.0361  off_var=0.0098  eff_rank=103.5  (132.1s)
-2026-05-01 22:59:37,331 [bscm_phase2_lockdown] INFO: 
-2026-05-01 22:59:37,331 [bscm_phase2_lockdown] INFO:   Locked tau = 0.25  (KTA = 0.4406)
-2026-05-01 22:59:37,332 [bscm_phase2_lockdown] INFO:   Saved: D:\Quantum_kernel\quantum-sat-classification\results\bscm\locked_tau.json
+2026-05-15 03:47:55,585 [bscm_phase2_lockdown_extended] INFO: ========================================================================
+2026-05-15 03:47:55,586 [bscm_phase2_lockdown_extended] INFO:   BSCM Phase 2 LOCK-DOWN -- EXTENDED grid sweep
+2026-05-15 03:47:55,586 [bscm_phase2_lockdown_extended] INFO:   Grid: [0.05, 0.1, 0.15, 0.2, 0.25, 0.5, 0.75, 1.0, 1.5]
+2026-05-15 03:47:55,586 [bscm_phase2_lockdown_extended] INFO: ========================================================================
+2026-05-15 03:47:55,599 [bscm_phase2_lockdown_extended] INFO:   Selected features: ['NDVI', 'NDWI', 'SAVI', 'NDRE', 'MNDWI', 'EVI', 'VH_dB', 'VV_dB']
+2026-05-15 03:47:55,635 [bscm_phase2_lockdown_extended] INFO:   Holdout pool: 200 samples, 17 unique classes
+2026-05-15 04:01:50,712 [src.bscm_kernel] INFO: Saved BSCM kernel to /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/K_bscm_holdout_tau0.05.npy
+2026-05-15 04:01:50,900 [bscm_phase2_lockdown_extended] INFO:   tau=0.05: KTA=0.4340  off_mean=0.2835  off_var=0.0944  eff_rank=10.6  (835.1s, cache=False)
+2026-05-15 04:13:38,090 [src.bscm_kernel] INFO: Saved BSCM kernel to /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/K_bscm_holdout_tau0.1.npy
+2026-05-15 04:13:38,269 [bscm_phase2_lockdown_extended] INFO:   tau=0.10: KTA=0.4387  off_mean=0.2659  off_var=0.0906  eff_rank=11.4  (707.2s, cache=False)
+2026-05-15 04:25:14,165 [src.bscm_kernel] INFO: Saved BSCM kernel to /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/K_bscm_holdout_tau0.15.npy
+2026-05-15 04:25:14,307 [bscm_phase2_lockdown_extended] INFO:   tau=0.15: KTA=0.4411  off_mean=0.2489  off_var=0.0859  eff_rank=12.4  (695.9s, cache=False)
+2026-05-15 04:35:07,590 [src.bscm_kernel] INFO: Saved BSCM kernel to /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/K_bscm_holdout_tau0.2.npy
+2026-05-15 04:35:07,597 [bscm_phase2_lockdown_extended] INFO:   tau=0.20: KTA=0.4417  off_mean=0.2325  off_var=0.0806  eff_rank=13.7  (593.3s, cache=False)
+2026-05-15 04:35:07,611 [src.bscm_kernel] INFO: [CACHE] Loading BSCM kernel from /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/K_bscm_holdout_tau0.25.npy
+2026-05-15 04:35:07,636 [bscm_phase2_lockdown_extended] INFO:   tau=0.25: KTA=0.4406  off_mean=0.2168  off_var=0.0748  eff_rank=15.2  (0.0s, cache=True)
+2026-05-15 04:35:07,638 [src.bscm_kernel] INFO: [CACHE] Loading BSCM kernel from /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/K_bscm_holdout_tau0.5.npy
+2026-05-15 04:35:07,658 [bscm_phase2_lockdown_extended] INFO:   tau=0.50: KTA=0.4156  off_mean=0.1473  off_var=0.0486  eff_rank=27.2  (0.0s, cache=True)
+2026-05-15 04:35:07,661 [src.bscm_kernel] INFO: [CACHE] Loading BSCM kernel from /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/K_bscm_holdout_tau0.75.npy
+2026-05-15 04:35:07,681 [bscm_phase2_lockdown_extended] INFO:   tau=0.75: KTA=0.3708  off_mean=0.1029  off_var=0.0339  eff_rank=42.9  (0.0s, cache=True)
+2026-05-15 04:35:07,683 [src.bscm_kernel] INFO: [CACHE] Loading BSCM kernel from /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/K_bscm_holdout_tau1.0.npy
+2026-05-15 04:35:07,705 [bscm_phase2_lockdown_extended] INFO:   tau=1.00: KTA=0.3425  off_mean=0.0780  off_var=0.0246  eff_rank=60.2  (0.0s, cache=True)
+2026-05-15 04:35:07,707 [src.bscm_kernel] INFO: [CACHE] Loading BSCM kernel from /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/K_bscm_holdout_tau1.5.npy
+2026-05-15 04:35:07,731 [bscm_phase2_lockdown_extended] INFO:   tau=1.50: KTA=0.3363  off_mean=0.0361  off_var=0.0098  eff_rank=103.5  (0.0s, cache=True)
+2026-05-15 04:35:07,731 [bscm_phase2_lockdown_extended] INFO: 
+2026-05-15 04:35:07,732 [bscm_phase2_lockdown_extended] INFO:   EXTENDED-grid lock: tau=0.20, KTA=0.4417
+2026-05-15 04:35:07,732 [bscm_phase2_lockdown_extended] INFO:   Original grid lock (results/bscm/locked_tau.json) was tau=0.25.
+2026-05-15 04:35:07,733 [bscm_phase2_lockdown_extended] INFO:   NOTE: extended-grid lock differs from original. Headline experiments (E26/E32/E37/E38/E42/E43) use tau=0.25; this extended sweep is a *robustness check*, not a change of the locked value.
+2026-05-15 04:35:07,736 [bscm_phase2_lockdown_extended] INFO:   Saved: /mnt/d/Quantum_kernel/quantum-sat-classification/results/bscm/locked_tau_extended.json

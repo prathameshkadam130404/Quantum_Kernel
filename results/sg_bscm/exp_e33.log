@@ -1,43 +1,260 @@
-2026-05-07 05:37:52,914 [exp_e37] INFO: ========================================================================
-2026-05-07 05:37:52,914 [exp_e37] INFO:   E37: PQK Scaling Analysis (XX+YY vs ZZ at 16 Qubits)
-2026-05-07 05:37:52,914 [exp_e37] INFO: ========================================================================
-2026-05-07 05:37:52,936 [eurosat_data] INFO: Loading cached features from /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/eurosat_band_means.npz
-2026-05-07 05:37:52,966 [exp_e37] INFO: Dataset: EuroSAT physics-16 (re-uploaded), N=1500, features=16
-2026-05-07 05:37:52,967 [exp_e37] INFO: 
---- Classical RBF-SVM Baseline ---
-2026-05-07 05:37:56,649 [exp_e37] INFO: RBF-SVM F1: 0.6598 +/- 0.0256
-
-2026-05-07 05:37:56,649 [exp_e37] INFO: ============================================================
-2026-05-07 05:37:56,650 [exp_e37] INFO:   DEPTH L = 2
-2026-05-07 05:37:56,650 [exp_e37] INFO: ============================================================
-2026-05-07 05:37:56,652 [exp_e37] INFO:   Computing SRQFM-PQK (L=2) Bloch vectors...
-2026-05-07 05:39:06,459 [exp_e37] INFO:   Done in 69.0s
-2026-05-07 05:39:06,463 [exp_e37] INFO:   Mean Bloch magnitude: 0.9429
-2026-05-07 05:39:07,414 [exp_e37] INFO:   SRQFM-PQK K_off_diag: 0.1697
-2026-05-07 05:39:08,437 [exp_e37] INFO:   --> SRQFM-PQK (L=2) F1: 0.6367 +/- 0.0167
-
-2026-05-07 05:39:08,440 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=2) Bloch vectors...
-2026-05-07 05:40:34,219 [exp_e37] INFO:   Done in 85.8s
-2026-05-07 05:40:34,220 [exp_e37] INFO:   Mean Bloch magnitude: 0.9965
-2026-05-07 05:40:35,099 [exp_e37] INFO:   SG-BSCM-PQK K_off_diag: 0.1874
-2026-05-07 05:40:35,949 [exp_e37] INFO:   --> SG-BSCM-PQK (L=2) F1: 0.6684 +/- 0.0267
-
-2026-05-07 05:40:35,950 [exp_e37] INFO: ============================================================
-2026-05-07 05:40:35,951 [exp_e37] INFO:   DEPTH L = 4
-2026-05-07 05:40:35,951 [exp_e37] INFO: ============================================================
-2026-05-07 05:40:35,953 [exp_e37] INFO:   Computing SRQFM-PQK (L=4) Bloch vectors...
-2026-05-07 05:42:35,132 [exp_e37] INFO:   Done in 119.2s
-2026-05-07 05:42:35,133 [exp_e37] INFO:   Mean Bloch magnitude: 0.9386
-2026-05-07 05:42:36,019 [exp_e37] INFO:   SRQFM-PQK K_off_diag: 0.1290
-2026-05-07 05:42:36,967 [exp_e37] INFO:   --> SRQFM-PQK (L=4) F1: 0.6403 +/- 0.0185
-
-2026-05-07 05:42:36,968 [exp_e37] INFO:   Computing SG-BSCM-PQK (L=4) Bloch vectors...
-2026-05-07 05:45:12,300 [exp_e37] INFO:   Done in 155.3s
-2026-05-07 05:45:12,300 [exp_e37] INFO:   Mean Bloch magnitude: 0.9986
-2026-05-07 05:45:13,256 [exp_e37] INFO:   SG-BSCM-PQK K_off_diag: 0.1051
-2026-05-07 05:45:14,249 [exp_e37] INFO:   --> SG-BSCM-PQK (L=4) F1: 0.6385 +/- 0.0137
-
-2026-05-07 05:45:14,250 [exp_e37] INFO: ============================================================
-2026-05-07 05:45:14,251 [exp_e37] INFO:   DEPTH L = 6
-2026-05-07 05:45:14,251 [exp_e37] INFO: ============================================================
-2026-05-07 05:45:14,252 [exp_e37] INFO:   Computing SRQFM-PQK (L=6) Bloch vectors...
+2026-05-12 13:43:44,554 [exp_e33] INFO: ========================================================================
+2026-05-12 13:43:44,554 [exp_e33] INFO:   E33: Singlet-Gated BSCM (SG-BSCM) Fidelity Kernel Evaluation
+2026-05-12 13:43:44,555 [exp_e33] INFO: ========================================================================
+2026-05-12 13:43:44,555 [exp_e33] INFO:   Date:       2026-05-12T13:43:44.555527
+2026-05-12 13:43:44,555 [exp_e33] INFO:   Seeds:      [42, 43, 44, 45, 46]
+2026-05-12 13:43:44,556 [exp_e33] INFO:   TAU_LOCKED: 0.250
+2026-05-12 13:43:44,556 [exp_e33] INFO:   N_QUBITS:   8
+2026-05-12 13:43:44,556 [exp_e33] INFO:   REPS:       2
+2026-05-12 13:43:44,557 [exp_e33] INFO:   C_GRID:     [1, 10, 100]
+2026-05-12 13:43:44,598 [exp_e33] INFO: 
+========================================================================
+2026-05-12 13:43:44,598 [exp_e33] INFO:   Condition: so2sat/physics8   N=1800  n_classes=17
+2026-05-12 13:43:44,599 [exp_e33] INFO:   Features: ['NDVI', 'NDWI', 'SAVI', 'NDRE', 'MNDWI', 'EVI', 'VH_dB', 'VV_dB']
+2026-05-12 13:43:44,599 [exp_e33] INFO: ========================================================================
+2026-05-12 13:43:44,600 [exp_e33] INFO:   [CACHE] Loading SG-BSCM(so2sat/physics8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_SG-BSCM_so2sat_physics8.npy
+2026-05-12 13:43:44,678 [exp_e33] INFO:   SG-BSCM         built  (0.1s)
+2026-05-12 13:43:44,679 [exp_e33] INFO:   [CACHE] Loading BSCM-uniform(so2sat/physics8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_BSCM-uniform_so2sat_physics8.npy
+2026-05-12 13:43:44,746 [exp_e33] INFO:   BSCM-uniform    built  (0.1s)
+2026-05-12 13:43:44,747 [exp_e33] INFO:   [CACHE] Loading SRQFM-fid(so2sat/physics8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_SRQFM-fid_so2sat_physics8.npy
+2026-05-12 13:43:44,827 [exp_e33] INFO:   SRQFM-fid       built  (0.1s)
+2026-05-12 13:43:45,239 [exp_e33] INFO:   SG-BSCM         off_mean=0.2865  eff_rank=11.5  KTA(cc)=0.3845
+2026-05-12 13:43:45,662 [exp_e33] INFO:   BSCM-uniform    off_mean=0.2146  eff_rank=16.7  KTA(cc)=0.3717
+2026-05-12 13:43:46,080 [exp_e33] INFO:   SRQFM-fid       off_mean=0.1497  eff_rank=29.8  KTA(cc)=0.2715
+2026-05-12 13:43:46,083 [exp_e33] INFO: 
+  Seed 42 (so2sat/physics8):
+2026-05-12 13:43:46,290 [exp_e33] INFO:     SG-BSCM         F1=0.5114  C=100
+2026-05-12 13:43:46,475 [exp_e33] INFO:     BSCM-uniform    F1=0.5111  C=100
+2026-05-12 13:43:46,670 [exp_e33] INFO:     SRQFM-fid       F1=0.4972  C=100
+2026-05-12 13:43:48,626 [exp_e33] INFO:     RBF-SVM         F1=0.4966  C=100  gamma=0.1
+2026-05-12 13:43:49,467 [exp_e33] INFO:     RandomForest    F1=0.4636
+2026-05-12 13:43:49,468 [exp_e33] INFO: 
+  Seed 43 (so2sat/physics8):
+2026-05-12 13:43:49,644 [exp_e33] INFO:     SG-BSCM         F1=0.4649  C=100
+2026-05-12 13:43:49,826 [exp_e33] INFO:     BSCM-uniform    F1=0.4873  C=100
+2026-05-12 13:43:50,025 [exp_e33] INFO:     SRQFM-fid       F1=0.4632  C=100
+2026-05-12 13:43:50,233 [exp_e33] INFO:     RBF-SVM         F1=0.4761  C=100  gamma=scale
+2026-05-12 13:43:51,035 [exp_e33] INFO:     RandomForest    F1=0.4343
+2026-05-12 13:43:51,036 [exp_e33] INFO: 
+  Seed 44 (so2sat/physics8):
+2026-05-12 13:43:51,214 [exp_e33] INFO:     SG-BSCM         F1=0.4851  C=100
+2026-05-12 13:43:51,397 [exp_e33] INFO:     BSCM-uniform    F1=0.5080  C=100
+2026-05-12 13:43:51,600 [exp_e33] INFO:     SRQFM-fid       F1=0.4848  C=100
+2026-05-12 13:43:51,806 [exp_e33] INFO:     RBF-SVM         F1=0.4716  C=100  gamma=0.1
+2026-05-12 13:43:52,625 [exp_e33] INFO:     RandomForest    F1=0.4328
+2026-05-12 13:43:52,626 [exp_e33] INFO: 
+  Seed 45 (so2sat/physics8):
+2026-05-12 13:43:52,807 [exp_e33] INFO:     SG-BSCM         F1=0.4488  C=100
+2026-05-12 13:43:52,995 [exp_e33] INFO:     BSCM-uniform    F1=0.4373  C=100
+2026-05-12 13:43:53,201 [exp_e33] INFO:     SRQFM-fid       F1=0.4650  C=100
+2026-05-12 13:43:53,400 [exp_e33] INFO:     RBF-SVM         F1=0.4138  C=100  gamma=0.1
+2026-05-12 13:43:54,278 [exp_e33] INFO:     RandomForest    F1=0.4119
+2026-05-12 13:43:54,279 [exp_e33] INFO: 
+  Seed 46 (so2sat/physics8):
+2026-05-12 13:43:54,470 [exp_e33] INFO:     SG-BSCM         F1=0.4882  C=100
+2026-05-12 13:43:54,666 [exp_e33] INFO:     BSCM-uniform    F1=0.4710  C=100
+2026-05-12 13:43:54,888 [exp_e33] INFO:     SRQFM-fid       F1=0.4901  C=100
+2026-05-12 13:43:55,128 [exp_e33] INFO:     RBF-SVM         F1=0.4686  C=100  gamma=0.1
+2026-05-12 13:43:56,012 [exp_e33] INFO:     RandomForest    F1=0.4193
+2026-05-12 13:43:56,051 [exp_e33] INFO: 
+========================================================================
+2026-05-12 13:43:56,051 [exp_e33] INFO:   Condition: so2sat/pca8   N=1800  n_classes=17
+2026-05-12 13:43:56,051 [exp_e33] INFO:   Features: ['pc1', 'pc2', 'pc3', 'pc4', 'pc5', 'pc6', 'pc7', 'pc8']
+2026-05-12 13:43:56,051 [exp_e33] INFO: ========================================================================
+2026-05-12 13:43:56,052 [exp_e33] INFO:   [CACHE] Loading SG-BSCM(so2sat/pca8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_SG-BSCM_so2sat_pca8.npy
+2026-05-12 13:43:56,134 [exp_e33] INFO:   SG-BSCM         built  (0.1s)
+2026-05-12 13:43:56,135 [exp_e33] INFO:   [CACHE] Loading BSCM-uniform(so2sat/pca8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_BSCM-uniform_so2sat_pca8.npy
+2026-05-12 13:43:56,204 [exp_e33] INFO:   BSCM-uniform    built  (0.1s)
+2026-05-12 13:43:56,205 [exp_e33] INFO:   [CACHE] Loading SRQFM-fid(so2sat/pca8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_SRQFM-fid_so2sat_pca8.npy
+2026-05-12 13:43:56,273 [exp_e33] INFO:   SRQFM-fid       built  (0.1s)
+2026-05-12 13:43:56,737 [exp_e33] INFO:   SG-BSCM         off_mean=0.7076  eff_rank=3.8  KTA(cc)=0.1543
+2026-05-12 13:43:57,186 [exp_e33] INFO:   BSCM-uniform    off_mean=0.7301  eff_rank=3.5  KTA(cc)=0.1622
+2026-05-12 13:43:57,644 [exp_e33] INFO:   SRQFM-fid       off_mean=0.6969  eff_rank=4.5  KTA(cc)=0.1534
+2026-05-12 13:43:57,647 [exp_e33] INFO: 
+  Seed 42 (so2sat/pca8):
+2026-05-12 13:43:57,910 [exp_e33] INFO:     SG-BSCM         F1=0.1878  C=100
+2026-05-12 13:43:58,133 [exp_e33] INFO:     BSCM-uniform    F1=0.1529  C=10
+2026-05-12 13:43:58,361 [exp_e33] INFO:     SRQFM-fid       F1=0.1813  C=100
+2026-05-12 13:43:58,701 [exp_e33] INFO:     RBF-SVM         F1=0.1747  C=100  gamma=1.0
+2026-05-12 13:43:59,674 [exp_e33] INFO:     RandomForest    F1=0.2125
+2026-05-12 13:43:59,675 [exp_e33] INFO: 
+  Seed 43 (so2sat/pca8):
+2026-05-12 13:43:59,905 [exp_e33] INFO:     SG-BSCM         F1=0.1790  C=100
+2026-05-12 13:44:00,137 [exp_e33] INFO:     BSCM-uniform    F1=0.1757  C=100
+2026-05-12 13:44:00,360 [exp_e33] INFO:     SRQFM-fid       F1=0.1937  C=100
+2026-05-12 13:44:00,719 [exp_e33] INFO:     RBF-SVM         F1=0.1936  C=100  gamma=scale
+2026-05-12 13:44:01,678 [exp_e33] INFO:     RandomForest    F1=0.1937
+2026-05-12 13:44:01,680 [exp_e33] INFO: 
+  Seed 44 (so2sat/pca8):
+2026-05-12 13:44:01,922 [exp_e33] INFO:     SG-BSCM         F1=0.1506  C=100
+2026-05-12 13:44:02,157 [exp_e33] INFO:     BSCM-uniform    F1=0.1642  C=100
+2026-05-12 13:44:02,383 [exp_e33] INFO:     SRQFM-fid       F1=0.1664  C=100
+2026-05-12 13:44:02,723 [exp_e33] INFO:     RBF-SVM         F1=0.1692  C=100  gamma=scale
+2026-05-12 13:44:03,726 [exp_e33] INFO:     RandomForest    F1=0.1902
+2026-05-12 13:44:03,727 [exp_e33] INFO: 
+  Seed 45 (so2sat/pca8):
+2026-05-12 13:44:03,966 [exp_e33] INFO:     SG-BSCM         F1=0.1557  C=100
+2026-05-12 13:44:04,211 [exp_e33] INFO:     BSCM-uniform    F1=0.1626  C=100
+2026-05-12 13:44:04,439 [exp_e33] INFO:     SRQFM-fid       F1=0.1283  C=10
+2026-05-12 13:44:04,795 [exp_e33] INFO:     RBF-SVM         F1=0.1875  C=100  gamma=1.0
+2026-05-12 13:44:05,880 [exp_e33] INFO:     RandomForest    F1=0.2056
+2026-05-12 13:44:05,881 [exp_e33] INFO: 
+  Seed 46 (so2sat/pca8):
+2026-05-12 13:44:06,128 [exp_e33] INFO:     SG-BSCM         F1=0.1639  C=100
+2026-05-12 13:44:06,369 [exp_e33] INFO:     BSCM-uniform    F1=0.1851  C=100
+2026-05-12 13:44:06,596 [exp_e33] INFO:     SRQFM-fid       F1=0.1548  C=100
+2026-05-12 13:44:06,940 [exp_e33] INFO:     RBF-SVM         F1=0.1719  C=100  gamma=scale
+2026-05-12 13:44:07,959 [exp_e33] INFO:     RandomForest    F1=0.2000
+2026-05-12 13:44:07,992 [eurosat_data] INFO: Loading cached features from /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/eurosat_band_means.npz
+2026-05-12 13:44:08,013 [exp_e33] INFO: 
+========================================================================
+2026-05-12 13:44:08,013 [exp_e33] INFO:   Condition: eurosat/physics8   N=1500  n_classes=10
+2026-05-12 13:44:08,014 [exp_e33] INFO:   Features: ['NDVI', 'NDBI', 'NDWI', 'BSI', 'SAVI', 'NDRE', 'MNDWI', 'EVI']
+2026-05-12 13:44:08,014 [exp_e33] INFO: ========================================================================
+2026-05-12 13:44:08,015 [exp_e33] INFO:   [CACHE] Loading SG-BSCM(eurosat/physics8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_SG-BSCM_eurosat_physics8.npy
+2026-05-12 13:44:08,093 [exp_e33] INFO:   SG-BSCM         built  (0.1s)
+2026-05-12 13:44:08,094 [exp_e33] INFO:   [CACHE] Loading BSCM-uniform(eurosat/physics8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_BSCM-uniform_eurosat_physics8.npy
+2026-05-12 13:44:08,482 [exp_e33] INFO:   BSCM-uniform    built  (0.4s)
+2026-05-12 13:44:08,483 [exp_e33] INFO:   [CACHE] Loading SRQFM-fid(eurosat/physics8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_SRQFM-fid_eurosat_physics8.npy
+2026-05-12 13:44:08,547 [exp_e33] INFO:   SRQFM-fid       built  (0.1s)
+2026-05-12 13:44:08,864 [exp_e33] INFO:   SG-BSCM         off_mean=0.3049  eff_rank=8.6  KTA(cc)=0.3401
+2026-05-12 13:44:09,167 [exp_e33] INFO:   BSCM-uniform    off_mean=0.2414  eff_rank=11.4  KTA(cc)=0.3294
+2026-05-12 13:44:09,478 [exp_e33] INFO:   SRQFM-fid       off_mean=0.2570  eff_rank=10.8  KTA(cc)=0.3184
+2026-05-12 13:44:09,480 [exp_e33] INFO: 
+  Seed 42 (eurosat/physics8):
+2026-05-12 13:44:09,630 [exp_e33] INFO:     SG-BSCM         F1=0.6997  C=100
+2026-05-12 13:44:09,748 [exp_e33] INFO:     BSCM-uniform    F1=0.7060  C=100
+2026-05-12 13:44:09,869 [exp_e33] INFO:     SRQFM-fid       F1=0.6958  C=100
+2026-05-12 13:44:10,008 [exp_e33] INFO:     RBF-SVM         F1=0.6851  C=100  gamma=0.1
+2026-05-12 13:44:11,027 [exp_e33] INFO:     RandomForest    F1=0.6026
+2026-05-12 13:44:11,029 [exp_e33] INFO: 
+  Seed 43 (eurosat/physics8):
+2026-05-12 13:44:11,153 [exp_e33] INFO:     SG-BSCM         F1=0.6415  C=100
+2026-05-12 13:44:11,280 [exp_e33] INFO:     BSCM-uniform    F1=0.6484  C=100
+2026-05-12 13:44:11,410 [exp_e33] INFO:     SRQFM-fid       F1=0.6234  C=100
+2026-05-12 13:44:11,564 [exp_e33] INFO:     RBF-SVM         F1=0.6332  C=100  gamma=0.1
+2026-05-12 13:44:12,555 [exp_e33] INFO:     RandomForest    F1=0.5553
+2026-05-12 13:44:12,556 [exp_e33] INFO: 
+  Seed 44 (eurosat/physics8):
+2026-05-12 13:44:12,687 [exp_e33] INFO:     SG-BSCM         F1=0.6663  C=100
+2026-05-12 13:44:12,815 [exp_e33] INFO:     BSCM-uniform    F1=0.6762  C=100
+2026-05-12 13:44:12,941 [exp_e33] INFO:     SRQFM-fid       F1=0.6599  C=100
+2026-05-12 13:44:13,089 [exp_e33] INFO:     RBF-SVM         F1=0.6455  C=100  gamma=scale
+2026-05-12 13:44:14,180 [exp_e33] INFO:     RandomForest    F1=0.6105
+2026-05-12 13:44:14,181 [exp_e33] INFO: 
+  Seed 45 (eurosat/physics8):
+2026-05-12 13:44:14,310 [exp_e33] INFO:     SG-BSCM         F1=0.6852  C=100
+2026-05-12 13:44:14,462 [exp_e33] INFO:     BSCM-uniform    F1=0.6845  C=100
+2026-05-12 13:44:14,625 [exp_e33] INFO:     SRQFM-fid       F1=0.6766  C=100
+2026-05-12 13:44:14,787 [exp_e33] INFO:     RBF-SVM         F1=0.6625  C=100  gamma=0.1
+2026-05-12 13:44:15,852 [exp_e33] INFO:     RandomForest    F1=0.6014
+2026-05-12 13:44:15,853 [exp_e33] INFO: 
+  Seed 46 (eurosat/physics8):
+2026-05-12 13:44:15,974 [exp_e33] INFO:     SG-BSCM         F1=0.6260  C=100
+2026-05-12 13:44:16,107 [exp_e33] INFO:     BSCM-uniform    F1=0.6407  C=100
+2026-05-12 13:44:16,229 [exp_e33] INFO:     SRQFM-fid       F1=0.6267  C=100
+2026-05-12 13:44:16,366 [exp_e33] INFO:     RBF-SVM         F1=0.6121  C=100  gamma=scale
+2026-05-12 13:44:17,463 [exp_e33] INFO:     RandomForest    F1=0.5608
+2026-05-12 13:44:17,466 [eurosat_data] INFO: Loading cached features from /mnt/d/Quantum_kernel/quantum-sat-classification/data/processed/eurosat_band_means.npz
+2026-05-12 13:44:17,495 [exp_e33] INFO: 
+========================================================================
+2026-05-12 13:44:17,495 [exp_e33] INFO:   Condition: eurosat/pca8   N=1500  n_classes=10
+2026-05-12 13:44:17,495 [exp_e33] INFO:   Features: ['pc1', 'pc2', 'pc3', 'pc4', 'pc5', 'pc6', 'pc7', 'pc8']
+2026-05-12 13:44:17,496 [exp_e33] INFO: ========================================================================
+2026-05-12 13:44:17,497 [exp_e33] INFO:   [CACHE] Loading SG-BSCM(eurosat/pca8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_SG-BSCM_eurosat_pca8.npy
+2026-05-12 13:44:17,568 [exp_e33] INFO:   SG-BSCM         built  (0.1s)
+2026-05-12 13:44:17,569 [exp_e33] INFO:   [CACHE] Loading BSCM-uniform(eurosat/pca8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_BSCM-uniform_eurosat_pca8.npy
+2026-05-12 13:44:17,654 [exp_e33] INFO:   BSCM-uniform    built  (0.1s)
+2026-05-12 13:44:17,655 [exp_e33] INFO:   [CACHE] Loading SRQFM-fid(eurosat/pca8) from /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/K_SRQFM-fid_eurosat_pca8.npy
+2026-05-12 13:44:17,731 [exp_e33] INFO:   SRQFM-fid       built  (0.1s)
+2026-05-12 13:44:18,898 [exp_e33] INFO:   SG-BSCM         off_mean=0.3642  eff_rank=14.7  KTA(cc)=0.3898
+2026-05-12 13:44:23,197 [exp_e33] INFO:   BSCM-uniform    off_mean=0.2328  eff_rank=28.5  KTA(cc)=0.3864
+2026-05-12 13:44:23,752 [exp_e33] INFO:   SRQFM-fid       off_mean=0.2785  eff_rank=21.2  KTA(cc)=0.3915
+2026-05-12 13:44:23,754 [exp_e33] INFO: 
+  Seed 42 (eurosat/pca8):
+2026-05-12 13:44:23,914 [exp_e33] INFO:     SG-BSCM         F1=0.7732  C=10
+2026-05-12 13:44:24,030 [exp_e33] INFO:     BSCM-uniform    F1=0.7883  C=10
+2026-05-12 13:44:24,140 [exp_e33] INFO:     SRQFM-fid       F1=0.7666  C=10
+2026-05-12 13:44:24,310 [exp_e33] INFO:     RBF-SVM         F1=0.7724  C=10  gamma=0.1
+2026-05-12 13:44:25,465 [exp_e33] INFO:     RandomForest    F1=0.7508
+2026-05-12 13:44:25,467 [exp_e33] INFO: 
+  Seed 43 (eurosat/pca8):
+2026-05-12 13:44:25,590 [exp_e33] INFO:     SG-BSCM         F1=0.7381  C=10
+2026-05-12 13:44:25,707 [exp_e33] INFO:     BSCM-uniform    F1=0.7561  C=10
+2026-05-12 13:44:25,817 [exp_e33] INFO:     SRQFM-fid       F1=0.7439  C=100
+2026-05-12 13:44:25,978 [exp_e33] INFO:     RBF-SVM         F1=0.7513  C=10  gamma=scale
+2026-05-12 13:44:27,045 [exp_e33] INFO:     RandomForest    F1=0.7061
+2026-05-12 13:44:27,046 [exp_e33] INFO: 
+  Seed 44 (eurosat/pca8):
+2026-05-12 13:44:27,151 [exp_e33] INFO:     SG-BSCM         F1=0.7634  C=10
+2026-05-12 13:44:27,296 [exp_e33] INFO:     BSCM-uniform    F1=0.7780  C=10
+2026-05-12 13:44:27,403 [exp_e33] INFO:     SRQFM-fid       F1=0.7693  C=10
+2026-05-12 13:44:27,557 [exp_e33] INFO:     RBF-SVM         F1=0.7778  C=10  gamma=0.1
+2026-05-12 13:44:28,513 [exp_e33] INFO:     RandomForest    F1=0.7514
+2026-05-12 13:44:28,515 [exp_e33] INFO: 
+  Seed 45 (eurosat/pca8):
+2026-05-12 13:44:28,605 [exp_e33] INFO:     SG-BSCM         F1=0.7644  C=10
+2026-05-12 13:44:28,699 [exp_e33] INFO:     BSCM-uniform    F1=0.7491  C=1
+2026-05-12 13:44:28,795 [exp_e33] INFO:     SRQFM-fid       F1=0.7656  C=10
+2026-05-12 13:44:28,939 [exp_e33] INFO:     RBF-SVM         F1=0.7613  C=10  gamma=0.1
+2026-05-12 13:44:29,875 [exp_e33] INFO:     RandomForest    F1=0.7424
+2026-05-12 13:44:29,876 [exp_e33] INFO: 
+  Seed 46 (eurosat/pca8):
+2026-05-12 13:44:29,973 [exp_e33] INFO:     SG-BSCM         F1=0.7384  C=10
+2026-05-12 13:44:30,067 [exp_e33] INFO:     BSCM-uniform    F1=0.7203  C=10
+2026-05-12 13:44:30,167 [exp_e33] INFO:     SRQFM-fid       F1=0.7177  C=10
+2026-05-12 13:44:30,327 [exp_e33] INFO:     RBF-SVM         F1=0.7481  C=10  gamma=0.1
+2026-05-12 13:44:31,504 [exp_e33] INFO:     RandomForest    F1=0.7107
+2026-05-12 13:44:31,572 [exp_e33] INFO: 
+  Saved metrics: /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/metrics.csv
+2026-05-12 13:44:31,601 [exp_e33] INFO: 
+  --- Stats: so2sat/physics8, primary=SG-BSCM ---
+2026-05-12 13:44:31,602 [exp_e33] INFO:     BSCM-uniform    mean=0.4829  std=0.0271  n=5
+2026-05-12 13:44:31,602 [exp_e33] INFO:     RBF-SVM         mean=0.4653  std=0.0276  n=5
+2026-05-12 13:44:31,602 [exp_e33] INFO:     RandomForest    mean=0.4324  std=0.0177  n=5
+2026-05-12 13:44:31,603 [exp_e33] INFO:     SG-BSCM         mean=0.4797  std=0.0213  n=5
+2026-05-12 13:44:31,603 [exp_e33] INFO:     SRQFM-fid       mean=0.4801  std=0.0136  n=5
+2026-05-12 13:44:31,611 [exp_e33] INFO:     Method             p-value  Cohen-d   sig*
+2026-05-12 13:44:31,611 [exp_e33] INFO:     BSCM-uniform        0.8125   -0.119       
+2026-05-12 13:44:31,611 [exp_e33] INFO:     RBF-SVM             0.1250    0.521       
+2026-05-12 13:44:31,612 [exp_e33] INFO:     RandomForest        0.0625    2.158       
+2026-05-12 13:44:31,612 [exp_e33] INFO:     SRQFM-fid           1.0000   -0.019       
+2026-05-12 13:44:31,616 [exp_e33] INFO: 
+  --- Stats: so2sat/pca8, primary=SG-BSCM ---
+2026-05-12 13:44:31,616 [exp_e33] INFO:     BSCM-uniform    mean=0.1681  std=0.0112  n=5
+2026-05-12 13:44:31,616 [exp_e33] INFO:     RBF-SVM         mean=0.1794  std=0.0095  n=5
+2026-05-12 13:44:31,617 [exp_e33] INFO:     RandomForest    mean=0.2004  std=0.0080  n=5
+2026-05-12 13:44:31,617 [exp_e33] INFO:     SG-BSCM         mean=0.1674  std=0.0140  n=5
+2026-05-12 13:44:31,617 [exp_e33] INFO:     SRQFM-fid       mean=0.1649  std=0.0225  n=5
+2026-05-12 13:44:31,622 [exp_e33] INFO:     Method             p-value  Cohen-d   sig*
+2026-05-12 13:44:31,622 [exp_e33] INFO:     BSCM-uniform        0.8125   -0.050       
+2026-05-12 13:44:31,622 [exp_e33] INFO:     RBF-SVM             0.1875   -0.896       
+2026-05-12 13:44:31,622 [exp_e33] INFO:     RandomForest        0.0625   -2.584       
+2026-05-12 13:44:31,622 [exp_e33] INFO:     SRQFM-fid           1.0000    0.119       
+2026-05-12 13:44:31,630 [exp_e33] INFO: 
+  --- Stats: eurosat/physics8, primary=SG-BSCM ---
+2026-05-12 13:44:31,630 [exp_e33] INFO:     BSCM-uniform    mean=0.6712  std=0.0239  n=5
+2026-05-12 13:44:31,631 [exp_e33] INFO:     RBF-SVM         mean=0.6477  std=0.0249  n=5
+2026-05-12 13:44:31,631 [exp_e33] INFO:     RandomForest    mean=0.5861  std=0.0232  n=5
+2026-05-12 13:44:31,631 [exp_e33] INFO:     SG-BSCM         mean=0.6638  std=0.0271  n=5
+2026-05-12 13:44:31,632 [exp_e33] INFO:     SRQFM-fid       mean=0.6565  std=0.0281  n=5
+2026-05-12 13:44:31,635 [exp_e33] INFO:     Method             p-value  Cohen-d   sig*
+2026-05-12 13:44:31,636 [exp_e33] INFO:     BSCM-uniform        0.1250   -0.259       
+2026-05-12 13:44:31,636 [exp_e33] INFO:     RBF-SVM             0.0625    0.552       
+2026-05-12 13:44:31,636 [exp_e33] INFO:     RandomForest        0.0625    2.752       
+2026-05-12 13:44:31,636 [exp_e33] INFO:     SRQFM-fid           0.1250    0.237       
+2026-05-12 13:44:31,639 [exp_e33] INFO: 
+  --- Stats: eurosat/pca8, primary=SG-BSCM ---
+2026-05-12 13:44:31,639 [exp_e33] INFO:     BSCM-uniform    mean=0.7583  std=0.0238  n=5
+2026-05-12 13:44:31,640 [exp_e33] INFO:     RBF-SVM         mean=0.7622  std=0.0115  n=5
+2026-05-12 13:44:31,640 [exp_e33] INFO:     RandomForest    mean=0.7323  std=0.0198  n=5
+2026-05-12 13:44:31,640 [exp_e33] INFO:     SG-BSCM         mean=0.7555  std=0.0145  n=5
+2026-05-12 13:44:31,642 [exp_e33] INFO:     SRQFM-fid       mean=0.7526  std=0.0197  n=5
+2026-05-12 13:44:31,645 [exp_e33] INFO:     Method             p-value  Cohen-d   sig*
+2026-05-12 13:44:31,645 [exp_e33] INFO:     BSCM-uniform        1.0000   -0.130       
+2026-05-12 13:44:31,646 [exp_e33] INFO:     RBF-SVM             0.3125   -0.456       
+2026-05-12 13:44:31,646 [exp_e33] INFO:     RandomForest        0.0625    1.196       
+2026-05-12 13:44:31,646 [exp_e33] INFO:     SRQFM-fid           0.8125    0.149       
+2026-05-12 13:44:31,652 [exp_e33] INFO:   Saved summary: /mnt/d/Quantum_kernel/quantum-sat-classification/results/sg_bscm/summary.json
+2026-05-12 13:44:31,652 [exp_e33] INFO: 
+  E33 complete.  Wall clock: 0.8 min

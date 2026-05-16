@@ -142,3 +142,101 @@ submission/*.synctex.gz
 submission/*.out
 submission/*.bbl
 submission/*.blg
+# ---- Session handoffs and scratch notes (this session) -----------------------
+CLAUDE.md
+HANDOFF.md
+SESSION_HANDOFF_*.md
+REVISION_PATCH_TODO.md
+PROJECT_HANDOFF.md
+Revisions analysis.md
+conversation_audit_log.md
+manuscript_updates_required.md
+convert_citations.py
+stage_for_release.sh
+# ---- One-off helper scripts (used during revision, not part of pipeline) ----
+experiments/calculate_overall_accuracy.py
+experiments/expand_e38_grid.py
+experiments/expand_grid.py
+experiments/refactor.py
+experiments/rewrite_e38_main.py
+experiments/rewrite_e38_pqk.py
+# ---- Experiments not cited in the paper -------------------------------------
+experiments/exp_e33_bscm_baseline.py
+experiments/exp_e41_bell_sector_ablation.py
+experiments/exp_e45_variational_bscm.py
+# ---- Separate sub-pipeline + scratch theory dirs ----------------------------
+cpk/
+theory/
+# ---- Build helper scripts (optional; un-comment to release) -----------------
+# run_exp.sh
+# setup_environment.sh
+# ---- Older obsolete result directories not cited in the paper ---------------
+results/ablation_agpqk/
+results/agpqk_nulls/
+results/bandwidth_cv/
+results/bscm/eval_bscm_uniform/
+results/bscm_baseline/
+results/bscm_compare_14q_8q_rf/
+results/classification/cm_*.pdf
+results/classification/cm_*.png
+results/classification/f1_*.pdf
+results/classification/f1_*.png
+results/classification/fig8_per_class_f1_comparison.*
+results/classification/tuned_classical/
+results/classification/classification_results.csv
+results/concentration_scaling/
+results/controlled_mi/
+results/controlled_mi_v2/
+results/cpk/
+results/d4_standalone/
+results/deep_fidelity_pipeline/
+results/dequantization/fig6_dequantization_curves.*
+results/diagnostics/
+results/e39_noise_sgbscm/
+results/e45_variational_bscm/
+results/eurosat/entanglement_*.png
+results/eurosat_fqk_pqk_fixed/
+results/expressibility/
+results/geometric_difference/
+results/imbalance/
+results/imbalance_metrics/
+results/kta_variance/
+results/learning_curve/curve.pdf
+results/noise/fig.pdf
+results/noise/fig.png
+results/ood_cultural10/fig.pdf
+results/ood_cultural10/fig.png
+results/overall_accuracy/
+results/paper_figures/
+results/pca_cv/
+results/per_class_ci/
+results/physics/
+results/physics_cv/
+results/pure_quantum_pipeline/
+results/pure_srqfm_so2sat/
+results/qea_2pqk_benchmark/
+results/qubit_scaling/fig.pdf
+results/qubit_scaling/fig.png
+results/reviewer_fixes/
+results/scaling_extended/
+results/sg_bscm_thresh0/
+results/shots/
+results/spectral_diagnostics/
+results/srqfm_ablation_v3/
+results/srqfm_benchmark/
+results/srqfm_v2_so2sat/
+results/topological/
+results/topology/
+results/transpile_depth/
+results/vqc_baseline/
+results/weighted_rbf/
+# ---- Session handoffs and scratch notes (private; never released) -----------
+analysis1.md
+analysis2.md
+# ---- LaTeX build artefacts ---------------------------------------------------
+*.bbl.bak
+# ---- Submission-package archive (rebuilt locally; not source) ---------------
+submission_QMI.zip
+# ---- Large kernel caches (NOT for upload) -----------------------------------
+results/e42_ae16_pqk/cache_*.npz
+results/e44_quantum_advantage/cache_*.npz

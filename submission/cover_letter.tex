@@ -1,0 +1,55 @@
+\documentclass[11pt]{letter}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{hyperref}
+
+\signature{Prathamesh Balasaheb Kadam \\ (corresponding author)\\
+Department of Artificial Intelligence and Data Science\\
+AISSMS Institute of Information Technology, Pune, India\\
+\href{mailto:prathameshkadam130404@gmail.com}{prathameshkadam130404@gmail.com}}
+
+\address{Prathamesh Balasaheb Kadam \\
+Department of Artificial Intelligence and Data Science\\
+AISSMS Institute of Information Technology\\
+Pune, India}
+
+\begin{document}
+
+\begin{letter}{The Editor-in-Chief\\
+\emph{Quantum Machine Intelligence}\\
+Springer Nature}
+
+\opening{Dear Editor,}
+
+We are pleased to submit our manuscript, \emph{``Bell-Decomposition Quantum Kernels: A Multi-Scale Benchmark on Earth Observation and Beyond,''} for consideration as an original research article in \emph{Quantum Machine Intelligence}.
+
+\medskip
+\textbf{Contribution.}
+The paper introduces the Bell-decomposition family of two-qubit quantum-kernel feature maps, unifying the singlet-only Self-Regulating Quantum Feature Map (SRQFM) and the four-Bell-sector Bell-Spectrum Coupling Map (BSCM) under an adjustable prior.  This family is a canonical specialisation of the Pauli-decomposition formalism of Incudini \emph{et al.}\ (QMI 2025) and admits two closed-form structural identities not available from the general formalism: a tight prior-independent bound $|\alpha|\le 1/2$ on every per-pair Pauli coefficient, and the identity $\alpha_{ZZ}\equiv 0$ for the uniform prior (Theorem 1, with full proofs in the Appendix, numerically unit-tested to $10^{-8}$).
+
+\medskip
+\textbf{Empirical results.}
+At 16 qubits and $N=10{,}000$ on So2Sat LCZ42 (17 classes) and EuroSAT (10 classes), the Bell-decomposition projected kernels add $+0.167$--$+0.170$ macro-F1 over the canonical commuting $ZZ$-PQK on So2Sat and $+0.097$--$+0.108$ on EuroSAT (Holm-corrected Wilcoxon $p = 0.0078$; complementary exact McNemar tests give $p \ll 10^{-100}$ on both datasets).  The same architectural gap holds with positive sign on every split across four UCI tabular datasets (largest gap $+0.646$ accuracy on the 26-class Letter Recognition task), on a transverse-field Ising-model phase-classification benchmark (E49), on learned AE-16 deep features (E42), and under density-matrix simulation with realistic depolarising noise at $n=8$ (E48, gap survives at $+0.133$--$+0.136$, Wilcoxon $p = 6.1\times 10^{-5}$).  Two complementary measurements (a 14-qubit BSCM build and a 16-qubit depth scan) reproduce the Thanasilp \emph{et al.}\ concentration signature on real multi-class data.
+
+\medskip
+\textbf{Honest negatives.}
+We make no claim of quantum advantage: at every scale tested, tuned classical RBF-SVM ties or exceeds the best Bell-decomposition kernel, consistent with recent theory (Heyraud et al.; Slattery et al.) and prior empirical work (Bowles et al.; Schnabel and Roth, QMI 2025).  The within-family architectural gap is reported as the main contribution.
+
+\medskip
+\textbf{Fit with QMI.}
+The paper is directly thematically aligned with the journal: it specialises Incudini \emph{et al.}\ (QMI 2025), it extends the benchmarking framework of Schnabel \& Roth (QMI 2025) to a larger fixed-protocol multi-class Earth-observation setting, and it places its theoretical contribution within Suzuki \emph{et al.}\ (QMI 2020).  The combination of $n = 16$ qubits, $N = 10{,}000$, $K\in\{10, 17\}$ classes, and Holm-corrected paired significance tests on real remote-sensing data is, to our knowledge, the largest such benchmark in the QML kernel literature to date.
+
+\medskip
+\textbf{Reproducibility and open access.}
+All experiment scripts, computed Gram matrices, JSON metric caches, the LaTeX source, and the unit-test suite (numerically validating every cited identity to $10^{-8}$) are released at \url{https://github.com/prathameshkadam130404/Quantum_Kernel}.
+
+\medskip
+\textbf{Originality and exclusivity.}
+This work is original; it has not been published elsewhere and is not under consideration by any other journal.  All authors have approved the submission and the order of authorship.  No external funding was received.  The authors declare no competing interests.
+
+\medskip
+We thank you for your consideration and look forward to the editorial decision.
+
+\closing{Yours sincerely,}
+
+\end{letter}
+\end{document}

@@ -1,18 +1,21 @@
 """
-E26 — Fair SRQFM Benchmark: C-tuned comparison across all methods.
+E26: Fair SRQFM benchmark with C-tuned SVMs.
 
-Addresses the confound in E22 where all SVM methods used a fixed C=1.0.
-Here every SVM (kernel and classical) has its regularisation parameter C
-selected by 3-fold stratified cross-validation on the training split,
-over the grid C ∈ {1, 10, 100}.
+Every SVM in the comparison (both quantum-kernel and classical) has its
+regularisation parameter C selected by 3-fold stratified cross-validation
+on the training split over the grid C in {1, 10, 100}.  Fisher feature
+selection is recomputed per seed on the training fold only, so the
+test-fold labels never influence feature ranking.
 
 Methods evaluated
 -----------------
-    SRQFM-PQK   : fidelity-coupling projected kernel, C-tuned
-    ZZ-PQK      : standard Havlicek projected kernel, C-tuned
-    AGPQK       : Fisher-weighted projected kernel, C-tuned
-    RBF-SVM     : classical RBF, (C, gamma) jointly tuned by GridSearchCV
-    RandomForest: n_estimators=500, no tuning (RF is largely insensitive)
+    SRQFM-PQK    : fidelity-coupling projected kernel, C-tuned
+    ZZ-PQK       : standard Havlicek projected kernel, C-tuned
+    AGPQK        : Fisher-weighted projected kernel, C-tuned
+                   (computed but NOT cited in the paper; see HANDOFF for
+                   the deliberate removal of AGPQK from the manuscript)
+    RBF-SVM      : classical RBF, (C, gamma) jointly tuned by GridSearchCV
+    RandomForest : n_estimators=500, no tuning
 
 Statistical tests
 -----------------
@@ -20,7 +23,7 @@ Statistical tests
     Cohen's d (pooled std) for effect sizes.
     Holm-Bonferroni correction over all pairwise tests vs SRQFM.
 
-Output: results/fair_srqfm/metrics.csv  and  exp_e26.log
+Output: results/fair_srqfm/metrics.csv and exp_e26.log
 """
 
 import os
@@ -51,7 +54,7 @@ from experiments._e_common import (
     holm_bonferroni,
     build_agpqk_kernel,
 )
-from src.attention_kernel import select_features_by_fisher
+from src.attention_kernel import select_features_by_fisher, compute_fisher_ratio, FEATURE_MODALITY_16
 
 # ---------------------------------------------------------------------------
 SEEDS      = config.SEED_LIST          # [42, 43, 44, 45, 46]
@@ -165,15 +168,25 @@ def eval_rf(X_raw: np.ndarray, y: np.ndarray, seed: int) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Kernel builders (cached per experiment run)
+# Per-seed kernel builders (cached per seed, Fisher on training only)
 # ---------------------------------------------------------------------------
 
-def build_srqfm_kernel(X_enc: np.ndarray) -> np.ndarray:
+def _prepare_features_per_seed(
+    X_norm: np.ndarray, X_raw: np.ndarray, y: np.ndarray, seed: int
+) -> np.ndarray:
+    """Split train/test, Fisher-select on training, return X_sel (full pool)."""
+    sss = StratifiedShuffleSplit(n_splits=1, test_size=TEST_FRAC, random_state=seed)
+    (tr, te), = sss.split(np.zeros(len(y)), y)
+    sel_idx, _ = select_features_by_fisher(X_raw[tr], y[tr])
+    return X_norm[:, sel_idx], sel_idx, tr, te
+
+
+def build_srqfm_kernel_per_seed(X_enc: np.ndarray, seed: int) -> np.ndarray:
     from src.srqfm_kernel import compute_srqfm_pqk_kernel
 
-    cache = os.path.join(SAVE_DIR, "K_srqfm.npy")
+    cache = os.path.join(SAVE_DIR, f"K_srqfm_seed{seed}.npy")
     if os.path.exists(cache):
-        logger.info("[CACHE] Loading SRQFM-PQK kernel")
+        logger.info("[CACHE] Loading SRQFM-PQK kernel (seed %d)", seed)
         return np.load(cache)
 
     K = compute_srqfm_pqk_kernel(
@@ -184,12 +197,12 @@ def build_srqfm_kernel(X_enc: np.ndarray) -> np.ndarray:
     return K
 
 
-def build_zz_kernel(X_enc: np.ndarray) -> np.ndarray:
+def build_zz_kernel_per_seed(X_enc: np.ndarray, seed: int) -> np.ndarray:
     from src.quantum_kernels import compute_pqk_kernel_matrix
 
-    cache = os.path.join(SAVE_DIR, "K_zz.npy")
+    cache = os.path.join(SAVE_DIR, f"K_zz_seed{seed}.npy")
     if os.path.exists(cache):
-        logger.info("[CACHE] Loading ZZ-PQK kernel")
+        logger.info("[CACHE] Loading ZZ-PQK kernel (seed %d)", seed)
         return np.load(cache)
 
     K = compute_pqk_kernel_matrix(X_enc, n_qubits=N_QUBITS,
@@ -198,21 +211,24 @@ def build_zz_kernel(X_enc: np.ndarray) -> np.ndarray:
     return K
 
 
-def build_agpqk(X_raw: np.ndarray, X_norm: np.ndarray,
-                y: np.ndarray) -> np.ndarray:
-    cache = os.path.join(SAVE_DIR, "K_agpqk.npy")
+def build_agpqk_per_seed(X_raw: np.ndarray, X_norm: np.ndarray,
+                         y: np.ndarray, seed: int) -> np.ndarray:
+    cache = os.path.join(SAVE_DIR, f"K_agpqk_seed{seed}.npy")
     if os.path.exists(cache):
-        logger.info("[CACHE] Loading AGPQK kernel")
+        logger.info("[CACHE] Loading AGPQK kernel (seed %d)", seed)
         return np.load(cache)
 
-    sel_idx, fisher_scores = select_features_by_fisher(X_raw, y)
-    fisher_sel = fisher_scores[sel_idx]
+    # Split and Fisher-select on training only
+    sss = StratifiedShuffleSplit(n_splits=1, test_size=TEST_FRAC, random_state=seed)
+    (tr, te), = sss.split(np.zeros(len(y)), y)
+    sel_idx, _ = select_features_by_fisher(X_raw[tr], y[tr])
 
+    # Compute Fisher scores for gamma weighting (training only)
+    fisher_sel = compute_fisher_ratio(X_raw[tr], y[tr])[sel_idx]
     gamma_base = 0.50
     gamma_pq = gamma_base * (fisher_sel / fisher_sel.mean())
     gamma_pq = np.clip(gamma_pq, 0.20, 1.50)
 
-    from src.attention_kernel import FEATURE_MODALITY_16
     modalities = [FEATURE_MODALITY_16[i] for i in sel_idx]
     pairs = [(i, j) for i in range(N_QUBITS) for j in range(i + 1, N_QUBITS)
              if modalities[i] != modalities[j]][:4]
@@ -231,60 +247,61 @@ def build_agpqk(X_raw: np.ndarray, X_norm: np.ndarray,
 
 def run():
     logger.info("=" * 70)
-    logger.info("  E26: Fair SRQFM Benchmark (C-tuned)")
+    logger.info("  E26: Fair SRQFM Benchmark (C-tuned, train-only feature selection)")
     logger.info("=" * 70)
     logger.info(f"  Date:  {datetime.now().isoformat()}")
     logger.info(f"  Seeds: {SEEDS}")
     logger.info(f"  C grid: {C_GRID}  (3-fold CV on training split)")
+    logger.info("  Fisher selection: per-seed on training portion only (no leakage)")
 
-    # Load data
+    # Load data (raw features, no Fisher selection yet)
     X_norm, X_raw, y = load_physics_16()
     logger.info(f"  Data: N={len(y)}, features={X_norm.shape[1]}, "
                 f"classes={len(np.unique(y))}")
 
-    sel_idx, _ = select_features_by_fisher(X_raw, y)
-    X_sel = X_norm[:, sel_idx]   # Encoded features for quantum kernels
-
-    # Phase 1: Build full kernel matrices (computed once, shared across seeds)
-    logger.info("\n--- Phase 1: Kernel matrices ---")
-
-    t0 = time.time()
-    logger.info("  Building SRQFM-PQK...")
-    K_srqfm = build_srqfm_kernel(X_sel)
-    logger.info(f"    {time.time()-t0:.1f}s")
-
-    t0 = time.time()
-    logger.info("  Building ZZ-PQK...")
-    K_zz = build_zz_kernel(X_sel)
-    logger.info(f"    {time.time()-t0:.1f}s")
-
-    t0 = time.time()
-    logger.info("  Building AGPQK...")
-    K_agpqk = build_agpqk(X_raw, X_norm, y)
-    logger.info(f"    {time.time()-t0:.1f}s")
-
-    # Spectral diagnostics
-    for name, K in [("SRQFM-PQK", K_srqfm), ("ZZ-PQK", K_zz),
-                    ("AGPQK", K_agpqk)]:
-        sm = spectral_metrics(K)
-        logger.info(f"  {name}: off_diag_mean={sm['off_diag_mean']:.4f}  "
-                    f"eff_rank={sm['eff_rank_shannon']:.1f}  "
-                    f"off_diag_var={sm['off_diag_var']:.5f}")
-
-    # Phase 2: Evaluate all methods across seeds
-    logger.info("\n--- Phase 2: Seed-level evaluation (C-tuned) ---")
-
+    # Phase 1+2 combined: per-seed Fisher selection, kernel build, and evaluation
     rows = []
     for seed in SEEDS:
-        logger.info(f"\n  Seed {seed}:")
+        logger.info(f"\n=== Seed {seed} ===")
 
+        # Step 1: Split, Fisher-select on TRAINING only (NO leakage)
+        sss = StratifiedShuffleSplit(n_splits=1, test_size=TEST_FRAC,
+                                     random_state=seed)
+        (tr, te), = sss.split(np.zeros(len(y)), y)
+        logger.info("  Split: train=%d test=%d", len(tr), len(te))
+
+        sel_idx, _ = select_features_by_fisher(X_raw[tr], y[tr])
+        X_sel = X_norm[:, sel_idx]
+        logger.info("  Fisher-selected %d features on training portion: %s",
+                     len(sel_idx), sel_idx.tolist())
+
+        # Step 2: Build quantum kernels (per-seed, per-feature-set)
+        t0 = time.time()
+        logger.info("  Building SRQFM-PQK...")
+        K_srqfm = build_srqfm_kernel_per_seed(X_sel, seed)
+        logger.info(f"    {time.time()-t0:.1f}s")
+
+        t0 = time.time()
+        logger.info("  Building ZZ-PQK...")
+        K_zz = build_zz_kernel_per_seed(X_sel, seed)
+        logger.info(f"    {time.time()-t0:.1f}s")
+
+        t0 = time.time()
+        logger.info("  Building AGPQK...")
+        K_agpqk = build_agpqk_per_seed(X_raw, X_norm, y, seed)
+        logger.info(f"    {time.time()-t0:.1f}s")
+
+        # Step 3: Evaluate all methods
         for name, K in [("SRQFM-PQK", K_srqfm), ("ZZ-PQK", K_zz),
                         ("AGPQK", K_agpqk)]:
+            # eval_kernel_tuned does its own split with the same seed;
+            # the resulting tr/te match the split used for Fisher selection
             r = eval_kernel_tuned(K, y, seed)
             rows.append({"method": name, "seed": seed,
                          "macro_f1": r["macro_f1"], "best_C": r["best_C"]})
             logger.info(f"    {name:<12} F1={r['macro_f1']:.4f}  C={r['best_C']}")
 
+        # Classical baselines (no Fisher selection — use full 16 features)
         r_rbf = eval_rbf_tuned(X_raw, y, seed)
         rows.append({"method": "RBF-SVM", "seed": seed,
                      "macro_f1": r_rbf["macro_f1"],
