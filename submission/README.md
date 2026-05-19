@@ -50,5 +50,11 @@ Expected output: `sn-article.pdf`, 39 pages, no `! LaTeX Error` and no undefined
 - [x] Full Springer `sn-jnl.cls` template installed.
 - [x] 8 cited figures present as vector PDF.
 - [x] Cover letter compiled.
-- [ ] **ORCID iDs to be added** by the authors before final submission (line 45--48 of `sn-article.tex`, after each `\author[1]{\fnm{...} \sur{...}}` block, insert `\orcid{0000-0000-0000-0000}`).
-- [ ] **Co-author emails** to be added if desired.
+- [x] ORCID iDs embedded in the title block for all four authors (rendered via the `orcidlink` package; clickable links to `https://orcid.org/<id>` are verified inside the PDF).
+- [ ] **Co-author emails** to be added inside the QMI portal at submission time (the ORCID profiles have email set to private, so the addresses cannot be pulled programmatically). Only the corresponding author's email is on the title page; QMI's submission form will request the other three from the portal.
+
+## Submission walkthrough
+
+See `SUBMISSION_PROCEDURE.md` in this directory for the full QMI / Springer
+Nature submission walk-through (portal URL, file order, metadata fields,
+post-submission timeline, common pitfalls).
