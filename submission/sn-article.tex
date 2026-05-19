@@ -1,9 +1,3 @@
-%% =====================================================================
-%% Bell-Decomposition Quantum Kernels for Land Cover Classification
-%%
-%% Original manuscript submitted to Quantum Machine Intelligence (Springer).
-%% Content transcribed verbatim from paper_revised_Orig.pdf.
-%% =====================================================================
 \documentclass[pdflatex,sn-mathphys]{sn-jnl}
 
 \usepackage{graphicx}
@@ -15,26 +9,9 @@
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage[para]{manyfoot}
-%% orcidlink draws the canonical green ORCID iD symbol via TikZ and links to
-%% the ORCID record; no external Orcidlogo.eps required.  Auto-installed by
-%% MiKTeX; shipped with TeX Live since 2021.
-%%
-%% Note: the Springer sn-jnl class pre-defines \orcidlogo (expecting an
-%% external Orcidlogo.eps file).  We release that name so orcidlink can
-%% redefine it with its TikZ implementation; orcidlink supplies the
-%% user-level macro \orcidlink{<bare-id>} we use below.
 \let\orcidlogo\relax
 \usepackage{orcidlink}
 
-%% This version of the Springer Nature sn-jnl class (2024+) sets the
-%% publication year via the journal production system, so \jyear is no
-%% longer a user-level command.  Older docs use \jyear{<year>}.
-
-%% Springer sn-jnl defines its own theorem styles (thmstyleone, etc.) only
-%% if amsthm is already loaded at class-load time.  Because the user
-%% preamble loads amsthm AFTER \documentclass, those styles never fire,
-%% so we use amsthm's standard styles, which match Springer's general
-%% appearance for theorem-like environments.
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
