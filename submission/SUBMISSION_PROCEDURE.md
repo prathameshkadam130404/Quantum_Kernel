@@ -86,7 +86,7 @@ Figures must each be uploaded **as a separate file**, not embedded only as PDF p
 | Data availability statement | Copy from §Statements-and-Declarations of the manuscript                                                                     |
 | Code availability statement | Copy from §Statements-and-Declarations                                                                                       |
 | Author contributions        | Copy the four-paragraph block from §Statements-and-Declarations                                                              |
-| Suggested reviewers (opt.)  | You may suggest up to 4. Avoid co-workers and recent collaborators. Reasonable suggestions for this paper: an author on Schnabel & Roth 2025 (QMI), Bowles et al. 2024, Incudini et al. 2025 (QMI), Thanasilp et al. 2024 |
+| Suggested reviewers (opt.)  | You may suggest up to 4. Avoid co-workers and recent collaborators. Reasonable suggestions for this paper: an author on Schnabel & Roth 2025 (QMI), Bowles et al. 2024, Suzuki et al. 2020 (QMI), Thanasilp et al. 2024, Flórez-Ablan/Roth/Schnabel 2025 (Quantum Sci. Tech.) |
 | Non-preferred reviewers (opt.) | Authors of any recent competing manuscript only (none for us)                                                              |
 | AI/LLM use                  | Tick the checkbox; the portal asks for the disclosure text — copy the *Use of generative-AI tools* paragraph from §3.2 of the manuscript |
 

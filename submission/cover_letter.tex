@@ -24,7 +24,7 @@ We are pleased to submit our manuscript, \emph{``Bell-Decomposition Quantum Kern
 
 \medskip
 \textbf{Contribution.}
-The paper introduces the Bell-decomposition family of two-qubit quantum-kernel feature maps, unifying the singlet-only Self-Regulating Quantum Feature Map (SRQFM) and the four-Bell-sector Bell-Spectrum Coupling Map (BSCM) under an adjustable prior.  This family is a canonical specialisation of the Pauli-decomposition formalism of Incudini \emph{et al.}\ (QMI 2025) and admits two closed-form structural identities not available from the general formalism: a tight prior-independent bound $|\alpha|\le 1/2$ on every per-pair Pauli coefficient, and the identity $\alpha_{ZZ}\equiv 0$ for the uniform prior (Theorem 1, with full proofs in the Appendix, numerically unit-tested to $10^{-8}$).
+The paper introduces the Bell-decomposition family of two-qubit quantum-kernel feature maps, unifying the singlet-only Self-Regulating Quantum Feature Map (SRQFM) and the four-Bell-sector Bell-Spectrum Coupling Map (BSCM) under an adjustable prior.  The family sits inside the canonical two-body Pauli-rotation feature-map framework of Suzuki \emph{et al.}\ (QMI 2020); within that framework we prove two closed-form structural identities for the Bell-projector construction: a tight prior-independent bound $|\alpha|\le 1/2$ on every per-pair Pauli coefficient, and the identity $\alpha_{ZZ}\equiv 0$ for the uniform prior (Theorem 1, with full proofs in the Appendix, numerically unit-tested to $10^{-8}$).
 
 \medskip
 \textbf{Empirical results.}
@@ -32,11 +32,11 @@ At 16 qubits and $N=10{,}000$ on So2Sat LCZ42 (17 classes) and EuroSAT (10 class
 
 \medskip
 \textbf{Honest negatives.}
-We make no claim of quantum advantage: at every scale tested, tuned classical RBF-SVM ties or exceeds the best Bell-decomposition kernel, consistent with recent theory (Heyraud et al.; Slattery et al.) and prior empirical work (Bowles et al.; Schnabel and Roth, QMI 2025).  The within-family architectural gap is reported as the main contribution.
+We make no claim of quantum advantage: at every scale tested, tuned classical RBF-SVM ties or exceeds the best Bell-decomposition kernel, consistent with recent theory on bandwidth-tuning convergence (Canatar et al.; Fl{\'o}rez-Ablan, Roth and Schnabel) and prior empirical benchmarks (Bowles et al.; Schnabel and Roth, QMI 2025).  The within-family architectural gap is reported as the main contribution.
 
 \medskip
 \textbf{Fit with QMI.}
-The paper is directly thematically aligned with the journal: it specialises Incudini \emph{et al.}\ (QMI 2025), it extends the benchmarking framework of Schnabel \& Roth (QMI 2025) to a larger fixed-protocol multi-class Earth-observation setting, and it places its theoretical contribution within Suzuki \emph{et al.}\ (QMI 2020).  The combination of $n = 16$ qubits, $N = 10{,}000$, $K\in\{10, 17\}$ classes, and Holm-corrected paired significance tests on real remote-sensing data is, to our knowledge, the largest such benchmark in the QML kernel literature to date.
+The paper is directly thematically aligned with the journal: it places its theoretical contribution within Suzuki \emph{et al.}'s two-body Pauli-rotation feature-map framework (QMI 2020), it extends the benchmarking framework of Schnabel \& Roth (QMI 2025) to a larger fixed-protocol multi-class Earth-observation setting, and it directly engages with the bandwidth-tuning convergence picture established by Fl{\'o}rez-Ablan, Roth and Schnabel (Quantum Sci.\ Tech.\ 2025).  The combination of $n = 16$ qubits, $N = 10{,}000$, $K\in\{10, 17\}$ classes, and Holm-corrected paired significance tests on real remote-sensing data is, to our knowledge, the largest such benchmark in the QML kernel literature to date.
 
 \medskip
 \textbf{Reproducibility and open access.}
