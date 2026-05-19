@@ -23,8 +23,20 @@ Springer Nature}
 We are pleased to submit our manuscript, \emph{``Bell-Decomposition Quantum Kernels: A Multi-Scale Benchmark on Earth Observation and Beyond,''} for consideration as an original research article in \emph{Quantum Machine Intelligence}.
 
 \medskip
+\textbf{Authors.}
+Prajwal S.\ Gaikwad
+(ORCID \href{https://orcid.org/0000-0003-0805-9130}{0000-0003-0805-9130});
+Prathamesh Balasaheb Kadam, corresponding author
+(ORCID \href{https://orcid.org/0009-0006-9211-4647}{0009-0006-9211-4647});
+Shreyas Subhash Raut
+(ORCID \href{https://orcid.org/0009-0007-8900-9560}{0009-0007-8900-9560});
+Tejas Uttam Shitole
+(ORCID \href{https://orcid.org/0009-0004-2175-8723}{0009-0004-2175-8723}).
+All four are with the Department of Artificial Intelligence and Data Science, AISSMS Institute of Information Technology, Pune, India.  Per-author CRediT-style contributions are listed in the manuscript's \emph{Statements and Declarations}.
+
+\medskip
 \textbf{Contribution.}
-The paper introduces the Bell-decomposition family of two-qubit quantum-kernel feature maps, unifying the singlet-only Self-Regulating Quantum Feature Map (SRQFM) and the four-Bell-sector Bell-Spectrum Coupling Map (BSCM) under an adjustable prior.  The family sits inside the canonical two-body Pauli-rotation feature-map framework of Suzuki \emph{et al.}\ (QMI 2020); within that framework we prove two closed-form structural identities for the Bell-projector construction: a tight prior-independent bound $|\alpha|\le 1/2$ on every per-pair Pauli coefficient, and the identity $\alpha_{ZZ}\equiv 0$ for the uniform prior (Theorem 1, with full proofs in the Appendix, numerically unit-tested to $10^{-8}$).
+The paper introduces the Bell-decomposition family of two-qubit quantum-kernel feature maps, unifying the singlet-only Self-Regulating Quantum Feature Map (SRQFM) and the four-Bell-sector Bell-Spectrum Coupling Map (BSCM) under an adjustable prior.  The family sits inside the canonical two-body Pauli-rotation feature-map framework of Suzuki \emph{et al.}\ (QMI 2020); within that framework, we prove two closed-form structural identities specific to the Bell-projector construction --- a tight prior-independent bound $|\alpha|\le 1/2$ on every per-pair Pauli coefficient, and the identity $\alpha_{ZZ}\equiv 0$ for the uniform prior (Theorem 1, full proofs in the Appendix, numerically unit-tested to $10^{-8}$).  The proof technique is elementary substitution of the standard two-qubit Bell--Pauli identities into the construction; the contribution is the construction itself --- a usable closed-form quantum-kernel design device --- and the design-relevant identities it admits.
 
 \medskip
 \textbf{Empirical results.}
@@ -32,7 +44,7 @@ At 16 qubits and $N=10{,}000$ on So2Sat LCZ42 (17 classes) and EuroSAT (10 class
 
 \medskip
 \textbf{Honest negatives.}
-We make no claim of quantum advantage: at every scale tested, tuned classical RBF-SVM ties or exceeds the best Bell-decomposition kernel, consistent with recent theory on bandwidth-tuning convergence (Canatar et al.; Fl{\'o}rez-Ablan, Roth and Schnabel) and prior empirical benchmarks (Bowles et al.; Schnabel and Roth, QMI 2025).  The within-family architectural gap is reported as the main contribution.
+We make no claim of quantum advantage: at every scale tested, tuned classical RBF-SVM ties or exceeds the best Bell-decomposition kernel, consistent with recent theory on bandwidth-tuning convergence (Canatar et al.; Fl{\'o}rez-Ablan, Roth and Schnabel) and prior empirical benchmarks (Bowles et al.; Schnabel and Roth, QMI 2025).  The within-family architectural gap is reported as the main contribution: it is a design lesson for quantum-kernel architects --- single-axis commuting $ZZ$ generators carry a structural pathology that the broader non-commuting Pauli generator family does not --- and is independent of whether quantum-vs-classical advantage is reached on a given task.
 
 \medskip
 \textbf{Fit with QMI.}
@@ -44,7 +56,7 @@ All experiment scripts, computed Gram matrices, JSON metric caches, the LaTeX so
 
 \medskip
 \textbf{Originality and exclusivity.}
-This work is original; it has not been published elsewhere and is not under consideration by any other journal.  All authors have approved the submission and the order of authorship.  No external funding was received.  The authors declare no competing interests.
+We confirm that this manuscript has not been published elsewhere and is not under consideration by another journal.  All authors have approved the manuscript and agree with its submission to \emph{Quantum Machine Intelligence}, including the names and order of authors.  No external funding was received.  The authors declare no competing financial or non-financial interests.
 
 \medskip
 We thank you for your consideration and look forward to the editorial decision.
