@@ -40,7 +40,9 @@ guarantees |alpha_P| <= 1/2 for all three priors evaluated here.
 References:
     Havlicek et al., Nature 567, 209 (2019).  ZZ feature map.
     Huang et al., Nature Communications 12, 2631 (2021).  PQK.
-    Incudini et al., QMI 2025.  General Pauli-decomposition formalism.
+    Suzuki et al., Quantum Machine Intelligence 2, 9 (2020).
+        Two-body Pauli-rotation feature-map framework that the
+        Bell-projector construction specialises.
     This paper.  BSCM and its prior-specific structural identities.
 """
 from __future__ import annotations

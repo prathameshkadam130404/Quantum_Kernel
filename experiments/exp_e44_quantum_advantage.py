@@ -10,8 +10,9 @@ Purpose: this is a sanity check, not a quantum-advantage claim.  The
 paper reports E44 as a positive control that verifies the FQK pipeline
 is capable of revealing an advantage when the data distribution is
 matched to the circuit geometry; on real data (E26/E32/E38) no
-advantage appears, which is the expected regime under Heyraud-Slattery
-theory.
+advantage appears, which is the expected regime under bandwidth-tuning
+convergence theory (Canatar et al., TMLR 2023; Florez-Ablan, Roth and
+Schnabel, Quantum Sci. Tech. 10, 035051 (2025)).
 
 The fidelity kernel rather than PQK is used here because the question
 is about pure two-qubit representational geometry; FQK scales O(N^2)

@@ -1,6 +1,6 @@
 """
-Executable verification of every mathematical claim in the SRQFM/BSCM
-proofs (Appendix A--C of the manuscript).
+Executable verification of every mathematical claim in the SRQFM/BSCM proofs
+(Appendix A and Appendix B of the manuscript).
 
 For each proposition we check both the symbolic form (where possible) and a
 numerical assertion to a tight tolerance (typically 1e-10 to 1e-6 depending
@@ -11,6 +11,11 @@ on the claim).  Run as:
 or as a script:
 
     python -m tests.test_proofs
+
+A TestProp4CorrSuppression class below tests a Gaussian
+correlation-suppression bound that appeared in an earlier (SG-BSCM) draft
+and is retained here as a legacy regression test; it does not correspond to
+any proposition in the current manuscript.
 
 Author: Prathamesh Kadam
 """
@@ -348,14 +353,17 @@ class TestUniformAlphaZZIsZero:
 
 
 # ===========================================================================
-# Proposition 4: SG-BSCM correlation-suppression bound (Appendix C)
+# Legacy: Gaussian correlation-suppression bound for w_{Psi-}.
+# This claim appeared in an earlier (SG-BSCM) draft and is NOT in the
+# current manuscript; it is retained as a regression test only.
 # ===========================================================================
 
 class TestProp4CorrSuppression:
     """For (X_i, X_j) ~ N(mu, Sigma) with marginal variance sigma^2 and
     correlation rho, E[w_{Psi-}] = (1/4) (1 - exp(-sigma^2 (1 - rho))).
-    This is the *Gaussian* closed-form bound in Appendix C, NOT the
-    second-order Taylor approximation.
+    This is a Gaussian closed-form bound that appeared in an earlier
+    draft of the paper; it is not part of the current manuscript's
+    appendix and is retained here only as a legacy regression test.
     """
 
     @staticmethod

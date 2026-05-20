@@ -1,10 +1,11 @@
 """
 Experiment E11 — Fisher-weighted RBF classical surrogate.
 
-Answers Schnabel & Roth (arXiv:2503.05602): "bandwidth-tuned QKs collapse to
-RBF". Our defence is that AGPQK uses *per-qubit* γ_i modulated by Fisher
-importance, not a single scalar. The falsification test: can a classical RBF
-with **per-feature** γ_i = Fisher_i · γ_base match AGPQK?
+Answers Florez-Ablan, Roth and Schnabel (arXiv:2503.05602; Quantum Sci. Tech.
+10, 035051 (2025)): "bandwidth-tuned QKs collapse to RBF". Our defence is that
+AGPQK uses *per-qubit* γ_i modulated by Fisher importance, not a single scalar.
+The falsification test: can a classical RBF with **per-feature** γ_i =
+Fisher_i · γ_base match AGPQK?
 
 If RBF-weighted matches AGPQK → quantum component adds nothing.
 If RBF-weighted loses → AGPQK's structure is genuinely quantum.
@@ -67,7 +68,7 @@ def run():
     gamma_perq = compute_per_qubit_gamma(fisher, selected, gamma_base=0.5)
     X_sel = X_norm[:, selected]
 
-    # Scalar-RBF baseline (Schnabel & Roth assumption: single global γ).
+    # Scalar-RBF baseline (Florez-Ablan et al. assumption: single global γ).
     # Use median heuristic: γ = 1 / (2 * median pairwise sq-distance).
     D2 = np.sum((X_sel[:, None, :] - X_sel[None, :, :]) ** 2, axis=2)
     gamma_scalar = 1.0 / (2.0 * np.median(D2[D2 > 0]))
@@ -140,7 +141,7 @@ def _plot(df, g_rows):
     ax.grid(alpha=0.3, axis="y"); ax.legend()
     ax.set_title("Huang geometric difference")
 
-    fig.suptitle("E11 — Bandwidth-collapse falsification (Schnabel & Roth 2503.05602)")
+    fig.suptitle("E11 — Bandwidth-collapse falsification (Florez-Ablan et al. arXiv:2503.05602)")
     fig.tight_layout()
     for ext in ("pdf", "png"):
         fig.savefig(os.path.join(RES, f"fig.{ext}"), dpi=200)
