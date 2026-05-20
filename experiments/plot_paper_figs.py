@@ -1,3 +1,12 @@
+"""
+LEGACY: this script generates figures for an earlier draft of the
+paper (pipeline diagram as Fig. 1, geometric/alignment as Fig. 3,
+feature-regime comparison as Fig. 7, per-class F1 as Fig. 8).  The
+current manuscript uses a different figure layout entirely (see
+submission/figures/ and the canonical numbering in
+submission/sn-article.tex).  Retained for archival reproducibility of
+the older draft only; not invoked from the current pipeline.
+"""
 import os
 import matplotlib.pyplot as plt
 import numpy as np

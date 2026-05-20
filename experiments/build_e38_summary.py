@@ -2,7 +2,7 @@
 build_e38_summary.py
 =====================
 Consolidates the four E38-family result JSONs into a single auditable file
-matching the structure of paper Table 9 (E38 maximum-capacity benchmark).
+matching the structure of paper Table 11 (E38 maximum-capacity benchmark).
 
 Inputs (under results/):
   * e38_max_data/baselines_summary.json         -- SRQFM, RBF-SVM, RF
@@ -18,7 +18,7 @@ Usage:
 
 Run this whenever any of the four input JSONs change.  Note: this script
 emits f1_mean / f1_std cells only.  Holm-corrected Wilcoxon p-values for
-Table 9 come from experiments/audit_e38_significance.py, which reads the
+Table 11 come from experiments/audit_e38_significance.py, which reads the
 cached Gram matrices directly.
 """
 import json
@@ -145,7 +145,7 @@ def main() -> None:
     print(f"Wrote {OUT_PATH}")
 
     # Console summary so the user can eyeball it.
-    print("\nE38 Table 9 contents (macro-F1, mean +/- std):")
+    print("\nE38 Table 11 contents (macro-F1, mean +/- std):")
     print(f"{'method':<22s} {'so2sat':>20s} {'eurosat':>20s}")
     for method in [
         "SRQFM-PQK",

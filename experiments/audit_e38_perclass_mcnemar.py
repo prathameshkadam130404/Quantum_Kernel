@@ -75,7 +75,7 @@ CACHE_MAP: Dict[Tuple[str, str], str] = {
 }
 
 # The kernel we use as the "best BSCM" in the McNemar contrast against
-# Standard-ZZ-PQK; per Tab.~9 BSCM-phi has the highest macro-F1 mean on
+# Standard-ZZ-PQK; per Tab.~11 BSCM-phi has the highest macro-F1 mean on
 # both So2Sat and EuroSAT, so we use it as the headline contrast.
 BSCM_REFERENCE = "BSCM-phi-PQK"
 ZZ_REFERENCE = "Standard-ZZ-PQK"

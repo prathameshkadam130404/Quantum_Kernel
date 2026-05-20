@@ -1,5 +1,10 @@
 """
-Generate paper figures with updated 5-fold CV results from optimized experiments.
+LEGACY: this script generates figures for an earlier draft of the paper
+using the 5-fold CV results from exp1_pca_cv.  The current manuscript
+uses a different figure layout (see submission/figures/ and the
+canonical numbering in submission/sn-article.tex).  Retained for
+archival reproducibility of the older draft only; not invoked from the
+current pipeline.
 """
 
 import os

@@ -1,6 +1,14 @@
 """
 Experiment 1 (PCA Regime): 5-Fold Cross-Validation — OPTIMIZED.
 
+LEGACY: this experiment targets an earlier draft of the paper whose
+tables used Roman numerals (e.g. Table II) and whose figures were laid
+out differently.  Its outputs are NOT cited in the current manuscript
+(see submission/sn-article.tex for the published layout).  The
+docstring references below to "Section X.X" and "Table II" preserve
+the original earlier-draft wording and should be read in that context.
+Retained for archival reproducibility of the older draft only.
+
 OPTIMIZATIONS APPLIED:
 ============================================================
 

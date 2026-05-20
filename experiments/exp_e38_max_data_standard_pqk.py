@@ -5,7 +5,7 @@ Evaluates the canonical Havlicek ZZ feature-map as a Bloch-vector PQK at
 n=16, depth=6 on the So2Sat and EuroSAT N=10,000 pools, using the same
 block-bipartite ladder connectivity and the same 10-stratified-shuffle-split
 SVM evaluation as exp_e38_max_data_pqk.py.  This is the "vanilla" baseline
-the BSCM family is compared against (paper Table 9).
+the BSCM family is compared against (paper Table 11).
 
 Output: results/e38_max_data/cache_<dataset>_standard_pqk.npz   (K, y, gamma)
         results/e38_max_data/standard_pqk_summary.json

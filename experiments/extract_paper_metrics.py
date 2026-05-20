@@ -1,3 +1,11 @@
+"""
+LEGACY: this script extracts metrics for an earlier draft of the paper
+whose tables were numbered with Roman numerals (Table II / III / IV /
+V / VI).  The current manuscript uses a different table numbering
+(arabic; see submission/sn-article.tex for the published layout) and a
+different result structure.  Retained for archival reproducibility of
+the older draft only; not invoked from the current pipeline.
+"""
 import os
 import json
 import pandas as pd

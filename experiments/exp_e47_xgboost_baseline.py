@@ -3,7 +3,7 @@ E47: XGBoost classical baseline on the E38 So2Sat / EuroSAT pools.
 
 Same data pool, same Fisher-16 features, same random_state=42, same
 test_size=0.3, and same 10 stratified shuffle splits as
-exp_e38_max_data_baselines.py, so the XGBoost row of Table 9 is on
+exp_e38_max_data_baselines.py, so the XGBoost row of Table 11 is on
 the identical per-fold partition as every other row in that table.
 
 XGBoost: 500 trees, balanced class weights via XGB sample_weight,
