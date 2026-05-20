@@ -43,7 +43,7 @@ You can also reach the same portal indirectly from the journal homepage
 ### Account requirements
 - Each author should have an ORCID iD linked to a Springer Nature account.
   For our paper this is already done (the four iDs are in the title block).
-- The submitting author (corresponding author: **Prathamesh Balasaheb Kadam**) signs in with their personal Springer Nature account.
+- All four authors are listed as corresponding authors; the submitting author (**primary corresponding author: Prathamesh Balasaheb Kadam**, `prathamesh.kadam@aissmsioit.org`) signs in with their personal Springer Nature account.  The other three corresponding authors are Prajwal S. Gaikwad (`prajwal.gaikwad@aissmsioit.org`), Shreyas Subhash Raut (`shreyas.raut@aissmsioit.org`), and Tejas Uttam Shitole (`tejas.shitole@aissmsioit.org`).
 
 ---
 
@@ -79,8 +79,8 @@ Figures must each be uploaded **as a separate file**, not embedded only as PDF p
 | Short title (running head)  | "Bell-Decomposition Quantum Kernels"                                                                                          |
 | Abstract                    | Paste the abstract from §0 — single paragraph, 229 words                                                                     |
 | Keywords                    | Paste 6 keywords exactly as in the manuscript                                                                                |
-| Authors                     | Add all four with **affiliations + ORCID iDs**; the portal will request each author's email so co-authors should be invited and asked to add theirs |
-| Corresponding author        | Prathamesh Balasaheb Kadam (the portal marks this with an asterisk)                                                          |
+| Authors                     | Add all four with **affiliations + ORCID iDs + institutional `@aissmsioit.org` emails**, in the order Kadam, Gaikwad, Raut, Shitole (matches the manuscript title page) |
+| Corresponding authors       | Mark all four as corresponding; Prathamesh Balasaheb Kadam is the **Primary** corresponding author. The manuscript title page renders the same `*` superscript on all four names and lists all four emails in the `*Corresponding author(s). E-mail(s):` block |
 | Funding                     | "No external funding was received for this study."                                                                            |
 | Competing interests         | "The authors declare no competing financial or non-financial interests."                                                     |
 | Data availability statement | Copy from §Statements-and-Declarations of the manuscript                                                                     |

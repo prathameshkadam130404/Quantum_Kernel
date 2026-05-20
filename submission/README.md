@@ -4,7 +4,7 @@
 
 **Target journal.**  *Quantum Machine Intelligence* (Springer Nature), `sn-jnl` class with the `sn-mathphys` (numbered) reference style.
 
-**Corresponding author.**  Prathamesh Balasaheb Kadam, AISSMS Institute of Information Technology, Pune, India.
+**Corresponding authors.**  All four authors are listed as corresponding authors; Prathamesh Balasaheb Kadam (`prathamesh.kadam@aissmsioit.org`) is the primary corresponding author for submission-related correspondence.  All four authors are with the Department of Artificial Intelligence and Data Science, AISSMS Institute of Information Technology, Pune, India.
 
 ---
 
@@ -13,9 +13,9 @@
 | File | Role |
 |---|---|
 | `sn-article.tex`        | Main manuscript source (the Springer Nature template default name). |
-| `sn-article.pdf`        | Compiled manuscript (39 pages). |
+| `sn-article.pdf`        | Compiled manuscript (40 pages). |
 | `sn-article.bbl`        | BibTeX-generated bibliography, uploaded as a backup. |
-| `refs.bib`              | BibTeX database (22 entries). |
+| `refs.bib`              | BibTeX database (21 entries). |
 | `sn-jnl.cls`            | Springer Nature journal class (full template). |
 | `sn-mathphys.bst`       | Bibliography style for math/physics journals. |
 | `cover_letter.tex`      | Cover letter source. |
@@ -33,7 +33,7 @@ pdflatex -interaction=nonstopmode sn-article.tex
 pdflatex -interaction=nonstopmode sn-article.tex
 ```
 
-Expected output: `sn-article.pdf`, 39 pages, no `! LaTeX Error` and no undefined references.
+Expected output: `sn-article.pdf`, 40 pages, no `! LaTeX Error` and no undefined references.
 
 ## Cited figures (8, all PDF vector)
 
@@ -51,7 +51,7 @@ Expected output: `sn-article.pdf`, 39 pages, no `! LaTeX Error` and no undefined
 - [x] 8 cited figures present as vector PDF.
 - [x] Cover letter compiled.
 - [x] ORCID iDs embedded in the title block for all four authors (rendered via the `orcidlink` package; clickable links to `https://orcid.org/<id>` are verified inside the PDF).
-- [ ] **Co-author emails** to be added inside the QMI portal at submission time (the ORCID profiles have email set to private, so the addresses cannot be pulled programmatically). Only the corresponding author's email is on the title page; QMI's submission form will request the other three from the portal.
+- [x] All four institutional `@aissmsioit.org` emails are embedded in the title block as corresponding-author emails (rendered as a semicolon-separated `*Corresponding author(s). E-mail(s):` block under the affiliation).
 
 ## Submission walkthrough
 

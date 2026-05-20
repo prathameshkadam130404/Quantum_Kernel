@@ -3,9 +3,10 @@
 Source code, experiment scripts, result metadata, and submission package for:
 
 > **"Bell-Decomposition Quantum Kernels: A Multi-Scale Benchmark on
-> Earth Observation and Beyond"** — Prajwal S. Gaikwad, Prathamesh
-> Balasaheb Kadam (corresponding), Shreyas Subhash Raut, Tejas Uttam
-> Shitole.  AISSMS Institute of Information Technology, Pune.
+> Earth Observation and Beyond"** — Prathamesh Balasaheb Kadam (lead;
+> primary corresponding), Prajwal S. Gaikwad, Shreyas Subhash Raut,
+> Tejas Uttam Shitole; all four listed as corresponding authors.
+> AISSMS Institute of Information Technology, Pune.
 > Submitted to *Quantum Machine Intelligence* (Springer).
 
 Paper: [`submission/sn-article.pdf`](submission/sn-article.pdf)
@@ -17,11 +18,13 @@ Paper: [`submission/sn-article.pdf`](submission/sn-article.pdf)
 
 We introduce the **Bell-decomposition** family of two-qubit quantum-kernel
 feature maps, unifying the singlet-only **SRQFM** and the four-Bell-sector
-**BSCM** under an adjustable prior.  As a specialisation of the
-Pauli-decomposition formalism of
-[Incudini et al. 2025](https://doi.org/10.1007/s42484-024-00200-0) to
-the Bell-state subspace, the family admits two closed-form structural
-properties not derivable from the general formalism:
+**BSCM** under an adjustable prior.  Within the canonical two-body
+Pauli-rotation feature-map framework of
+[Suzuki et al. 2020](https://doi.org/10.1007/s42484-020-00020-y) (QMI),
+the construction is a non-negative-prior weighted sum
+$H_{ij}=\sum_k p_k\,w_k\,2\,|B_k\rangle\!\langle B_k|$ over the four
+Bell-state projectors.  This admits two closed-form structural
+identities specific to the Bell-projector subspace:
 
 - A tight prior-independent bound $|\alpha|\le 1/2$ on every per-pair
   Pauli coefficient.
@@ -46,9 +49,9 @@ re-tuning.
 
 **We make no claim of quantum advantage.**  Tuned classical RBF-SVM ties
 or leads on every dataset and scale we test, consistent with recent
-theory ([Heyraud et al. 2022](https://doi.org/10.1103/PhysRevA.106.052421);
-[Slattery et al. 2025](https://arxiv.org/abs/2503.05602)) and with the
-empirical findings of
+bandwidth-tuning convergence theory (Canatar et al. 2023, TMLR;
+[Flórez-Ablan, Roth and Schnabel 2025](https://doi.org/10.1088/2058-9565/ade7ad),
+Quantum Sci. Tech.) and with the empirical findings of
 [Bowles et al. 2024](https://arxiv.org/abs/2403.07059) and
 [Schnabel & Roth 2025](https://doi.org/10.1007/s42484-025-00273-5).  The
 within-quantum architectural gap (BSCM family vs commuting $ZZ$) is
@@ -230,7 +233,7 @@ to force a re-run.
 @article{kadam2026bell,
   title    = {Bell-Decomposition Quantum Kernels: A Multi-Scale
               Benchmark on Earth Observation and Beyond},
-  author   = {Gaikwad, Prajwal S. and Kadam, Prathamesh Balasaheb and
+  author   = {Kadam, Prathamesh Balasaheb and Gaikwad, Prajwal S. and
               Raut, Shreyas Subhash and Shitole, Tejas Uttam},
   journal  = {Quantum Machine Intelligence},
   year     = {2026},
@@ -251,5 +254,13 @@ MIT License — see [LICENSE](LICENSE).
 
 ## Contact
 
-Prathamesh Balasaheb Kadam (corresponding author) —
-`prathameshkadam130404@gmail.com`
+All four authors are corresponding authors.  Primary corresponding
+author for submission-related correspondence:
+
+- Prathamesh Balasaheb Kadam — `prathamesh.kadam@aissmsioit.org`
+
+Additional corresponding authors:
+
+- Prajwal S. Gaikwad — `prajwal.gaikwad@aissmsioit.org`
+- Shreyas Subhash Raut — `shreyas.raut@aissmsioit.org`
+- Tejas Uttam Shitole — `tejas.shitole@aissmsioit.org`

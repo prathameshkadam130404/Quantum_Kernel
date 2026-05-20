@@ -106,12 +106,13 @@ walkthrough.md
 !requirements.txt
 *.fdb_latexmk
 
-# Old / pre-revised paper files
-paper.tex
-paper.pdf
-sn-basic.bst
-sn-jnl.cls
-sn-mathphys-num.bst
+# Old / pre-revised paper files (root-level only; the canonical
+# template lives at submission/sn-jnl.cls and IS tracked)
+/paper.tex
+/paper.pdf
+/sn-basic.bst
+/sn-jnl.cls
+/sn-mathphys-num.bst
 
 # Root-level scratch & utility scripts (not referenced in paper)
 scratch_*.py
@@ -167,9 +168,8 @@ experiments/exp_e45_variational_bscm.py
 # ---- Separate sub-pipeline + scratch theory dirs ----------------------------
 cpk/
 theory/
-# ---- Build helper scripts (optional; un-comment to release) -----------------
-# run_exp.sh
-# setup_environment.sh
+# ---- Build helper scripts (released for reproducibility) --------------------
+# run_exp.sh and setup_environment.sh are tracked; do NOT re-add them here.
 # ---- Older obsolete result directories not cited in the paper ---------------
 results/ablation_agpqk/
 results/agpqk_nulls/
