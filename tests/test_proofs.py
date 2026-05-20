@@ -1,5 +1,5 @@
 """
-Executable verification of every mathematical claim in the SRQFM/BSCM/SG-BSCM
+Executable verification of every mathematical claim in the SRQFM/BSCM
 proofs (Appendix A--C of the manuscript).
 
 For each proposition we check both the symbolic form (where possible) and a
