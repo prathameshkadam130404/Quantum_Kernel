@@ -127,6 +127,9 @@ pip install giotto-tda
 echo "--- Installing H5py ---"
 pip install h5py
 
+echo "--- Installing XGBoost (classical baseline for E47 / paper Table 11) ---"
+pip install xgboost
+
 echo "--- Installing TensorFlow Datasets (fallback) ---"
 pip install tensorflow-datasets
 
